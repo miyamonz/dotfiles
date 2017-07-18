@@ -1,0 +1,231 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# unite {{{
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+[[plugins]]
+repo = 'Shougo/Unite.vim'
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+[[plugins]]
+repo = 'Shougo/unite-outline'
+[[plugins]]
+repo = 'kmnk/vim-unite-giti'
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+[[plugins]]
+repo = 'Shougo/neossh.vim'
+# }}}
+# filer {{{
+[[plugins]]
+repo = 'Shougo/vimfiler'
+hook_add = '''
+let g:vimfiler_as_default_explorer=1
+'''
+# }}}
+# vimsell{{{
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
+hook_add = '''
+nmap <silent> vs :<C-u>VimShellPop<CR>
+'''
+depends = 'vimproc'
+# }}}
+#complete {{{
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+[[plugins]]
+repo = 'ujihisa/neco-look'
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = 'vim'
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+# }}}
+#operator {{{
+[[plugins]]
+repo = 'kana/vim-operator-user'
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+hook_add = '''
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sr <Plug>(operator-surround-replace)
+'''
+[[plugins]]
+repo = 'osyo-manga/vim-operator-stay-cursor'
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+hook_add = '''
+map R <Plug>(operator-replace)
+'''
+# }}}
+# textobj {{{ 
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+[[plugins]]
+repo = 'thinca/vim-textobj-between'
+hook_add = '''
+omap if <Plug>(textobj-between-i)
+omap af <Plug>(textobj-between-a)
+vmap if <Plug>(textobj-between-i)
+vmap af <Plug>(textobj-between-a)
+'''
+[[plugins]] # il al
+repo = 'kana/vim-textobj-line'
+[[plugins]] # iz az
+repo = 'kana/vim-textobj-fold'
+# }}}
+# execute {{{
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+'''
+[[plugins]]
+repo = 'kannokanno/previm'
+hook_add = '''
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_enable_realtime  = 1
+'''
+# }}}
+# view {{{
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+[[plugins]] # insert 時に行番号を光らせる
+repo = 'cohama/vim-insert-linenr'
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+[[plugins]]
+repo = 'itchyny/vim-cursorword'
+# }}}
+# syntax {{{
+## lang
+[[plugins]] # github flaovoed markwon
+repo = 'rhysd/vim-gfm-syntax'
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+[[plugins]]
+repo = 'digitaltoad/vim-jade'
+[[plugins]]
+repo = 'wavded/vim-stylus'
+[[plugins]]
+repo = '2072/PHP-Indenting-for-VIm'
+on_ft = 'php'
+[[plugins]]
+repo = 'mxw/vim-jsx'
+on_ft = 'jsx'
+[[plugins]] #.pde
+repo = 'sophacles/vim-processing'
+[[plugins]] 
+repo = 'jeroenbourgois/vim-actionscript'
+hook_add = '''
+'''
+[[plugins]] 
+repo = 'aklt/plantuml-syntax'
+hook_add = '''
+'''
+[[plugins]] 
+repo = 'slim-template/vim-slim'
+hook_add = '''
+'''
+
+#benri
+# [[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
+# repo = 'osyo-manga/vim-precious'
+# on_i = 1
+# depends = ['context_filetype.vim']
+# hook_add = '''
+# let g:precious_enable_switch_CursorMoved = { '*': 1, 'help':0 }
+# INSERTモードのON／OFFに合わせてトグル
+# autocmd MyAutoCmd InsertEnter * :PreciousSwitch
+# autocmd MyAutoCmd InsertLeave * :PreciousReset
+# '''
+[[plugins]] # カーソル位置のコンテキストのftを判定するライブラリ
+repo = 'Shougo/context_filetype.vim'
+# }}}
+# input {{{
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+hook_add = '''
+au Filetype markdown let b:AutoPairs = {'(':')','{':'}',"'":"'",'"':'"', '`':'`'}
+'''
+[[plugins]]
+repo = 'mattn/emmet-vim'
+hook_add = '''
+let g:user_emmet_leader_key = '<C-e>'
+let g:user_emmet_settings = {
+            \'variables':{
+            \       'lang' : 'ja'
+            \}
+            \}
+'''
+[[plugins]]
+repo = 'kana/vim-submode'
+[[plugins]]
+repo = 'tyru/caw.vim'
+hook_add = '''
+nmap <C-_> <Plug>(caw:hatpos:toggle)
+vmap <C-_> <Plug>(caw:hatpos:toggle)
+'''
+[[plugins]]
+repo     = 'junegunn/vim-easy-align'
+hook_add = 'vmap <Enter> <Plug>(EasyAlign)'
+[[plugins]] # true false などをtoggle
+repo = 'AndrewRadev/switch.vim'
+hook_add = '''
+nnoremap - :<C-u>Switch<CR>
+'''
+[[plugins]]
+repo     = 'haya14busa/vim-auto-programming'
+hook_add = '''
+set completefunc=autoprogramming#complete
+'''
+# }}}
+# search {{{
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+hook_add = '''
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/  <Plug>(incsearch-stay)
+'''
+# }}}
+# speed {{{
+[[plugins]]
+repo = 'itchyny/vim-parenmatch'
+hook_source = '''
+let g:loaded_matchparen = 1
+'''
+# }}}
+
+
+# markdown {{{
+[[plugins]]
+repo = 'gabrielelana/vim-markdown'
+#}}}
+
+# fold
+[[plugins]]
+repo = 'Konfekt/FastFold'
+
+# not use
+[[plugins]] #session
+repo = 'tpope/vim-obsession'
+[[plugins]]
+repo = 'mattn/webapi-vim'
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+[[plugins]]
+repo = 'itchyny/dictionary.vim'

@@ -1,0 +1,3 @@
+# [[plugins]]
+# repo = 'Shougo/vimshell.vim'
+# hook_add = 'nmap [Space]s  <Plug>(vimshell_switch)'

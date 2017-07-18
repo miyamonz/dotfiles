@@ -1,0 +1,8 @@
+.DS_Store
+/tmux/.tmux/resurrect/*
+/vim/.vim/.netrwhist
+/**/repos
+/**/cache_vim
+/**/state_vim.vim
+/**/.netrwhist~
+/**/.cache
