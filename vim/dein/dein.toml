@@ -109,6 +109,11 @@ repo = 'cohama/vim-insert-linenr'
 repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+set updatetime=250
+'''
 # }}}
 # syntax {{{
 ## lang
