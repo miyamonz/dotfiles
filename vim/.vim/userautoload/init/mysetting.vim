@@ -14,13 +14,13 @@ set foldcolumn=3
 set foldlevel=0
 noremap <Space>h  ^
 noremap <Space>l  $
-nnoremap <Space>/  *
 " md as markdown, instead of modula2
 " set syntax=markdown
 " au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 "color"{{{2
 set background=dark
 colorscheme solarized
+let g:solarized_termcolors=256
 "help C-h でヘルプ開ける"{{{2
 nnoremap <C-h> :<C-u>help<space>
 nnoremap <C-h><C-h> :<C-u>help<space><C-r><C-w><CR>
@@ -36,8 +36,8 @@ hi Pmenuthumb ctermbg=4
  inoremap <silent> っｊ <ESC>  
 inoremap <silent> <C-j> <ESC>
 "<F5>で即vimrcを編集"{{{2
-" nnoremap <F5> :<C-u>tabedit $HOME/dotfiles/.vimrc<CR>
-" nnoremap <F6> :<C-u>source $HOME/dotfiles/.vimrc<CR>
+" nnoremap <F5> :<C-u>tabedit $HOME/.vimrc<CR>
+" nnoremap <F6> :<C-u>source $HOME/.vimrc<CR>
 "}}}2
 "ウインドウ周り sキーでいろいろやる{{{2
 nnoremap s <Nop>
@@ -88,12 +88,7 @@ set matchtime=1
 nnoremap Y y$
 nnoremap gF :vertical wincmd f<CR>
 
-autocmd BufRead,BufNewFile *.abo setfiletype abo
+set nf=
 
-set nf=""
-
-hi ColorColumn ctermbg=256 
-exe "set colorcolumn=" . join(range(81,999), ',')
-" vim: foldcolumn=2
-" vim: foldlevel=1
-"
+execute "set colorcolumn=" . join(range(81, 999), ',')
+hi ColorColumn ctermbg=235 guibg=#2c2d27 
