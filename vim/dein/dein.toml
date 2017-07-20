@@ -82,6 +82,8 @@ vmap af <Plug>(textobj-between-a)
 repo = 'kana/vim-textobj-line'
 [[plugins]] # iz az
 repo = 'kana/vim-textobj-fold'
+[[plugins]]
+repo = 'gcmt/wildfire.vim'
 # }}}
 # execute {{{
 [[plugins]]
