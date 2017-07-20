@@ -84,6 +84,11 @@ repo = 'kana/vim-textobj-line'
 repo = 'kana/vim-textobj-fold'
 [[plugins]]
 repo = 'gcmt/wildfire.vim'
+hook_add='''
+let g:wildfire_objects = {
+    \ "html,xml" : ["at", "it"],
+\ }
+'''
 # }}}
 # execute {{{
 [[plugins]]
