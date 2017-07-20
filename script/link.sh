@@ -6,7 +6,7 @@ REMOTE_URL="git@github.com:miyamonz/dotfiles.git"
 cd ${DOT_DIRECTORY}
 
 DST_DIRECTORY=${HOME}
-for f in vim/.*?? git/.*?? tmux/.*?? ".bashrc"
+for f in vim/.*?? git/.*?? tmux/.*?? ".bashrc" ".inputrc"
 do
     ln -snfv ${DOT_DIRECTORY}/${f} ${DST_DIRECTORY}/`basename $f`
 done
