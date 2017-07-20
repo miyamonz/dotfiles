@@ -2,8 +2,8 @@ if &compatible
     set nocompatible
 endif
 
-set runtimepath+=$DOT_DIRECTORY/vim/dein/repos/github.com/Shougo/dein.vim/
-let s:dein_dir=$DOT_DIRECTORY.'/vim/dein'
+set runtimepath+=$HOME/dotfiles/vim/dein/repos/github.com/Shougo/dein.vim/
+let s:dein_dir=$HOME.'/dotfiles/vim/dein'
 
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir) 
