@@ -1,4 +1,4 @@
-# command aliases
+											# command aliases
 alias ls='ls -a -G -F'
 alias lsl='ls -a -G -F -l'
 alias chrome='open -a "Google Chrome"'
@@ -15,8 +15,8 @@ alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
 
 # export PS1="\[\e[1;32m\][\u@\h:\w]\$\[\e[00m\]"
 # git の補完とgit prompot表示
-source $HOME/dotfiles/vim/git-completion.bash
-source $HOME/dotfiles/vim/git-prompt.sh
+source $HOME/dotfiles/git/git-prompt.sh
+source $HOME/dotfiles/git/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=
