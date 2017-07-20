@@ -222,6 +222,9 @@ let g:loaded_matchparen = 1
 # markdown {{{
 [[plugins]]
 repo = 'gabrielelana/vim-markdown'
+hook_add='''
+let g:markdown_mapping_switch_status='<Space><Space>'
+'''
 #}}}
 
 # fold

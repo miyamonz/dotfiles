@@ -23,7 +23,6 @@ nnoremap <silent> [unite]g  :<C-u>Unite giti<CR>
 "         \ jump_point file_point buffer_tab
 "         \ file_rec:! file file/new<CR>
 
-
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   " Overwrite settings.
