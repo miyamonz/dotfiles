@@ -141,6 +141,9 @@ hook_add = '''
 repo = 'slim-template/vim-slim'
 hook_add = '''
 '''
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'js'
 
 #benri
 # [[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
