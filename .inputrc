@@ -1,0 +1,6 @@
+$if Bash
+  set show-all-if-ambiguous off
+  set bell-style none
+  set completion-ignore-case on
+  set visible-stats on
+$endif

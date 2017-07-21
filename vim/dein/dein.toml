@@ -82,6 +82,13 @@ vmap af <Plug>(textobj-between-a)
 repo = 'kana/vim-textobj-line'
 [[plugins]] # iz az
 repo = 'kana/vim-textobj-fold'
+[[plugins]]
+repo = 'gcmt/wildfire.vim'
+hook_add='''
+let g:wildfire_objects = {
+    \ "html,xml" : ["at", "it"],
+\ }
+'''
 # }}}
 # execute {{{
 [[plugins]]
@@ -109,6 +116,11 @@ repo = 'cohama/vim-insert-linenr'
 repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+set updatetime=250
+'''
 # }}}
 # syntax {{{
 ## lang
@@ -218,6 +230,9 @@ let g:loaded_matchparen = 1
 # markdown {{{
 [[plugins]]
 repo = 'gabrielelana/vim-markdown'
+hook_add='''
+let g:markdown_mapping_switch_status='<Space><Space>'
+'''
 #}}}
 
 # fold

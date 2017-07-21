@@ -2,7 +2,7 @@
 " forked from http://qiita.com/naoty_k/items/56eddc9b76fe630f9be7
 
 " todoリストを簡単に入力する
-abbreviate tl * [ ]
+abbreviate tl - [ ]
 
 " 入れ子のリストを折りたたむ
 setlocal foldmethod=expr foldexpr=MkdCheckboxFold(v:lnum) foldtext=MkdCheckboxFoldText()

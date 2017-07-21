@@ -1,4 +1,4 @@
-											# command aliases
+# command aliases
 alias ls='ls -a -G -F'
 alias lsl='ls -a -G -F -l'
 alias chrome='open -a "Google Chrome"'

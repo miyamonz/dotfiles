@@ -56,7 +56,7 @@ fi
 link_files() {
     DST_DIRECTORY=${HOME}
     cd ${DOT_DIRECTORY}
-    for f in vim/.*?? git/.*?? tmux/.*?? ".bashrc"
+    for f in vim/.*?? git/.*?? tmux/.*?? ".bashrc" ".inputrc"
     do
         ln -snfv ${DOT_DIRECTORY}/${f} ${DST_DIRECTORY}/`basename $f`
     done
