@@ -13,7 +13,6 @@ alias ggr='g gr'
 
 alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
 
-# export PS1="\[\e[1;32m\][\u@\h:\w]\$\[\e[00m\]"
 # git の補完とgit prompot表示
 source $HOME/dotfiles/git/git-prompt.sh
 source $HOME/dotfiles/git/git-completion.bash
@@ -22,8 +21,14 @@ GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=
 GIT_PS1_SHOWSTASHSTATE=1
 
-export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
-# export PATH=/usr/local/bin:/usr/bin:$PATH
+# プロンプト
+WHITE="\[\e[00m\]"
+GREEN="\[\e[32m\]"
+BLUE="\[\e[34m\]"
+RED="\[\e[31m\]"
+PS_USER="$GREEN\u@\h"
+export PS1="$PS_USER$WHITE:$BLUE\w$RED$(__git_ps1)$WHITE\$ "
+PS1="$(ls)\n $PS1"
 
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 # read man file with vim
