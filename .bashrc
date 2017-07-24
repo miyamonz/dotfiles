@@ -22,6 +22,9 @@ GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=
 GIT_PS1_SHOWSTASHSTATE=1
 
+#git きれいなdiffひょうじのやつ
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+
 export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 # export PATH=/usr/local/bin:/usr/bin:$PATH
 

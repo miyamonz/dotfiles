@@ -31,3 +31,9 @@
     tags      = tag -a
     amend     = commit --amend
     br        = !git checkout $(git branch | fzf)
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[interactive]
+	diffFilter = diff-highlight
