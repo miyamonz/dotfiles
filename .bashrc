@@ -28,7 +28,6 @@ BLUE="\[\e[34m\]"
 RED="\[\e[31m\]"
 PS_USER="$GREEN\u@\h"
 export PS1="$PS_USER$WHITE:$BLUE\w$RED$(__git_ps1)$WHITE\$ "
-PS1="$(ls)\n $PS1"
 
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 # read man file with vim
