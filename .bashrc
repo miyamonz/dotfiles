@@ -43,3 +43,5 @@ export EDITOR="/usr/local/bin/vim"
 export PATH="~/bin:$PATH" 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+. $HOME/dotfiles/bash/enhancd/init.sh
