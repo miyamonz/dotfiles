@@ -24,7 +24,7 @@
 	st        = status
 	b         = branch
 	c         = commit -v
-    l         = log --oneline --graph --branches -n 20
+    l         = log --oneline --graph --branches
     aliass    = !git config --get-regexp alias
     unstage   = reset HEAD --
     branches  = branch -a
