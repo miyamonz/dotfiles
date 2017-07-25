@@ -225,7 +225,10 @@ hook_source = '''
 let g:loaded_matchparen = 1
 '''
 # }}}
-
+# git {{{
+[[plugins]]
+repo = 'hotwatermorning/auto-git-diff'
+#}}}
 
 # markdown {{{
 [[plugins]]
