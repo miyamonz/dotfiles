@@ -228,6 +228,9 @@ let g:loaded_matchparen = 1
 # git {{{
 [[plugins]]
 repo = 'hotwatermorning/auto-git-diff'
+hook_add = '''
+let g:auto_git_diff_show_window_at_right=1
+'''
 #}}}
 
 # markdown {{{
