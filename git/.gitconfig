@@ -31,6 +31,7 @@
     tags      = tag -a
     amend     = commit --amend
     br        = !git checkout $(git branch | fzf)
+	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
