@@ -90,3 +90,6 @@ set nf=
 " 80行
 execute "set colorcolumn=" . join(range(81, 999), ',')
 hi ColorColumn ctermbg=235 guibg=#2c2d27 
+
+" timestamp
+nmap ts <ESC>a<C-R>=strftime("%Y-%m-%d")<CR><ESC><ESC>
