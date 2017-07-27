@@ -46,6 +46,7 @@ eval "$(pyenv init -)"
 export EDITOR="/usr/local/bin/vim"
 
 export PATH="~/bin:$PATH" 
+IGNOREEOF=3
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
