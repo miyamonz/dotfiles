@@ -19,8 +19,9 @@ nnoremap <silent> [unite]p  :<C-u>UniteWithProjectDir file_rec:!<CR>
 
 " unite prefix key
 nmap [unite]gg    <SID>(giti-sources)
+nmap [unite]gr    :<C-u>Unite giti/grep<CR>
 nmap [unite]gs    <SID>(git-status)
-nmap [unite]gb    <SID>(git-branch)
+nmap [unite]gb    <SID>(git-branjh)
 nmap [unite]gB    <SID>(git-branch_all)
 nmap [unite]gl    <SID>(git-log)
 nmap [unite]gL    <SID>(git-log-this-file)
