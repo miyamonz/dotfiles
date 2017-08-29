@@ -163,6 +163,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:elm_syntastic_show_warnings = 1
 '''
+[[plugins]]
+repo = 'ryym/vim-riot'
+hook_add = '''
+'''
 
 #benri
 # [[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
