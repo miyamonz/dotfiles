@@ -33,6 +33,12 @@
     br        = !git checkout $(git branch | fzf)
 	undo      = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
     sed       = "!f(){ git grep -l $1 | xargs sed -i '' -e s/$1/$2/g;};f"
+    today = "!f () {\
+         git log --oneline --reverse --branches \
+         --since=midnight --date=iso \
+         --author=\"$(git config user.name)\" \
+         --format=\" - %C(auto)%h%Creset : %s %C(green)(%ad)%Creset\";\
+     };f"
 [pager]
 	log  = diff-highlight | less
 	show = diff-highlight | less
