@@ -15,10 +15,8 @@
 	quotepath = false
 [alias]
 	graph     = log --graph --branches --tags --date-order -n 20 --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
-	gr        = log --graph --branches --tags              -n 20 --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
-	graph1    = log --graph --date-order -n 20 --pretty=format:'%Cgreen%cr%x09%Cred%d%Creset%s%x09%Cblue(%cn)' --date=short
-	graph2    = log --graph --decorate --oneline -n 20
-	graph-all = log --graph --date-order --all --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
+	gr        = log --graph --branches --tags                    --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
+	graph-all = log --graph                   --date-order --all --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
 	co        = checkout
     s         = status
 	st        = status
