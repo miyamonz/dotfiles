@@ -16,15 +16,13 @@
 	autocrlf = input
 	safecrlf = true
 [alias]
-	graph     = log --graph --branches --tags --date-order -n 20 --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
-	gr        = log --graph --branches --tags                    --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
-	graph-all = log --graph                   --date-order --all --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
+	gr        = log --graph --branches --tags --date-order --all --pretty=format:'%x09%h %Cgreen%ad %Cblue%cn %Creset%s %Cred%d ' --date=short
 	co        = checkout
     s         = status
 	st        = status
 	b         = branch
 	c         = commit -v
-    l         = log --oneline --graph --branches
+    l         = log --oneline --graph --branches --all
     aliass    = !git config --get-regexp alias
     unstage   = reset HEAD --
     branches  = branch -a
