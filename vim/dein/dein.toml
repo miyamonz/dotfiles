@@ -265,3 +265,6 @@ repo = 'mattn/webapi-vim'
 repo = 'AndrewRadev/splitjoin.vim'
 [[plugins]]
 repo = 'itchyny/dictionary.vim'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
