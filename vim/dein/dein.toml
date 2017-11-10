@@ -156,6 +156,9 @@ hook_add = '''
 [[plugins]]
 repo = 'othree/yajs.vim'
 on_ft = 'js'
+[[plugins]] 
+repo = 'tikhomirov/vim-glsl'
+on_ft = 'glsl'
 
 #benri
 # [[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
