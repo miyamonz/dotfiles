@@ -2,7 +2,7 @@
 /tmux/.tmux/resurrect/*
 /vim/.vim/.netrwhist
 /**/repos
-/**/cache_vim
-/**/state_vim.vim
+/**/cache_*vim
+/**/state_*vim.vim
 /**/.netrwhist~
 /**/.cache
