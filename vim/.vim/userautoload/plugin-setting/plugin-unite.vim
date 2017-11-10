@@ -2,8 +2,14 @@ nnoremap [unite] <Nop>
 nmap <Space> [unite]
 
 call unite#custom#source('file', 'matchers', "matcher_default")
-
 let g:unite_sorce_history_yank_enable =1
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 1,
+\   'prompt_direction': 'top',
+\   'split' : 0,
+\})
+
+
 nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer bookmark file<CR>
 nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir  -buffer-name=files buffer bookmark file<CR>
 nnoremap <silent> [unite]B  :<C-u>Unite bookmark<CR>
@@ -19,8 +25,9 @@ nnoremap <silent> [unite]p  :<C-u>UniteWithProjectDir file_rec:!<CR>
 
 " unite prefix key
 nmap [unite]gg    <SID>(giti-sources)
+nmap [unite]gr    :<C-u>Unite giti/grep<CR>
 nmap [unite]gs    <SID>(git-status)
-nmap [unite]gb    <SID>(git-branch)
+nmap [unite]gb    <SID>(git-branjh)
 nmap [unite]gB    <SID>(git-branch_all)
 nmap [unite]gl    <SID>(git-log)
 nmap [unite]gL    <SID>(git-log-this-file)

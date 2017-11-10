@@ -10,7 +10,7 @@ alias gti='git'
 alias gs='git status'
 alias ga='git add'
 alias gd='git diff'
-alias ggr='g gr'
+alias gr='g gr'
 
 alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
 
@@ -45,7 +45,7 @@ eval "$(pyenv init -)"
 # editor setting
 export EDITOR="/usr/local/bin/vim"
 
-export PATH="~/bin:$PATH" 
+export PATH="$HOME/dotfiles/bin:$PATH" 
 IGNOREEOF=3
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
