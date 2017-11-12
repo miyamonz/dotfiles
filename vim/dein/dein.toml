@@ -1,5 +1,7 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+[[plugins]]
+repo = 'itchyny/vim-cursorword'
 
 # unite {{{
 [[plugins]]
@@ -114,8 +116,6 @@ repo = 'nathanaelkane/vim-indent-guides'
 repo = 'cohama/vim-insert-linenr'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-[[plugins]]
-repo = 'itchyny/vim-cursorword'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
