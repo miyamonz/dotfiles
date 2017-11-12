@@ -10,6 +10,12 @@ build = 'make'
 [[plugins]]
 repo = 'Shougo/Unite.vim'
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+
+'''
+
+[[plugins]]
 repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
