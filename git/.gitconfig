@@ -17,6 +17,7 @@
 	safecrlf = true
 [alias]
 	gr        = log --graph --branches --tags --date-order --all --pretty=format:'%x09%h %Cgreen%ad %Cblue%cn %Creset%s %Cred%d ' --date=short
+    fo        = "!git foresta | less -RSX"
 	co        = checkout
     s         = status
 	st        = status
