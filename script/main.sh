@@ -1,4 +1,4 @@
-#!bash
+#!/bin/bash
 SCRIPT_DIR=`dirname $0`
 DOT_DIRECTORY="${HOME}/dotfiles"
 DOT_TARBALL="https://github.com/miyamonz/dotfiles/tarball/master"
