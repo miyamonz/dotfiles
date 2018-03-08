@@ -39,7 +39,7 @@ export MANPAGER="col -b -x|vim -R -c 'set ft=man nolist nomod noma' -"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="/Users/koichi/Documents/Adobe/flex_sdk_4.6/bin:$PATH"
+export PATH="~/Documents/Adobe/flex_sdk_4.6/bin:$PATH"
 eval "$(pyenv init -)"
 
 # editor setting
@@ -50,4 +50,7 @@ IGNOREEOF=3
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-. $HOME/dotfiles/bash/enhancd/init.sh
+# . $HOME/dotfiles/bash/enhancd/init.sh
+
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
