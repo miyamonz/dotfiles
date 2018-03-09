@@ -54,3 +54,5 @@ IGNOREEOF=3
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+
+err() { echo "$*" >&2; exit 1; }
