@@ -1,26 +1,7 @@
 # command aliases
-alias ls='ls -a -G -F'
-alias lsl='ls -a -G -F -l'
-alias chrome='open -a "Google Chrome"'
-alias mkdri='mkdir'
+source $HOME/dotfiles/bash/alias.sh
+source $HOME/dotfiles/bash/git.sh
 
-# git
-alias g='git'
-alias gti='git'
-alias gs='git status'
-alias ga='git add'
-alias gd='git diff'
-alias gr='g gr'
-
-alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
-
-# git の補完とgit prompot表示
-source $HOME/dotfiles/git/git-prompt.sh
-source $HOME/dotfiles/git/git-completion.bash
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUPSTREAM=1
-GIT_PS1_SHOWUNTRACKEDFILES=
-GIT_PS1_SHOWSTASHSTATE=1
 
 #git きれいなdiffひょうじのやつ
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
