@@ -33,14 +33,8 @@ RED="\[\e[31m\]"
 PS_USER="$GREEN\u@\h"
 export PS1="${PS_USER}${WHITE}:${BLUE}\w${RED}\$(__git_ps1)${WHITE}\$ "
 
-export PATH=$HOME/.nodebrew/current/bin:$PATH
 # read man file with vim
 export MANPAGER="col -b -x|vim -R -c 'set ft=man nolist nomod noma' -"
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="~/Documents/Adobe/flex_sdk_4.6/bin:$PATH"
-eval "$(pyenv init -)"
 
 # editor setting
 export EDITOR="/usr/local/bin/vim"
