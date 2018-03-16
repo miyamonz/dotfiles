@@ -17,11 +17,8 @@ export MANPAGER="col -b -x|vim -R -c 'set ft=man nolist nomod noma' -"
 export EDITOR="/usr/local/bin/vim"
 
 export PATH="$HOME/dotfiles/bin:$PATH" 
+# press ctrl-d 3times to exit
 IGNOREEOF=3
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# . $HOME/dotfiles/bash/enhancd/init.sh
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
