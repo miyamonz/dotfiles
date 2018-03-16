@@ -2,10 +2,6 @@
 source $HOME/dotfiles/bash/alias.sh
 source $HOME/dotfiles/bash/git.sh
 
-
-#git きれいなdiffひょうじのやつ
-export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
-
 # プロンプト
 WHITE="\[\e[00m\]"
 GREEN="\[\e[32m\]"

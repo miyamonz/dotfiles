@@ -6,3 +6,6 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=
 GIT_PS1_SHOWSTASHSTATE=1
+
+#git きれいなdiffひょうじのやつ
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
