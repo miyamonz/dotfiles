@@ -13,4 +13,8 @@ alias ga='git add'
 alias gd='git diff'
 alias gr='g gr'
 
+#vim
+alias v='vim'
+alias vi='vim'
+
 alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
