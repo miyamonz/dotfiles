@@ -1,18 +1,21 @@
 " kihon {{{2
-set number
+" set number
+set nonu
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
 set smartindent
-" set cursorline
+set cursorline
 hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 set showmatch
 set foldcolumn=0
 set foldlevel=0
 noremap <Space>h  ^
 noremap <Space>l  $
+
+set hidden
 "color"{{{2
 set background=dark
 colorscheme solarized
