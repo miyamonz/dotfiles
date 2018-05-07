@@ -9,8 +9,7 @@ set smartindent
 " set cursorline
 hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 set showmatch
-set foldmethod=marker
-set foldcolumn=3
+set foldcolumn=0
 set foldlevel=0
 noremap <Space>h  ^
 noremap <Space>l  $
