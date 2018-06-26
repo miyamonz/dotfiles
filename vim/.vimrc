@@ -1,7 +1,8 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-let g:python3_host_prog = expand('/Users/miyamonz/.pyenv/shims/python3')
+let g:python3_host_prog = expand('~/.pyenv/shims/python')
+
 augroup MyAutoCmd
     autocmd!
 augroup end
