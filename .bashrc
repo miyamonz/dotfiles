@@ -24,3 +24,10 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 err() { echo "$*" >&2; exit 1; }
+
+# z
+. /usr/local/etc/profile.d/z.sh
+
+#go
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"

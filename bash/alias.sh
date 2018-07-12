@@ -18,3 +18,6 @@ alias v='vim'
 alias vi='vim'
 
 alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
+
+alias r='cd $(ghq root)/$(ghq list | peco)'
+
