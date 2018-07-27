@@ -25,7 +25,7 @@ eval "$(anyenv init -)"
 
 err() { echo "$*" >&2; exit 1; }
 
-# z
+# brew install z
 . /usr/local/etc/profile.d/z.sh
 
 #go
