@@ -172,10 +172,10 @@ repo = 'wavded/vim-stylus'
 repo = '2072/PHP-Indenting-for-VIm'
 on_ft = 'php'
 [[plugins]]
-repo = 'MaxMEllon/vim-jsx-pretty'
-on_ft = ['javascript', 'jsx']
-hook_add = '''
-let g:vim_jsx_pretty_colorful_config = 1
+repo = 'billyvg/tigris.nvim'
+on_ft = ['javascript', 'javascript.jsx']
+hook_post_update = '''
+  let g:dein#plugin.build = './install.sh'
 '''
 [[plugins]] #.pde
 repo = 'sophacles/vim-processing'
