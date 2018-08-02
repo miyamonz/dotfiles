@@ -7,7 +7,6 @@ set softtabstop=4
 set expandtab
 set autoindent
 set smartindent
-set cursorline
 hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 set showmatch
 set foldcolumn=0
