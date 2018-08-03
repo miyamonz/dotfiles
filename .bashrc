@@ -11,10 +11,10 @@ PS_USER="$GREEN\u@\h"
 export PS1="${PS_USER}${WHITE}:${BLUE}\w${RED}\$(__git_ps1)${WHITE}\$ "
 
 # read man file with vim
-export MANPAGER="col -b -x|vim -R -c 'set ft=man nolist nomod noma' -"
+export MANPAGER="col -b -x|nvim -R -c 'set ft=man nolist nomod noma' -"
 
 # editor setting
-export EDITOR="/usr/local/bin/vim"
+export EDITOR="/usr/local/bin/nvim"
 
 export PATH="$HOME/dotfiles/bin:$PATH" 
 # press ctrl-d 3times to exit
