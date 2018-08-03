@@ -16,8 +16,6 @@ noremap <Space>l  $
 
 set hidden
 "color"{{{2
-set background=dark
-colorscheme solarized
 let g:solarized_termcolors=256
 "help C-h でヘルプ開ける"{{{2
 nnoremap <C-h> :<C-u>help<space>
