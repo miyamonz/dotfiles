@@ -14,8 +14,9 @@ alias gd='git diff'
 alias gr='g gr'
 
 #vim
-alias v='vim'
-alias vi='vim'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 
 alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
 
