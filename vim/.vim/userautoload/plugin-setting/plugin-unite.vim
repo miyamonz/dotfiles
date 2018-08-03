@@ -100,3 +100,11 @@ function! s:unite_my_settings()"{{{
   " Runs "split" action by <C-s>.
   imap <silent><buffer><expr> <C-s>     unite#do_action('split')
 endfunction"}}}
+
+
+" unite grep に hw(highway)
+if executable('hw')
+  let g:unite_source_grep_command = 'hw'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
