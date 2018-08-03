@@ -15,7 +15,7 @@ export MANPAGER="col -b -x|nvim -R -c 'set ft=man nolist nomod noma' -"
 
 # editor setting
 export EDITOR="/usr/local/bin/nvim"
-export SEARCHER="hw"
+export SEARCHER="ag"
 
 export PATH="$HOME/dotfiles/bin:$PATH" 
 # press ctrl-d 3times to exit
