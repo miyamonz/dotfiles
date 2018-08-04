@@ -19,3 +19,7 @@ repo = 'posva/vim-vue'
 on_ft = ['vue']
 hook_add = '''
 '''
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
