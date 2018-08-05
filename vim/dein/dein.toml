@@ -51,8 +51,6 @@ hook_add = '''
 let g:deoplete#enable_at_startup = 1
 '''
 
-# [[plugins]]
-# repo = 'Shougo/neocomplete.vim'
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 hook_add = '''let g:neosnippet#enable_completed_snippet = 1'''
