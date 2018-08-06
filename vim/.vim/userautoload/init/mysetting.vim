@@ -65,7 +65,7 @@ nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 "}}}2
 " 自動でセッション{{{2
-au VimLeave * mks!  ~/vimsession
+autocmd VimLeave * mks!  ~/vimsession
 
 "引数なし起動の時、前回のsessionを復元
 autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 | source ~/vimsession | endif
