@@ -65,7 +65,7 @@ nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 "}}}2
 " 自動でセッション{{{2
-autocmd VimLeave * mks!  ~/vimsession
+autocmd VimLeave * if &ft != 'gitcommit' | mks!  ~/vimsession | endif
 
 "引数なし起動の時、前回のsessionを復元
 autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 | source ~/vimsession | endif
