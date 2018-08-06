@@ -198,10 +198,6 @@ hook_add = '''
 repo = 'slim-template/vim-slim'
 hook_add = '''
 '''
-[[plugins]]
-# repo = 'othree/yajs.vim'
-repo = 'pangloss/vim-javascript'
-on_ft = 'js'
 [[plugins]] 
 repo = 'tikhomirov/vim-glsl'
 on_ft = 'glsl'
