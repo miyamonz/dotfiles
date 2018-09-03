@@ -56,3 +56,6 @@ function ghp () {
   [ "$#" -eq 0 ] && echo "Usage : ghp QUERY" && return 1
   ghs "$@" | peco | awk '{print $1}' | ghq import
 }
+
+# heroku autocomplete setup
+HEROKU_AC_BASH_SETUP_PATH=/Users/miyamonz/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
