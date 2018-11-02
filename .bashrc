@@ -2,6 +2,9 @@
 source $HOME/dotfiles/bash/alias.sh
 source $HOME/dotfiles/bash/git.sh
 
+#completion
+source $HOME/dotfiles/tmux/tmux.completion.bash
+
 # プロンプト
 WHITE="\[\e[00m\]"
 GREEN="\[\e[32m\]"
