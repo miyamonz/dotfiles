@@ -2,8 +2,13 @@
 # command aliases
 alias ls='ls -a -G -F'
 alias lsl='ls -a -G -F -l'
-alias chrome='open -a "Google Chrome"'
-alias mkdri='mkdir'
+
+
+if [ $(uname) == "Darwin" ]; then
+    alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+    alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+    alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
+fi
 
 # git
 alias g='git'
