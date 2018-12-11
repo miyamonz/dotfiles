@@ -35,7 +35,7 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 # press ctrl-d 3times to exit
 IGNOREEOF=3
 
-export PATH="$HOME/.anyenv/bin:$PATH"
+# anyenv
 eval "$(anyenv init -)"
 
 err() { echo "$*" >&2; exit 1; }
