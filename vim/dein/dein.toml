@@ -221,6 +221,9 @@ let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
 set updatetime=50
 '''
+[[plugins]]
+repo = 'ElmCast/elm-vim'
+on_ft = 'elm'
 
 #benri
 # [[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
