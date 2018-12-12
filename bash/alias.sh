@@ -25,5 +25,8 @@ alias vim='nvim'
 
 alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
 
-alias r='cd $(ghq root)/$(ghq list | peco)'
+function ghq-list() {
+    find $(ghq root) -d 3 -maxdepth 3 | grep -v DS_Store | sed -e "s#$(ghq root)/##g"
+}
+alias r='cd $(ghq root)/$(ghq-list | peco)'
 
