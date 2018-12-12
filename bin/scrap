@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+require 'shellwords'
+
+file = ARGV.shift
+exit unless file
+exit unless File.exist?(file)
+
+url = `upload #{file}`.delete("\n")
+base = File.basename file
+project = 'm5813k'
+system "open https://scrapbox.io/#{project}/#{Shellwords.escape(base)}?body=#{url}"
