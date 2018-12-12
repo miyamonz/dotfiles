@@ -36,7 +36,7 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 IGNOREEOF=3
 
 # anyenv
-eval "$(anyenv init -)"
+eval "$(~/.anyenv/bin/anyenv init -)"
 
 err() { echo "$*" >&2; exit 1; }
 
