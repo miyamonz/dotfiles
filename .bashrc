@@ -1,3 +1,4 @@
+export LANG=ja_JP.UTF-8
 # command aliases
 source $HOME/dotfiles/bash/alias.sh
 source $HOME/dotfiles/bash/git.sh
