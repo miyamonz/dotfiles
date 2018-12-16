@@ -18,8 +18,7 @@ runtime! init/autocmd.vim
 runtime! dein/dein-init.vim
 
 runtime! init/basic.vim
-runtime! init/mysetting.vim
 runtime! plugin-setting/*.vim
-runtime! mymaps/*.vim
+runtime! settings/*.vim
 
 set backupskip=/tmp/*,/private/tmp/*
