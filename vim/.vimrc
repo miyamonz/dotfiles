@@ -4,9 +4,13 @@ if has('nvim')
   set clipboard+=unnamedplus
 end
 
-" colors, ftplugin,はruntimepathの中にあれば自動で解釈される
-" 以降のinit/やplugin-setting/を相対パスでruntime!で読み込みできる
 set runtimepath+=$HOME/dotfiles/vim/
+" 以降
+"- init/
+"- plugin-setting/
+"- settings/
+"を相対パスでruntime!で読み込みできる
+"colors/, ftplugin/,はruntimepathの中にあればvimが自動で解釈する
 
 runtime! init/encoding.vim
 
