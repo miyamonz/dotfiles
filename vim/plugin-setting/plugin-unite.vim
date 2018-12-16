@@ -10,15 +10,16 @@ call unite#custom#profile('default', 'context', {
 \})
 
 
-nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer bookmark file<CR>
-nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir  -buffer-name=files buffer bookmark file<CR>
+" nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file<CR>
+" nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir  -buffer-name=files buffer file<CR>
+nnoremap <silent> [unite]s  :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]B  :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]a  :<C-u>UniteBookmarkAdd<CR>
 nnoremap <silent> [unite]mr :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]y  :<C-u>Unite history/yank<CR>
-nnoremap <silent> [unite]f  :<C-u>Unite file file/new<CR>
+nnoremap <silent> [unite]f  :<C-u>Unite file file/new buffer<CR>
 nnoremap <silent> [unite]ma :<C-u>Unite mapping<CR>
 nnoremap <silent> [unite]me :<C-u>Unite output:message<CR>
 nnoremap <silent> [unite]p  :<C-u>UniteWithProjectDir file_rec:!<CR>
