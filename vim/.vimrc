@@ -14,12 +14,12 @@ augroup MyAutoCmd
 augroup end
 
 set runtimepath+=$HOME/dotfiles/vim/dein/
-set runtimepath+=$HOME/dotfiles/vim/.vim/
+set runtimepath+=$HOME/dotfiles/vim/
 runtime! dein-init.vim
 
-runtime! userautoload/init/basic.vim
-runtime! userautoload/init/mysetting.vim
-runtime! userautoload/plugin-setting/*.vim
-runtime! userautoload/mymaps/*.vim
+runtime! init/basic.vim
+runtime! init/mysetting.vim
+runtime! plugin-setting/*.vim
+runtime! mymaps/*.vim
 
 set backupskip=/tmp/*,/private/tmp/*
