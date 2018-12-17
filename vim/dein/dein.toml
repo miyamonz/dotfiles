@@ -9,11 +9,6 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 [[plugins]]
 repo = 'Shougo/Unite.vim'
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-
-'''
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
@@ -167,7 +162,7 @@ let g:rainbow_active = 1
 # }}}
 # syntax {{{
 
-#benri
+#遅いので一旦コメントアウト
 # [[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
 # repo = 'osyo-manga/vim-precious'
 # on_i = 1
@@ -178,9 +173,11 @@ let g:rainbow_active = 1
 # autocmd MyAutoCmd InsertEnter * :PreciousSwitch
 # autocmd MyAutoCmd InsertLeave * :PreciousReset
 # '''
+
 [[plugins]] # カーソル位置のコンテキストのftを判定するライブラリ
 repo = 'Shougo/context_filetype.vim'
 # }}}
+
 # input {{{
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
