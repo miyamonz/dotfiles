@@ -59,6 +59,12 @@ let g:go_auto_sameids = 1
 set updatetime=50
 '''
 [[plugins]]
+repo = 'zchee/deoplete-go'
+on_ft = 'go'
+hook_add = '''
+'''
+
+[[plugins]]
 repo = 'ElmCast/elm-vim'
 on_ft = 'elm'
 
