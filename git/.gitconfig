@@ -46,3 +46,9 @@
 	diffFilter = diff-highlight
 [rebase]
 	autosquash = true
+
+
+[ghq]
+    root = ~/.ghq
+    root = ~/go/src
+
