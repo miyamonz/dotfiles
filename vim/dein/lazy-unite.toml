@@ -1,0 +1,16 @@
+
+[[plugins]]
+repo = 'Shougo/Unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+[[plugins]]
+repo = 'kmnk/vim-unite-giti'
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+[[plugins]]
+repo = 'Shougo/neossh.vim'
+[[plugins]]
+repo = 'Shougo/unite-outline'

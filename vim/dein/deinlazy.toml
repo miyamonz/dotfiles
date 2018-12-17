@@ -1,6 +1,23 @@
-# [[plugins]]
-# repo = 'Shougo/vimshell.vim'
-# hook_add = 'nmap [Space]s  <Plug>(vimshell_switch)'
+# カーソル位置のコンテキストのftを判定するライブラリ
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
+depends = 'context_filetype.vim'
+hook_source = '''
+'''
+hook_add = '''
+let g:neosnippet#enable_completed_snippet = 1
+'''
+
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+depends = "Shougo/neosnippet.vim"
+
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
@@ -9,89 +26,24 @@ set helplang& helplang=en,ja
 '''
 
 [[plugins]]
-repo = 'flowtype/vim-flow'
-on_ft = ['javascript', 'javascript.jsx']
-hook_add = '''
-let g:flow#autoclose = 1
-'''
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+# vimsell{{{
 [[plugins]]
-repo = 'posva/vim-vue'
-on_ft = ['vue']
+repo = 'Shougo/vimshell.vim'
 hook_add = '''
+nmap <silent> vs :<C-u>VimShellPop<CR>
 '''
+depends = 'vimproc'
+# }}}
 
 [[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
-
-## lang
-[[plugins]] # github flaovoed markwon
-repo = 'rhysd/vim-gfm-syntax'
-on_ft = 'md'
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-[[plugins]]
-repo = 'wavded/vim-stylus'
-on_ft = 'stylus'
-[[plugins]]
-repo = '2072/PHP-Indenting-for-VIm'
-on_ft = 'php'
-[[plugins]]
-repo = 'neovim/node-host'
-build = "npm install"
-[[plugins]]
-repo = 'billyvg/tigris.nvim'
-on_ft = ['javascript', 'javascript.jsx']
-hook_add = '''
-let g:tigris#enabled = 1
-let g:tigris#on_the_fly_enabled = 1
-'''
-build = "install.sh"
-[[plugins]] #.pde
-repo = 'sophacles/vim-processing'
-on_ft = 'processing'
-[[plugins]] 
-repo = 'jeroenbourgois/vim-actionscript'
-on_ft = 'actionscript'
-hook_add = '''
-'''
-[[plugins]] 
-repo = 'aklt/plantuml-syntax'
-on_ft = 'plantuml'
-hook_add = '''
-'''
-[[plugins]] 
-repo = 'slim-template/vim-slim'
-on_ft = 'slim'
-hook_add = '''
-'''
-[[plugins]] 
-repo = 'tikhomirov/vim-glsl'
-on_ft = 'glsl'
-[[plugins]]
-repo = 'ElmCast/elm-vim'
-on_ft = 'elm'
-hook_add = '''
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:elm_syntastic_show_warnings = 1
-'''
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-hook_add = '''
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-set updatetime=50
-'''
-[[plugins]]
-repo = 'ElmCast/elm-vim'
-on_ft = 'elm'
+repo = 'itchyny/dictionary.vim'
 
 [[plugins]]
-repo = 'gabrielelana/vim-markdown'
-on_ft = "md"
-hook_add='''
-let g:markdown_mapping_switch_status='<Space><Space>'
-'''
+repo = 'AndrewRadev/splitjoin.vim'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
