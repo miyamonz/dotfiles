@@ -1,13 +1,6 @@
 nnoremap [unite] <Nop>
 nmap <Space> [unite]
 
-call unite#custom#source('file', 'matchers', "matcher_default")
-let g:unite_sorce_history_yank_enable =1
-call unite#custom#profile('default', 'context', {
-\   'start_insert': 1,
-\   'prompt_direction': 'top',
-\   'split' : 0,
-\})
 
 
 " nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file<CR>

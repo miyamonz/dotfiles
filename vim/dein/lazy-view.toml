@@ -1,0 +1,8 @@
+[[plugins]] # insert 時に行番号を光らせる
+repo = 'cohama/vim-insert-linenr'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+set updatetime=250
+'''

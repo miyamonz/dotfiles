@@ -1,0 +1,12 @@
+[[plugins]]
+repo = 'ujihisa/neco-look'
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = 'vim'
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = 'javascript'
+[[plugins]]
+repo = 'wokalski/autocomplete-flow'
+on_ft = 'javascript'
+# }}}

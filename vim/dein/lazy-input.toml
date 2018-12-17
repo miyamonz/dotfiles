@@ -1,0 +1,36 @@
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+hook_add = '''
+au Filetype markdown let b:AutoPairs = {'(':')','{':'}',"'":"'",'"':'"', '`':'`'}
+'''
+[[plugins]]
+repo = 'mattn/emmet-vim'
+hook_add = '''
+let g:user_emmet_leader_key = '<C-e>'
+let g:user_emmet_settings = {
+            \'variables':{
+            \       'lang' : 'ja'
+            \}
+            \}
+'''
+
+[[plugins]] # true false などをtoggle
+repo = 'AndrewRadev/switch.vim'
+hook_add = '''
+nnoremap - :<C-u>Switch<CR>
+'''
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+hook_add = '''
+nmap <C-_> <Plug>(caw:hatpos:toggle)
+vmap <C-_> <Plug>(caw:hatpos:toggle)
+'''
+[[plugins]]
+repo     = 'junegunn/vim-easy-align'
+hook_add = 'vmap <Enter> <Plug>(EasyAlign)'
+[[plugins]]
+repo     = 'haya14busa/vim-auto-programming'
+hook_add = '''
+set completefunc=autoprogramming#complete
+'''
