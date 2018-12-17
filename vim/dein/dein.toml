@@ -166,65 +166,6 @@ let g:rainbow_active = 1
 '''
 # }}}
 # syntax {{{
-## lang
-[[plugins]] # github flaovoed markwon
-repo = 'rhysd/vim-gfm-syntax'
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-[[plugins]]
-repo = 'digitaltoad/vim-jade'
-[[plugins]]
-repo = 'wavded/vim-stylus'
-[[plugins]]
-repo = '2072/PHP-Indenting-for-VIm'
-on_ft = 'php'
-[[plugins]]
-repo = 'neovim/node-host'
-build = "npm install"
-[[plugins]]
-repo = 'billyvg/tigris.nvim'
-on_ft = ['javascript', 'javascript.jsx']
-hook_add = '''
-let g:tigris#enabled = 1
-let g:tigris#on_the_fly_enabled = 1
-'''
-build = "install.sh"
-[[plugins]] #.pde
-repo = 'sophacles/vim-processing'
-[[plugins]] 
-repo = 'jeroenbourgois/vim-actionscript'
-hook_add = '''
-'''
-[[plugins]] 
-repo = 'aklt/plantuml-syntax'
-hook_add = '''
-'''
-[[plugins]] 
-repo = 'slim-template/vim-slim'
-hook_add = '''
-'''
-[[plugins]] 
-repo = 'tikhomirov/vim-glsl'
-on_ft = 'glsl'
-[[plugins]]
-repo = 'ElmCast/elm-vim'
-hook_add = '''
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:elm_syntastic_show_warnings = 1
-'''
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-hook_add = '''
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-set updatetime=50
-'''
-[[plugins]]
-repo = 'ElmCast/elm-vim'
-on_ft = 'elm'
 
 #benri
 # [[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
@@ -313,13 +254,6 @@ let g:auto_git_diff_show_window_at_right=1
 '''
 #}}}
 
-# markdown {{{
-[[plugins]]
-repo = 'gabrielelana/vim-markdown'
-hook_add='''
-let g:markdown_mapping_switch_status='<Space><Space>'
-'''
-#}}}
 
 # fold
 [[plugins]]
