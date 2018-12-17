@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'Shougo/Unite.vim'
-hook-_add = '''
+hook_add = '''
 call unite#custom#source('file', 'matchers', "matcher_default")
 let g:unite_sorce_history_yank_enable =1
 call unite#custom#profile('default', 'context', {
