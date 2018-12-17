@@ -25,17 +25,13 @@ hook_add = '''
 set helplang& helplang=en,ja
 '''
 
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
 # vimsell{{{
 [[plugins]]
 repo = 'Shougo/vimshell.vim'
 hook_add = '''
 nmap <silent> vs :<C-u>VimShellPop<CR>
 '''
-depends = 'vimproc'
+depends = 'Shougo/vimproc.vim'
 # }}}
 
 [[plugins]]
