@@ -1,5 +1,9 @@
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file = 'vim-lsp.log'
+
 if executable('clangd')
     au User lsp_setup call lsp#register_server({
                 \ 'name': 'clangd',
@@ -9,13 +13,11 @@ if executable('clangd')
 endif
 
 if executable('golsp')
-    augroup LspGo
-        au!
-        autocmd User lsp_setup call lsp#register_server({
-                    \ 'name': 'go-lang',
-                    \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
-                    \ 'whitelist': ['go'],
-                    \ })
-        autocmd FileType go setlocal omnifunc=lsp#complete
-    augroup END
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'go-lang',
+                \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
+                \ 'whitelist': ['go'],
+                \ })
 endif
+
+let g:lsp_async_completion = 1

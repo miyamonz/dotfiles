@@ -17,6 +17,7 @@ nnoremap <silent> [denite]mr :<C-u>Denite file_mru<CR>
 Plug 'Shougo/neomru.vim'
 
 
+runtime! init/plug_asyncomplete.vim
 runtime! init/plug_lsp.vim
 
 Plug 'itchyny/vim-cursorword'
