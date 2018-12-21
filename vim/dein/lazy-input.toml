@@ -1,10 +1,12 @@
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
+on_event = 'InsertEnter'
 hook_add = '''
 au Filetype markdown let b:AutoPairs = {'(':')','{':'}',"'":"'",'"':'"', '`':'`'}
 '''
 [[plugins]]
 repo = 'mattn/emmet-vim'
+on_event = 'InsertEnter'
 hook_add = '''
 let g:user_emmet_leader_key = '<C-e>'
 let g:user_emmet_settings = {
@@ -16,21 +18,25 @@ let g:user_emmet_settings = {
 
 [[plugins]] # true false などをtoggle
 repo = 'AndrewRadev/switch.vim'
+on_event = 'InsertEnter'
 hook_add = '''
 nnoremap - :<C-u>Switch<CR>
 '''
 
 [[plugins]]
 repo = 'tyru/caw.vim'
+on_event = 'InsertEnter'
 hook_add = '''
 nmap <C-_> <Plug>(caw:hatpos:toggle)
 vmap <C-_> <Plug>(caw:hatpos:toggle)
 '''
 [[plugins]]
 repo     = 'junegunn/vim-easy-align'
+on_event = 'InsertEnter'
 hook_add = 'vmap <Enter> <Plug>(EasyAlign)'
 [[plugins]]
 repo     = 'haya14busa/vim-auto-programming'
+on_event = 'InsertEnter'
 hook_add = '''
 set completefunc=autoprogramming#complete
 '''

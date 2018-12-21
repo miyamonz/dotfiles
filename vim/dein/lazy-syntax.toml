@@ -50,19 +50,20 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:elm_syntastic_show_warnings = 1
 '''
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-hook_add = '''
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-set updatetime=50
-'''
-[[plugins]]
-repo = 'zchee/deoplete-go'
-on_ft = 'go'
-hook_add = '''
-'''
+#[[plugins]]
+#repo = 'fatih/vim-go'
+#on_ft = 'go'
+#hook_add = '''
+#let g:go_auto_type_info = 1
+#let g:go_auto_sameids = 1
+#set updatetime=50
+#'''
+
+#[[plugins]]
+#repo = 'zchee/deoplete-go'
+#on_ft = 'go'
+#hook_add = '''
+#'''
 
 [[plugins]]
 repo = 'ElmCast/elm-vim'

@@ -1,10 +1,38 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+
+#[[plugins]]
+#repo = 'Shougo/deoplete.nvim'
+#hook_add = '''
+#let g:deoplete#enable_at_startup = 1
+#'''
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
+repo = 'prabirshrestha/async.vim'
+[[plugins]]
+repo='prabirshrestha/vim-lsp'
+hook_add='''
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
+
+if executable('golsp')
+    echo "golsp"
+    augroup LspGp
+        au!
+        autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'go-lang',
+        \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+        autocmd FileType go setlocal omnifunc=lsp#complete
+    augroup END
+endif
 '''
+
 [[plugins]]
 repo = 'Shougo/Unite.vim'
 hook_add = '''
@@ -190,17 +218,19 @@ repo = 'Konfekt/FastFold'
 repo = 'tpope/vim-obsession'
 
 
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-depends = 'deoplete.nvim'
-rev = 'next'
-build = './install.sh'
-hook_source='''
-let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls']
-    \}
-let g:LanguageClient_autoStart = 1
-'''
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim'
+#depends = 'deoplete.nvim'
+#rev = 'next'
+#build = './install.sh'
+#hook_source='''
+#let g:LanguageClient_serverCommands = {
+#    \ 'vue': ['vls'],
+#    \ 'go': ['golsp']
+#    \}
+#let g:LanguageClient_autoStart = 1
+#'''
+
 [[plugins]]
 repo = "iCyMind/NeoSolarized"
 hook_add='''

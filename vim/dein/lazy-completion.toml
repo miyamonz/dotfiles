@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'ujihisa/neco-look'
+on_event = 'InsertEnter'
 [[plugins]]
 repo = 'Shougo/neco-vim'
 on_ft = 'vim'
