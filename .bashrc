@@ -1,4 +1,6 @@
 export LANG=ja_JP.UTF-8
+export TERM='xterm-256color'
+
 
 # read man file with vim
 export MANPAGER="col -b -x|nvim -R -c 'set ft=man nolist nomod noma' -"
