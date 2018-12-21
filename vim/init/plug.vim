@@ -10,28 +10,14 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/denite.nvim'
+nnoremap [denite] <Nop>
+nmap <Space> [denite]
+nnoremap <silent> [denite]f  :<C-u>Denite file/rec file:new buffer<CR>
+nnoremap <silent> [denite]mr :<C-u>Denite file_mru<CR>
+Plug 'Shougo/neomru.vim'
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'clangd',
-                \ 'cmd': {server_info->['clangd']},
-                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-                \ })
-endif
 
-if executable('golsp')
-    augroup LspGp
-        au!
-        autocmd User lsp_setup call lsp#register_server({
-                    \ 'name': 'go-lang',
-                    \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
-                    \ 'whitelist': ['go'],
-                    \ })
-        autocmd FileType go setlocal omnifunc=lsp#complete
-    augroup END
-endif
+runtime! init/plug_lsp.vim
 
 Plug 'itchyny/vim-cursorword'
 Plug 'iCyMind/NeoSolarized'
@@ -45,21 +31,14 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/  <Plug>(incsearch-stay)
 
-Plug 'kana/vim-operator-user'
-Plug 'rhysd/vim-operator-surround'
-map <silent>sa <Plug>(operator-surround-append)
-map <silent>sd <Plug>(operator-surround-delete)
-map <silent>sr <Plug>(operator-surround-replace)
-
-Plug 'osyo-manga/vim-operator-stay-cursor'
-Plug 'kana/vim-operator-replace'
-map R <Plug>(operator-replace)
+runtime! init/plug_op.vim
 
 Plug 'kana/vim-textobj-user'
 
-" quickrun, vimshell
+"vimproc is required to quickrun, vimshell
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
-Plug 'thinca/vim-quickrun'
+" plugin-settings/quickrun.vim
+Plug 'thinca/vim-quickrun', {'on': 'QuickRun'} 
 Plug 'Shougo/vimshell.vim', {'on': 'VimShellPop'}
 nmap <silent> vs :<C-u>VimShellPop<CR>
 
@@ -89,7 +68,6 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'w0rp/ale'
 let g:ale_sign_column_always = 1
-
 let g:ale_fixers = {
             \ 'javascript': ['prettier'],
             \ 'typescript': ['prettier'],
@@ -114,14 +92,15 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ujihisa/neco-look'
 Plug 'jiangmiao/auto-pairs'
 au Filetype markdown let b:AutoPairs = {'(':')','{':'}',"'":"'",'"':'"', '`':'`'}
+
 runtime! init/plug_ft.vim
 
-Plug 'AndrewRadev/switch.vim' | 
+Plug 'AndrewRadev/switch.vim', {'on': 'Switch'}
 nnoremap - :<C-u>Switch<CR>
 
 Plug 'tyru/caw.vim'
-nmap <C-_> <Plug>(caw:hatpos:toggle)
-vmap <C-_> <Plug>(caw:hatpos:toggle)
+nmap ; <Plug>(caw:hatpos:toggle)
+vmap ; <Plug>(caw:hatpos:toggle)
 
 Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
 let g:tigris#enabled = 1
