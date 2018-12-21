@@ -53,6 +53,6 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 #Neovim cursor shape support
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-
+shopt -s extglob
 # heroku autocomplete setup
 HEROKU_AC_BASH_SETUP_PATH=/Users/miyamonz/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
