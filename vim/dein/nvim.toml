@@ -1,5 +1,0 @@
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-
-'''
