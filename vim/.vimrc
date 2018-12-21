@@ -21,7 +21,6 @@ runtime! init/autocmd.vim
 
 
 runtime! init/plug.vim
-"runtime! init/dein.vim
 runtime! init/basic.vim
 
 runtime! plugin-settings/*.vim
