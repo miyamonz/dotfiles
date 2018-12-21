@@ -1,5 +1,7 @@
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+autocmd FileType python,go,cpp nmap gd <plug>(lsp-definition)
+
 
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = 'vim-lsp.log'
