@@ -4,6 +4,7 @@ if has('nvim')
   set clipboard+=unnamedplus
 end
 
+set noswapfile
 set runtimepath+=$HOME/dotfiles/vim/
 " 以降
 "- init/
