@@ -30,4 +30,13 @@ if executable('docker-langserver')
         \ })
 endif
 
+" npm i -g vue-language-server
+if executable('vls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'vue-language-server',
+        \ 'cmd': {server_info->['vls']},
+        \ 'whitelist': ['vue'],
+        \ })
+endif
+
 let g:lsp_async_completion = 1

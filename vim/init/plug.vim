@@ -13,6 +13,7 @@ Plug 'Shougo/denite.nvim'
 nnoremap [denite] <Nop>
 nmap <Space> [denite]
 nnoremap <silent> [denite]f  :<C-u>Denite file/rec file:new buffer<CR>
+nnoremap <silent> [denite]o  :<C-u>Denite outline<CR>
 nnoremap <silent> [denite]mr :<C-u>Denite file_mru<CR>
 Plug 'Shougo/neomru.vim'
 
