@@ -10,7 +10,6 @@ let g:user_emmet_settings = {
 Plug 'rhysd/vim-gfm-syntax', { 'for': 'md' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'wavded/vim-stylus', {'for': 'stylus'}
-Plug '2072/PHP-Indenting-for-VIm', {'for': 'php'}
 Plug 'sophacles/vim-processing', {'for': 'processing'}
 
 Plug 'slim-template/vim-slim', {'for': 'slim'}
@@ -22,3 +21,6 @@ let g:elm_syntastic_show_warnings = 1
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 
 Plug 'posva/vim-vue', {'for': 'vue'}
+
+Plug 'StanAngeloff/php.vim', {'for': 'php'}
+Plug '2072/PHP-Indenting-for-VIm', {'for': 'php'}
