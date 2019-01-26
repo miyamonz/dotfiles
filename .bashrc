@@ -19,6 +19,7 @@ source $HOME/dotfiles/bash/grev.sh
 
 #completion
 source $HOME/dotfiles/tmux/tmux.completion.bash
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 
 # press ctrl-d 3times to exit
