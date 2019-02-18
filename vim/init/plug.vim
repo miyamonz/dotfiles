@@ -88,6 +88,8 @@ let g:loaded_matchparen = 1
 Plug 'hotwatermorning/auto-git-diff'
 let g:auto_git_diff_show_window_at_right=1
 
+Plug 'tpope/vim-fugitive'
+
 Plug 'tpope/vim-obsession'
 Plug 'editorconfig/editorconfig-vim'
 
