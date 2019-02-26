@@ -24,3 +24,5 @@ Plug 'posva/vim-vue', {'for': 'vue'}
 
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug '2072/PHP-Indenting-for-VIm', {'for': 'php'}
+
+Plug 'digitaltoad/vim-pug', {'for': 'pug'}
