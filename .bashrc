@@ -29,7 +29,7 @@ source $(ghq root)/github.com/sjorek/composer-bash-completion/composer-completio
 IGNOREEOF=3
 
 # anyenv
-eval "$(~/.anyenv/bin/anyenv init -)"
+eval "$(~/.anyenv/bin/anyenv init - --no-rehash)"
 export PATH="$PATH:~/.anyenv/bin"
 
 err() { echo "$*" >&2; exit 1; }
