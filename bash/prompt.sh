@@ -1,14 +1,18 @@
 function _ps1_result() {
+    local code=$?
+
     # printfには\[\]使わない
+    local WHITE="\e[00m"
     local BLUE="\e[34m"
     local RED="\e[31m"
-    local code=$?
+
+    local DATE="${WHITE}$(date +%Y-%m-%d_%H:%M:%S)"
     if [[ ${code} == 0 ]]; then
         local kao="(っ'ω')っ"
-        printf "${BLUE}${kao} OK!!  [${code}]"
+        printf "${BLUE}${kao} OK!!  [${code}] ${DATE}"
     else
         local kao='(´・ω・`)'
-        printf "${RED}${kao} NG... [${code}]"
+        printf "${RED}${kao} NG... [${code}] ${DATE}"
     fi
     echo ;
 }
@@ -19,7 +23,7 @@ GREEN="\[\e[32m\]"
 BLUE="\[\e[34m\]"
 RED="\[\e[31m\]"
 # miyamonz@pcname:path (git)$
-PS_USER="${GREEN}\u@\h"
-PS_DIR="${BLUE}\w"
+PS_USER="${WHITE}\u"
+PS_DIR="${GREEN}\w"
 PS_GIT="${RED}\$(__git_ps1)"
-export PS1="${PS_USER}${WHITE}:${PS_DIR}${PS_GIT}${WHITE}\$ "
+export PS1="${PS_USER}: ${PS_DIR}${PS_GIT}${WHITE} \n\$ "
