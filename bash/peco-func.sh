@@ -9,10 +9,10 @@ bind -x '"\C-r": peco-select-history'
 
 function t() {
     local lines=$(cat << EOS
-new-window
-new-session
-detach
-session-from-repo
+new-window:
+new-session:
+detach:
+session-from-repo:
 $(tmux list-sessions -F '#{session_name}' | sed 's/^/attach: /g')
 EOS
 )
