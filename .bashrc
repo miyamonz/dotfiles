@@ -21,7 +21,9 @@ source $HOME/dotfiles/bash/peco-func.sh
 #completion
 source $HOME/dotfiles/tmux/tmux.completion.bash
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
+# ghq get sjorek/composer-bash-completion
+export COMPOSER_COMPLETION_PHP_SCRIPT=$(ghq root)/github.com/sjorek/composer-bash-completion/composer-completion.php
+source $(ghq root)/github.com/sjorek/composer-bash-completion/composer-completion.bash
 
 # press ctrl-d 3times to exit
 IGNOREEOF=3
