@@ -9,10 +9,11 @@ bind -x '"\C-r": peco-select-history'
 
 function t() {
     local lines=$(cat << EOS
-$(tmux list-sessions | sed 's/^/attach: /g')
 new-window
 new-session
 detach
+session-from-repo
+$(tmux list-sessions | sed 's/^/attach: /g')
 EOS
 )
     local SELECTED="$( echo "$lines" | peco )"
@@ -30,12 +31,22 @@ EOS
     elif [ $COMMAND == "new-window" ]; then
         tmux new-window
     elif [ $COMMAND == "new-session" ]; then
-        local sname
-        read -p "session name: " sname
-        tmux new-session -d -s $sname
-        tmux switch-client -t $sname
+        local SNAME
+        read -p "session name: " SNAME
+        tmux new-session -d -s $SNAME
+        tmux switch-client -t $SNAME
     elif [ $COMMAND == "detach" ]; then
         tmux detach-client
+    elif [ $COMMAND == "session-from-repo" ]; then
+        local REPO_PATH=~/$(ghq-list | peco)
+        local SNAME=$(basename $REPO_PATH)
+        if [ -n "$TMUX" ]; then
+            tmux new-session -d -s $SNAME -c $REPO_PATH
+            tmux switch-client -t $SNAME
+        else
+            tmux new-session -s $SNAME -c $REPO_PATH
+            tmux attach -t $SESSION
+        fi
     fi
 }
 
