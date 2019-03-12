@@ -30,6 +30,7 @@ IGNOREEOF=3
 
 # anyenv
 eval "$(~/.anyenv/bin/anyenv init -)"
+export PATH="$PATH:~/.anyenv/bin"
 
 err() { echo "$*" >&2; exit 1; }
 
