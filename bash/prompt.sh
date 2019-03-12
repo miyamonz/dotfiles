@@ -1,7 +1,7 @@
-WHITE="\e[00m"
-GREEN="\e[32m"
-BLUE="\e[34m"
-RED="\e[31m"
+WHITE="\[\e[00m\]"
+GREEN="\[\e[32m\]"
+BLUE="\[\e[34m\]"
+RED="\[\e[31m\]"
 
 function _ps1_result() {
     local code=$?
