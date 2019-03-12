@@ -8,11 +8,34 @@ READLINE_POINT=${#l}
 bind -x '"\C-r": peco-select-history'
 
 function t() {
-    local SELECTED="$(tmux list-sessions | peco | cut -d : -f 1)"
-    if [ -n "$TMUX" ]; then
-        tmux switch-client -t $SELECTED
-    else
-        tmux attach -t $SELECTED
+    local lines=$(cat << EOS
+$(tmux list-sessions | sed 's/^/attach: /g')
+new-window
+new-session
+detach
+EOS
+)
+    local SELECTED="$( echo "$lines" | peco )"
+    local COMMAND=$(echo "$SELECTED" | cut -d : -f 1)
+
+    # local CURRENT_SESSION=$(tmux display-message -p '#S')
+
+    if [ $COMMAND == "attach" ]; then
+        local SESSION=$(echo "$SELECTED" | cut -d : -f 2)
+        if [ -n "$TMUX" ]; then
+            tmux switch-client -t $SESSION
+        else
+            tmux attach -t $SESSION
+        fi
+    elif [ $COMMAND == "new-window" ]; then
+        tmux new-window
+    elif [ $COMMAND == "new-session" ]; then
+        local sname
+        read -p "session name: " sname
+        tmux new-session -d -s $sname
+        tmux switch-client -t $sname
+    elif [ $COMMAND == "detach" ]; then
+        tmux detach-client
     fi
 }
 
