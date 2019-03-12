@@ -13,7 +13,7 @@ new-window
 new-session
 detach
 session-from-repo
-$(tmux list-sessions | sed 's/^/attach: /g')
+$(tmux list-sessions -F '#{session_name}' | sed 's/^/attach: /g')
 EOS
 )
     local SELECTED="$( echo "$lines" | peco )"
