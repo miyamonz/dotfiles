@@ -35,6 +35,8 @@ IGNOREEOF=3
 # anyenv
 eval "$(anyenv init - --no-rehash)"
 
+# direnv
+eval "$(direnv hook bash)"
 
 # brew install z
 . /usr/local/etc/profile.d/z.sh
