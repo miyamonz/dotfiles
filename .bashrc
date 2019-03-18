@@ -10,6 +10,10 @@ export EDITOR="/usr/local/bin/nvim"
 export SEARCHER="ag"
 
 export PATH="$HOME/dotfiles/bin:$PATH" 
+
+function error() { echo "$@" 1>&2; }
+function abort() { echo "$@" 1>&2; exit 1; }
+
 # command aliases
 source $HOME/dotfiles/bash/alias.sh
 source $HOME/dotfiles/bash/git.sh
@@ -31,7 +35,6 @@ IGNOREEOF=3
 # anyenv
 eval "$(anyenv init - --no-rehash)"
 
-err() { echo "$*" >&2; exit 1; }
 
 # brew install z
 . /usr/local/etc/profile.d/z.sh

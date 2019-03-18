@@ -7,12 +7,24 @@ READLINE_POINT=${#l}
 } 
 bind -x '"\C-r": peco-select-history'
 
+function attach-tmux-session() {
+    local REPO_PATH=$@
+    local SNAME=$(basename $REPO_PATH)
+    if [ -n "$TMUX" ]; then
+        tmux new-session -d -s $SNAME -c $REPO_PATH
+        tmux switch-client -t $SNAME
+    else
+        tmux new-session -s $SNAME -c $REPO_PATH
+        tmux attach -t $SESSION
+    fi
+}
 function t() {
     local lines=$(cat << EOS
 new-window:
 new-session:
 detach:
 session-from-repo:
+new-repo:
 $(tmux list-sessions -F '#{session_name}' | sed 's/^/attach: /g')
 EOS
 )
@@ -38,15 +50,16 @@ EOS
     elif [ $COMMAND == "detach" ]; then
         tmux detach-client
     elif [ $COMMAND == "session-from-repo" ]; then
-        local REPO_PATH=~/$(ghq-list | peco)
-        local SNAME=$(basename $REPO_PATH)
-        if [ -n "$TMUX" ]; then
-            tmux new-session -d -s $SNAME -c $REPO_PATH
-            tmux switch-client -t $SNAME
-        else
-            tmux new-session -s $SNAME -c $REPO_PATH
-            tmux attach -t $SESSION
-        fi
+        local REPO_PATH=
+        attach-tmux-session "~/$(ghq-list | peco)"
+    elif [ $COMMAND == "new-repo" ]; then
+        local MIYAMONZ_PATH=$(ghq root)/github.com/miyamonz
+        local NAME
+        read -p "new git repo miyamonz/ " NAME
+        local REPO_PATH=$MIYAMONZ_PATH/$NAME
+        echo $REPO_PATH
+        mkdir $REPO_PATH || return
+        attach-tmux-session $REPO_PATH
     fi
 }
 
