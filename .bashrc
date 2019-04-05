@@ -48,6 +48,8 @@ export PATH="$PATH:$GOPATH/bin"
 #rust
 source $HOME/.cargo/env
 
+#composer
+export PATH="$PATH:~/.composer/vendor/bin"
 #Neovim true color support
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 #Neovim cursor shape support
