@@ -30,7 +30,7 @@ export COMPOSER_COMPLETION_PHP_SCRIPT=$(ghq root)/github.com/sjorek/composer-bas
 source $(ghq root)/github.com/sjorek/composer-bash-completion/composer-completion.bash
 
 # press ctrl-d 3times to exit
-IGNOREEOF=3
+IGNOREEOF=200
 
 # anyenv
 eval "$(anyenv init - --no-rehash)"
