@@ -31,3 +31,7 @@ function ghq-list() {
 alias r='cd ~/$(ghq-list | peco)'
 
 alias monochrome='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
+
+function gocloc-dir() {
+    ls -d * | xargs -I% bash -c "gocloc % | grep TOTAL | ( printf '%\t'; awk '{print \$5}')" | sort -rnk 2 | column -t
+}
