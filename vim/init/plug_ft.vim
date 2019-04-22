@@ -28,5 +28,7 @@ Plug '2072/PHP-Indenting-for-VIm', {'for': 'php'}
 Plug 'digitaltoad/vim-pug', {'for': 'pug'}
 Plug 'kovisoft/slimv', {'for': 'lisp'}
 
+Plug 'wlangstroth/vim-racket', {'for': 'scheme'}
+
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'jwalton512/vim-blade', {'for': 'php'}
