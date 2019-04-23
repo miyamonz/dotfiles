@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require 'csv'
+
+CSV(STDIN, col_sep: "\t").each do |row|
+  STDOUT << CSV.generate_line(row, force_quotes: true)
+end
