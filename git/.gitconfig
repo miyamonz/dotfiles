@@ -51,3 +51,5 @@
 [ghq]
     root = ~/go/src
 
+[branch]
+	sort = -authordate
