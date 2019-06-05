@@ -66,6 +66,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 let g:ale_sign_column_always = 1
 let g:ale_fixers = {
+            \ 'php': ['php_cs_fixer'],
             \ 'javascript': ['prettier'],
             \ 'typescript': ['prettier'],
             \ 'html': ['prettier'],
