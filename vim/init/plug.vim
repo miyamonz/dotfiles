@@ -69,6 +69,7 @@ let g:ale_fixers = {
             \ 'javascript': ['prettier'],
             \ 'typescript': ['prettier'],
             \ 'html': ['prettier'],
+            \ 'scss': ['prettier'],
             \ 'vue': ['prettier']
             \ }
 let g:ale_fix_on_save = 1
