@@ -1,27 +1,27 @@
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
 [user]
-	name = Koichi Miyamoto
-	email = m5813k@gmail.com
+    name = Koichi Miyamoto
+    email = m5813k@gmail.com
 [color]
-	ui = auto
+    ui = auto
 [init]
 [core]
-	editor = nvim
+    editor = nvim
     excludesfile = ~/.gitignore_global
-	quotepath = false
-	autocrlf = input
-	safecrlf = true
+    quotepath = false
+    autocrlf = input
+    safecrlf = true
 [alias]
-	gr        = log --graph --branches --tags --date-order --all --pretty=format:'%x09%h %Cgreen%ad %Cblue%cn %Creset%s %Cred%d ' --date=short
+    gr        = log --graph --branches --tags --date-order --all --pretty=format:'%x09%h %Cgreen%ad %Cblue%cn %Creset%s %Cred%d ' --date=short
     fo        = "!git foresta | less -RSX"
-	co        = checkout
+    co        = checkout
     s         = status
-	st        = status
-	b         = branch
-	c         = commit -v
+    st        = status
+    b         = branch
+    c         = commit -v
     l         = log --oneline --graph --branches --all
     aliass    = !git config --get-regexp alias
     unstage   = reset HEAD --
@@ -30,28 +30,28 @@
     amend     = commit --amend
     staged    = diff --staged
     br        = !git checkout $(git branch | fzf)
-	undo      = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
+    undo      = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
     sed       = "!f(){ git grep -l $1 | xargs sed -i '' -e s@$1@$2@g;};f"
     today = "!f () {\
-         git log --oneline --reverse --branches \
-         --since=midnight --date=iso \
-         --author=\"$(git config user.name)\" \
-         --format=\" - %C(auto)%h%Creset : %s %C(green)(%ad)%Creset\";\
-     };f"
+        git log --oneline --reverse --branches \
+        --since=midnight --date=iso \
+        --author=\"$(git config user.name)\" \
+        --format=\" - %C(auto)%h%Creset : %s %C(green)(%ad)%Creset\";\
+        };f"
     grep-all  = "!git branch -a | tr -d \\* | sed '/->/d' | xargs git grep"
 
 [pager]
-	log  = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+    log  = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
 [interactive]
-	diffFilter = diff-highlight
+    diffFilter = diff-highlight
 [rebase]
-	autosquash = true
+    autosquash = true
 
 
 [ghq]
     root = ~/go/src
 
 [branch]
-	sort = -authordate
+    sort = -authordate
