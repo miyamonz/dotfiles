@@ -38,6 +38,8 @@
          --author=\"$(git config user.name)\" \
          --format=\" - %C(auto)%h%Creset : %s %C(green)(%ad)%Creset\";\
      };f"
+    grep-all  = "!git branch -a | tr -d \\* | sed '/->/d' | xargs git grep"
+
 [pager]
 	log  = diff-highlight | less
 	show = diff-highlight | less
