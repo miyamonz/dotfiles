@@ -39,6 +39,7 @@ function! DefinitionJumpWithPhpactor()
     call phpactor#GotoDefinition()
 endfunction
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " useの補完
 nmap <silent><Leader>u      :<C-u>call phpactor#UseAdd()<CR>
