@@ -39,4 +39,13 @@ if executable('vls')
         \ })
 endif
 
+Plug 'antew/vim-elm-language-server'
+if executable('elm-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'elm-language-server',
+        \ 'cmd': {server_info->['elm-language-server']},
+        \ 'whitelist': ['elm'],
+        \ })
+endif
+
 let g:lsp_async_completion = 1
