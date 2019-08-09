@@ -1,0 +1,7 @@
+#!/bin/bash
+args=$@; 
+[ -z "$args" ] && args=HEAD;
+ 
+([ "$args" = "HEAD" ] && git status --short || git diff --name-status $args | gsed 's/\t/  /')\
+| fzf --preview "echo {} | cut -c 4- | xargs git diff --color=always $args --" --multi --height 90% \
+| cut -c 4-; 
