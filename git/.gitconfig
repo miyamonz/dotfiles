@@ -39,6 +39,7 @@
         --format=\" - %C(auto)%h%Creset : %s %C(green)(%ad)%Creset\";\
         };f"
     grep-all  = "!git branch -a | tr -d \\* | sed '/->/d' | xargs git grep"
+    cop       = "!git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout"
 
 [pager]
     log  = diff-highlight | less
