@@ -113,3 +113,5 @@ Plug 'airblade/vim-gitgutter'
 set updatetime=150
 call plug#end()
 
+" dbgp debugger xdebug
+Plug 'vim-vdebug/vdebug'
