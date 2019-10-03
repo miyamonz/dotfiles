@@ -63,7 +63,7 @@ let g:indent_guides_guide_size=3
 
 Plug 'itchyny/lightline.vim'
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 let g:ale_sign_column_always = 1
 let g:ale_fixers = {
             \ 'php': ['php_cs_fixer'],
