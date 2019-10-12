@@ -63,12 +63,15 @@ let g:indent_guides_guide_size=3
 
 Plug 'itchyny/lightline.vim'
 
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
 Plug 'dense-analysis/ale'
 let g:ale_sign_column_always = 1
 let g:ale_fixers = {
             \ 'php': ['php_cs_fixer'],
             \ 'javascript': ['prettier'],
             \ 'typescript': ['prettier'],
+            \ 'typescript.tsx': ['prettier'],
             \ 'html': ['prettier'],
             \ 'scss': ['prettier'],
             \ 'vue': ['prettier']
