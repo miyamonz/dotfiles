@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] && which peco >/dev/null 2>&1; then
+    git log --branches --oneline \
+    | peco --prompt='cherry-pick\\> ' \
+    | awk '{print $1}' \
+    | xargs git cherry-pick;
+elif [ $# -ge 1 ]; then
+    git cherry-pick ${@};
+fi;
