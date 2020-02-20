@@ -43,6 +43,9 @@ endfunction
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+Plug 'hashivim/vim-terraform', {'for': ['tf', 'tfvars']}
+let g:terraform_fmt_on_save = 1
+
 " useの補完
 nmap <silent><Leader>u      :<C-u>call phpactor#UseAdd()<CR>
 " コンテキストメニューの起動(カーソル下のクラスやメンバに対して実行可能な選択肢を表示してくれます)
