@@ -39,3 +39,7 @@ function gocloc-dir() {
 function git-root() {
     cd $(git rev-parse --show-toplevel)
 }
+
+function jupyter-local() {
+    jupyter notebook --notebook-dir=. --ip='*' --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''
+}
