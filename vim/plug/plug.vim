@@ -19,10 +19,6 @@ endif
 
 Plug 'Shougo/neomru.vim'
 
-
-runtime! init/plug_asyncomplete.vim
-runtime! init/plug_lsp.vim
-
 Plug 'itchyny/vim-cursorword'
 Plug 'iCyMind/NeoSolarized'
 set background=dark
@@ -35,7 +31,6 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/  <Plug>(incsearch-stay)
 
-runtime! init/plug_op.vim
 
 Plug 'kana/vim-textobj-user'
 
@@ -103,8 +98,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ujihisa/neco-look'
 Plug 'jiangmiao/auto-pairs'
 au Filetype markdown let b:AutoPairs = {'(':')','{':'}',"'":"'",'"':'"', '`':'`'}
-
-runtime! init/plug_ft.vim
 
 Plug 'AndrewRadev/switch.vim', {'on': 'Switch'}
 nnoremap - :<C-u>Switch<CR>
