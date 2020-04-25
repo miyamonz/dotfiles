@@ -9,7 +9,14 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'Shougo/denite.nvim'
+if has('nvim')
+    Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/denite.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 Plug 'Shougo/neomru.vim'
 
 
