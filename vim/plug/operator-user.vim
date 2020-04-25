@@ -1,4 +1,3 @@
-
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-operator-surround'
 map <silent>sa <Plug>(operator-surround-append)

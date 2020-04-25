@@ -21,6 +21,7 @@ let g:python3_host_prog = expand('/usr/local/bin/python3')
 runtime! init/autocmd.vim
 
 
+runtime! plug/plug.vim
 runtime! plug/*.vim
 runtime! init/basic.vim
 
