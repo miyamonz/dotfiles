@@ -25,7 +25,6 @@ runtime! plug/plug.vim
 runtime! plug/*.vim
 runtime! init/basic.vim
 
-runtime! plugin-settings/*.vim
 runtime! settings/*.vim
 
 set backupskip=/tmp/*,/private/tmp/*

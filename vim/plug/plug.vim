@@ -9,14 +9,6 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
-if has('nvim')
-    Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/denite.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 Plug 'Shougo/neomru.vim'
 
 Plug 'itchyny/vim-cursorword'
@@ -34,13 +26,8 @@ map g/  <Plug>(incsearch-stay)
 
 Plug 'kana/vim-textobj-user'
 
-"vimproc is required to quickrun, vimshell
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
-" plugin-settings/quickrun.vim
-Plug 'thinca/vim-quickrun', {'on': 'QuickRun'} 
 Plug 'Shougo/vimshell.vim', {'on': 'VimShellPop'}
 nmap <silent> vs :<C-u>VimShellPop<CR>
-
 
 Plug 'kana/vim-submode'
 au MyAutoCmd VimEnter * call s:register_submode()
@@ -62,8 +49,6 @@ let g:indent_guides_exclude_filetypes=['help', 'man']
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray ctermbg=248
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=240
 let g:indent_guides_guide_size=3
-
-Plug 'itchyny/lightline.vim'
 
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 

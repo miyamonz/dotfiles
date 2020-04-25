@@ -1,4 +1,8 @@
-" quickrun
+"vimproc is required to quickrun, vimshell
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
+
+Plug 'thinca/vim-quickrun', {'on': 'QuickRun'} 
+
 let g:quickrun_config = get(g:, 'quickrun_config', {})
 
 " quickrunのランナーにvimprocを使用する
