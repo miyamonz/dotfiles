@@ -63,3 +63,4 @@ export ANDROID_HOME="/Users/miyamonz/Library/Android/sdk"
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/ndk-bundle
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
+export PATH="$HOME/.poetry/bin:$PATH"
