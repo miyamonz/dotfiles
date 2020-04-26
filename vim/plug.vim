@@ -9,9 +9,9 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'Shougo/neomru.vim'
-
+" underline the word under the cursor
 Plug 'itchyny/vim-cursorword'
+
 Plug 'iCyMind/NeoSolarized'
 set background=dark
 " colorscheme 設定は source 後に行う必要があるので確実に読まれている VimEnter のタイミングで行う。
@@ -29,42 +29,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'Shougo/vimshell.vim', {'on': 'VimShellPop'}
 nmap <silent> vs :<C-u>VimShellPop<CR>
 
-Plug 'kana/vim-submode'
-au MyAutoCmd VimEnter * call s:register_submode()
-function! s:register_submode() 
-    call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-    call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-    call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-    call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-    call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-    call submode#map('bufmove', 'n', '', '<', '<C-w><')
-    call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-    call submode#map('bufmove', 'n', '', '-', '<C-w>-')
-endfunction
-
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_auto_colors=0
-let g:indent_guides_exclude_filetypes=['help', 'man']
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray ctermbg=248
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=240
-let g:indent_guides_guide_size=3
-
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-
-Plug 'dense-analysis/ale'
-let g:ale_sign_column_always = 1
-let g:ale_fixers = {
-            \ 'php': ['php_cs_fixer'],
-            \ 'javascript': ['prettier'],
-            \ 'typescript': ['prettier'],
-            \ 'typescript.tsx': ['prettier'],
-            \ 'html': ['prettier'],
-            \ 'scss': ['prettier'],
-            \ 'vue': ['prettier']
-            \ }
-let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_use_local_config = 1
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 
@@ -87,19 +52,24 @@ au Filetype markdown let b:AutoPairs = {'(':')','{':'}',"'":"'",'"':'"', '`':'`'
 Plug 'AndrewRadev/switch.vim', {'on': 'Switch'}
 nnoremap - :<C-u>Switch<CR>
 
+" toggle comment
 Plug 'tyru/caw.vim'
 nmap ; <Plug>(caw:hatpos:toggle)
 vmap ; <Plug>(caw:hatpos:toggle)
 
+" tigris is a NodeJS remote plugin for Neovim that provides async syntax highlighting for javascript (using babylon).
 Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
 let g:tigris#enabled = 1
 let g:tigris#on_the_fly_enabled = 1
 
-
+" reverse column color when insert mode
 Plug 'cohama/vim-insert-linenr'
 Plug 'airblade/vim-gitgutter'
 set updatetime=150
-call plug#end()
-
 " dbgp debugger xdebug
 Plug 'vim-vdebug/vdebug'
+
+runtime! plug/*.vim
+
+call plug#end()
+
