@@ -72,4 +72,3 @@ Plug 'vim-vdebug/vdebug'
 runtime! plug/*.vim
 
 call plug#end()
-
