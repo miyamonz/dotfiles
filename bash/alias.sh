@@ -1,6 +1,6 @@
 #!bin/bash
 # command aliases
-alias ls='ls -a -G -F'
+alias l='ls -a -G -F'
 alias lsl='ls -a -G -F -l'
 
 
