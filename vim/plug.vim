@@ -18,6 +18,11 @@ set background=dark
 " 但し Colorscheme イベントの発生が抑制されないよう nessed を付ける。
 au MyAutoCmd VimEnter * nested colorscheme NeoSolarized
 
+" 背景透過するterminalでちゃんと透ける
+Plug 'miyakogi/seiya.vim'
+let g:seiya_auto_enable=1
+let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
+
 Plug 'haya14busa/incsearch.vim', { 'on': '<Plug>(incsearch-forward)' }
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
