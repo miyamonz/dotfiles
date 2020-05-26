@@ -28,9 +28,17 @@ alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
 function ghq-list() {
     find $(ghq root --all | xargs echo) -d 3 -maxdepth 3 | grep -v DS_Store  | sed -e "s#$(echo ~)/##g"
 }
-alias r='cd ~/$(ghq-list | peco)'
+function move-repo() {
+    cd ~/$(ghq-list | peco)
+}
+alias r='move-repo'
 
 alias monochrome='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
+
+function filter-func-name() {
+    grep function |
+        gsed -nr 's#^function\s+([^s(]+)\(.*$#\1#p'
+}
 
 function gocloc-dir() {
     ls -d * | xargs -I% bash -c "gocloc % | grep TOTAL | ( printf '%\t'; awk '{print \$5}')" | sort -rnk 2 | column -t
