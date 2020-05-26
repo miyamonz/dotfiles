@@ -62,3 +62,9 @@ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HO
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+#deno
+export DENO_INSTALL="/Users/miyamonz/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+# $ deno completions bash > /usr/local/etc/bash_completion.d/deno.bash
+source /usr/local/etc/bash_completion.d/deno.bash
