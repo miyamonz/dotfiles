@@ -49,5 +49,5 @@ function git-root() {
 }
 
 function jupyter-local() {
-    jupyter notebook --notebook-dir=. --ip='*' --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''
+    jupyter lab --notebook-dir=. --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password=''
 }
