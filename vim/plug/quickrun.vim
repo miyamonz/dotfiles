@@ -36,4 +36,4 @@ let g:quickrun_config['go.test'] = {
             \}
 
 
-nnoremap <Space>r :w<CR>:QuickRun <CR>
+nnoremap <Leader>r :w<CR>:QuickRun <CR>

@@ -68,3 +68,5 @@ export DENO_INSTALL="/Users/miyamonz/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 # $ deno completions bash > /usr/local/etc/bash_completion.d/deno.bash
 source /usr/local/etc/bash_completion.d/deno.bash
+
+export PATH="$HOME/.local/share/nvim/plugged/vim-iced/bin:$PATH"

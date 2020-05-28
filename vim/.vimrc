@@ -4,6 +4,7 @@ if has('nvim')
   set clipboard+=unnamedplus
 end
 
+let mapleader = "\<Space>"
 set noswapfile
 set runtimepath+=$HOME/dotfiles/vim/
 "colors/, ftplugin/,はruntimepathの中にあればvimが自動で解釈する

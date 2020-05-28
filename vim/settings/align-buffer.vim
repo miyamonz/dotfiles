@@ -11,4 +11,4 @@ function! Align()
     endif
     call setpos(".", pos)
 endfunction
-map <Space>= :call Align()<CR>
+map <Leader>= :call Align()<CR>

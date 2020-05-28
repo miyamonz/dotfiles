@@ -4,7 +4,7 @@ call denite#custom#var('file/rec/git', 'command', ['git', 'ls-files', '-co', '--
 
 " これはPlug直下でもいいがファイルをまとめたい
 nnoremap [denite] <Nop>
-nmap <Space> [denite]
+nmap <Leader> [denite]
 nnoremap <silent> [denite]f  :<C-u>Denite file/rec/git file:new<CR>
 nnoremap <silent> [denite]b  :<C-u>Denite buffer<CR>
 nnoremap <silent> [denite]g  :<C-u>Denite file/rec/git<CR>
@@ -19,7 +19,7 @@ function! s:denite_my_settings() abort
     nnoremap <silent><buffer><expr> p       denite#do_map('do_action', 'preview')
     nnoremap <silent><buffer><expr> q       denite#do_map('quit')
     nnoremap <silent><buffer><expr> i       denite#do_map('open_filter_buffer')
-    nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
+    nnoremap <silent><buffer><expr> <Leader> denite#do_map('toggle_select').'j'
 endfunction
 
 
