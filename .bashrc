@@ -70,3 +70,6 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 source /usr/local/etc/bash_completion.d/deno.bash
 
 export PATH="$HOME/.local/share/nvim/plugged/vim-iced/bin:$PATH"
+
+
+source "$HOME/dotfiles/pixela.sh"
