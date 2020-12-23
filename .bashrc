@@ -25,6 +25,3 @@ source_if_exists() {
 source $HOME/dotfiles/alias.sh
 source $HOME/dotfiles/rc.sh
 source $HOME/dotfiles/addpath.sh
-
-export PATH="$HOME/dotfiles/bin:$PATH" 
-
