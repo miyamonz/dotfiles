@@ -11,9 +11,8 @@ git-root() {
     cd $(git rev-parse --show-toplevel)
 }
 
-# git の補完とgit prompot表示
+# git prompot表示
 . $(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh
-. $(brew --prefix)/share/git-core/contrib/completion/git-completion.tcsh
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
