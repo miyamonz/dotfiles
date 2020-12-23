@@ -1,9 +1,0 @@
-lrwxr-xr-x     1 koichi  staff      30 12 17  2015 .bashrc@ -> /Users/koichi/dotfiles/.bashrc
-lrwxr-xr-x     1 koichi  staff      36 12 21  2015 .git_template@ -> /Users/koichi/dotfiles/.git_template
-lrwxr-xr-x     1 koichi  staff      33 12 17  2015 .gitconfig@ -> /Users/koichi/dotfiles/.gitconfig
-lrwxr-xr-x     1 koichi  staff      32 12 21  2015 .githooks@ -> /Users/koichi/dotfiles/.githooks
-lrwxr-xr-x     1 koichi  staff      40 12 22  2015 .gitignore_global@ -> /Users/koichi/dotfiles/.gitignore_global
-lrwxr-xr-x     1 koichi  staff      28 12 22  2015 .tmux@ -> /Users/koichi/dotfiles/.tmux
-lrwxr-xr-x     1 koichi  staff      33 12 22  2015 .tmux.conf@ -> /Users/koichi/dotfiles/.tmux.conf
-lrwxr-xr-x     1 koichi  staff      27 12 17  2015 .vim@ -> /Users/koichi/dotfiles/.vim
-lrwxr-xr-x     1 koichi  staff      29 12 17  2015 .vimrc@ -> /Users/koichi/dotfiles/.vimrc

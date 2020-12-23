@@ -1,3 +1,0 @@
-DOT_DIRECTORY="${HOME}/dotfiles"
-DOT_TARBALL="https://github.com/miyamonz/dotfiles/tarball/master"
-REMOTE_URL="git@github.com:miyamonz/dotfiles.git"

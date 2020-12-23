@@ -61,11 +61,3 @@ EOS
         attach-tmux-session $REPO_PATH
     fi
 }
-
-
-# ghq peco 
-# using sonaterd/ghs
-function ghp () {
-  [ "$#" -eq 0 ] && echo "Usage : ghp QUERY" && return 1
-  ghs "$@" | peco | awk '{print $1}' | ghq import
-}

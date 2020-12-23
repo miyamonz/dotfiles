@@ -1,4 +1,4 @@
-function _ps1_result() {
+_ps1_result() {
     local code=$?
 
     # printfには\[\]使わない
