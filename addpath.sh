@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MODULE_DIR=$HOME/dotfiles/modules
-FOLDERS=$(ls $MODULE_DIR)
+FOLDERS=$(ls "$MODULE_DIR")
 
 for FOLDER in $FOLDERS
 do

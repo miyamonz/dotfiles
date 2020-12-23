@@ -1,10 +1,10 @@
-#!bin/bash
+#!/bin/bash
 # command aliases
 alias l='ls -a -G -F'
 alias lsl='ls -a -G -F -l'
 
 
-if [ $(uname) == "Darwin" ]; then
+if [ "$(uname)" == "Darwin" ]; then
     alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
     alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
     alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"

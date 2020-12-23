@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
 type brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew update
@@ -20,11 +20,11 @@ APPS=(
 
 for APP in "${APPS[@]}"
 do
-	brew install $APP || true
+	brew install "$APP" || true
 done
 
 MODULE_DIR=$HOME/dotfiles/modules
-FOLDERS=$(ls $MODULE_DIR)
+FOLDERS=$(ls "$MODULE_DIR")
 
 for FOLDER in $FOLDERS
 do
@@ -35,4 +35,4 @@ do
 	fi
 done
 
-ln -sfnv $HOME/dotfiles/bashrc $HOME/.bashrc
+ln -sfnv "$HOME/dotfiles/bashrc" "$HOME/.bashrc"

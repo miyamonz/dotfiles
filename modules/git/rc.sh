@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 alias g='git'
 alias gti='git'
@@ -8,11 +8,11 @@ alias gd='git diff'
 alias gr='g gr'
 
 git-root() {
-    cd $(git rev-parse --show-toplevel)
+    cd "$(git rev-parse --show-toplevel)" || exit
 }
 
 # git prompot表示
-. $(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh
+. "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
