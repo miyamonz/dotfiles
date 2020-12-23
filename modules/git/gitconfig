@@ -51,9 +51,6 @@
     autosquash = true
 
 
-[ghq]
-    root = ~/go/src
-
 [branch]
     sort = -authordate
 [diff "jupyternotebook"]
