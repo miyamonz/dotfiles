@@ -34,3 +34,5 @@ do
 		. $SH
 	fi
 done
+
+ln -sfnv $HOME/dotfiles/bashrc $HOME/.bashrc
