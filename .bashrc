@@ -1,13 +1,15 @@
 export LANG=ja_JP.UTF-8
 export TERM='xterm-256color'
 
+export XDG_CONFIG_HOME="$HOME/.config"
 
-# read man file with vim
-export MANPAGER="col -b -x|nvim -R -c 'set ft=man nolist nomod noma' -"
 
 # editor setting
 export EDITOR="$(brew --prefix)/bin/nvim"
 export SEARCHER="rg"
+
+# read man file with vim
+export MANPAGER="col -b -x|$EDITOR -R -c 'set ft=man nolist nomod noma' -"
 
 # prevent exit by sending C-d 
 IGNOREEOF=200

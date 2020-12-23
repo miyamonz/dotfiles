@@ -6,7 +6,7 @@ end
 
 let mapleader = "\<Space>"
 set noswapfile
-set runtimepath+=$HOME/dotfiles/vim/
+set runtimepath+=$HOME/dotfiles/nvim/
 "colors/, ftplugin/,はruntimepathの中にあればvimが自動で解釈する
 
 runtime! init/encoding.vim
