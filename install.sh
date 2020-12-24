@@ -8,6 +8,7 @@ APPS=(
     ripgrep
     gsed
     ghq
+    tig
     gron
     bat
     peco
