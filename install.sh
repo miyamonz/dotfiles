@@ -11,6 +11,7 @@ APPS=(
     tig
     gron
     bat
+    exa
     peco
     tree
     shellcheck
