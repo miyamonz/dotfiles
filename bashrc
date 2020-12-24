@@ -16,11 +16,11 @@ export MANPAGER="col -b -x|$EDITOR -R -c 'set ft=man nolist nomod noma' -"
 IGNOREEOF=200
 
 source_if_exists() { 
-	if [[ -f "$1" ]]; then
-		source "$1"
-	else
-		echo "$1 does not exist."
-	fi
+    if [[ -f "$1" ]]; then
+        source "$1"
+    else
+        echo "$1 does not exist."
+    fi
 }
 
 source $HOME/dotfiles/alias.sh
