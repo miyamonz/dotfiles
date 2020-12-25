@@ -16,6 +16,7 @@ APPS=(
     tree
     shellcheck
     ffmpeg
+    graphviz
     hub
 )
 
