@@ -1,2 +1,1 @@
-# for macOS
-# brew install deno
+brew install deno
