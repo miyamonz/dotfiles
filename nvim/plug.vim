@@ -1,5 +1,5 @@
 if empty(glob('~/dotfiles/nvim/autoload/plug.vim'))
-    !curl -fLo $HOME/dotfiles/vim/autoload/plug.vim --create-dirs
+    !curl -fLo $HOME/dotfiles/nvim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
