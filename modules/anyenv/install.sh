@@ -1,5 +1,5 @@
 brew install anyenv
-anyenv install --init
+anyenv install --init -y
 
 # for pyenv
 if [ "$(uname)" == "Linux" ]; then
