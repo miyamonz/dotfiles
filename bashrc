@@ -23,6 +23,8 @@ source_if_exists() {
     fi
 }
 
+alias IS_MAC='[[ "$(uname)" == "Darwin" ]]'
+
 source $HOME/dotfiles/alias.sh
 source $HOME/dotfiles/rc.sh
 source $HOME/dotfiles/addpath.sh
