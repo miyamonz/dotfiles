@@ -12,7 +12,8 @@ git-root() {
 }
 
 # git prompot表示
-. "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+. "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+. "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
