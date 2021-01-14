@@ -8,3 +8,6 @@ Session.vim
 *.env
 .envrc
 tmp
+__pycache__
+.ipynb_checkpoints
+.mypy_cache
