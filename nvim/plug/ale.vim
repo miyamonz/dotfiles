@@ -4,7 +4,7 @@ let g:ale_fixers = {
             \ 'php': ['php_cs_fixer'],
             \ 'javascript': ['prettier'],
             \ 'typescript': ['prettier'],
-            \ 'typescript.tsx': ['prettier'],
+            \ 'typescriptreact': ['prettier'],
             \ 'html': ['prettier'],
             \ 'scss': ['prettier'],
             \ 'vue': ['prettier']
