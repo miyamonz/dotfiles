@@ -21,4 +21,4 @@ GIT_PS1_SHOWUNTRACKEDFILES=
 GIT_PS1_SHOWSTASHSTATE=1
 
 #git きれいなdiffひょうじのやつ
-export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+export PATH=$PATH:"$(brew --prefix)/share/git-core/contrib/diff-highlight"
