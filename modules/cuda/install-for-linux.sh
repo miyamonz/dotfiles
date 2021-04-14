@@ -1,4 +1,5 @@
-if IS_WSL; then
+# this is backup for linux environment
+if ! IS_WSL; then
     # cuda toolkit
     wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
     sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
