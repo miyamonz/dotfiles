@@ -8,6 +8,7 @@
 [color]
     ui = auto
 [init]
+	defaultBranch = main
 [core]
     editor = nvim
     excludesfile = ~/.gitignore_global
