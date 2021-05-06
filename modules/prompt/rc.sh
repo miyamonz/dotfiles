@@ -16,7 +16,7 @@ _ps1_result() {
     fi
     echo ;
 }
-export PROMPT_COMMAND="_ps1_result"
+export PROMPT_COMMAND="_ps1_result${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
 
 WHITE="\[\e[00m\]"
 GREEN="\[\e[32m\]"
