@@ -64,4 +64,13 @@ if executable('elm-language-server')
         \ })
 endif
 
+" haskell
+if executable('hie')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'hie',
+        \ 'cmd': {server_info->['hie']},
+        \ 'whitelist': ['haskell'],
+        \ })
+endif
+
 let g:lsp_async_completion = 1

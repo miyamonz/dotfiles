@@ -6,6 +6,7 @@ let g:ale_linters = {
             \'typescript': ['eslint'],
             \'typescriptreact': ['eslint'],
             \ 'python': ['flake8', 'mypy', 'pylint', 'pyright'],
+            \ 'haskell': ['hie'],
             \}
 let g:ale_fixers = {
             \ 'php': ['php_cs_fixer'],
