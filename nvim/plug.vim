@@ -60,11 +60,6 @@ Plug 'tyru/caw.vim'
 nmap ; <Plug>(caw:hatpos:toggle)
 vmap ; <Plug>(caw:hatpos:toggle)
 
-" tigris is a NodeJS remote plugin for Neovim that provides async syntax highlighting for javascript (using babylon).
-Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
-let g:tigris#enabled = 1
-let g:tigris#on_the_fly_enabled = 1
-
 " reverse column color when insert mode
 Plug 'cohama/vim-insert-linenr'
 Plug 'airblade/vim-gitgutter'
