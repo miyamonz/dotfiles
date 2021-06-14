@@ -1,4 +1,6 @@
 #!/bin/bash
+THIS_PATH="${BASH_SOURCE[0]}";
+SCRIPTPATH=$(dirname $THIS_PATH)
 
 function venv() {
     case $1 in
@@ -15,6 +17,10 @@ function venv() {
             local CMD='source venv/bin/activate'
             echo $CMD
             eval $CMD
+            ;;
+        makefile)
+            echo 'copy makefile'
+            cp "${SCRIPTPATH}/Makefile" .
             ;;
         *)
             venv activate
