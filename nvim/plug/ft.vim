@@ -13,20 +13,12 @@ let g:elm_syntastic_show_warnings = 1
 
 Plug 'posva/vim-vue', {'for': 'vue'}
 
-" php
-Plug 'StanAngeloff/php.vim', {'for': 'php'}
-Plug '2072/PHP-Indenting-for-VIm', {'for': 'php'}
-Plug 'jwalton512/vim-blade', {'for': 'php'}
-
 Plug 'digitaltoad/vim-pug', {'for': 'pug'}
 Plug 'wavded/vim-stylus', {'for': 'stylus'}
 Plug 'slim-template/vim-slim', {'for': 'slim'}
 
 Plug 'kovisoft/slimv', {'for': 'lisp'}
 Plug 'wlangstroth/vim-racket', {'for': 'scheme'}
-
-
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'hashivim/vim-terraform', {'for': ['tf', 'tfvars']}
 let g:terraform_fmt_on_save = 1
