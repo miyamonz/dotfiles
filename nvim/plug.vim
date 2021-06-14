@@ -34,8 +34,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'Shougo/vimshell.vim', {'on': 'VimShellPop'}
 nmap <silent> vs :<C-u>VimShellPop<CR>
 
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 
 
