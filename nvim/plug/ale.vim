@@ -10,6 +10,8 @@ let g:ale_linters = {
             \}
 let g:ale_fixers = {
             \ 'php': ['php_cs_fixer'],
+            \ 'markdown': ['prettier'],
+            \ 'json': ['prettier'],
             \ 'javascript': ['prettier'],
             \ 'javascriptreact': ['prettier'],
             \ 'typescript': ['prettier'],
