@@ -34,8 +34,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'Shougo/vimshell.vim', {'on': 'VimShellPop'}
 nmap <silent> vs :<C-u>VimShellPop<CR>
 
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 
 
@@ -61,11 +59,6 @@ nnoremap - :<C-u>Switch<CR>
 Plug 'tyru/caw.vim'
 nmap ; <Plug>(caw:hatpos:toggle)
 vmap ; <Plug>(caw:hatpos:toggle)
-
-" tigris is a NodeJS remote plugin for Neovim that provides async syntax highlighting for javascript (using babylon).
-Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
-let g:tigris#enabled = 1
-let g:tigris#on_the_fly_enabled = 1
 
 " reverse column color when insert mode
 Plug 'cohama/vim-insert-linenr'
