@@ -1,2 +1,2 @@
-. "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-. "$(brew --prefix)/etc/bash_completion"
+. "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
+. "$BREW_PREFIX/etc/bash_completion"

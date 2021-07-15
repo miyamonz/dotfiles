@@ -12,8 +12,8 @@ git-root() {
 }
 
 # git prompot表示
-. "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
-. "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
+. "$BREW_PREFIX/etc/bash_completion.d/git-prompt.sh"
+. "$BREW_PREFIX/etc/bash_completion.d/git-completion.bash"
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
@@ -21,4 +21,4 @@ GIT_PS1_SHOWUNTRACKEDFILES=
 GIT_PS1_SHOWSTASHSTATE=1
 
 #git きれいなdiffひょうじのやつ
-export PATH=$PATH:"$(brew --prefix)/share/git-core/contrib/diff-highlight"
+export PATH=$PATH:"$BREW_PREFIX/share/git-core/contrib/diff-highlight"
