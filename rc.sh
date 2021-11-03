@@ -2,13 +2,12 @@
 
 
 MODULE_DIR=$HOME/dotfiles/modules
-FOLDERS=$(ls "$MODULE_DIR")
 
-for FOLDER in $FOLDERS
-do
-    RC="$MODULE_DIR/$FOLDER/rc.sh"
+for FOLDER in $MODULE_DIR/*/; do
+    RC="${FOLDER}/rc.sh"
     if [[ -f $RC ]]; then
-        . $RC
+        source $RC
     fi
+
 done
 
