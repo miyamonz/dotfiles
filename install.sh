@@ -1,40 +1,19 @@
-#!/bin/bash
+#!/bin/zsh
 
-type brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if type brew > /dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 brew update
 brew upgrade
 
-APPS=(
-    ripgrep
-    gsed
-    ghq
-    tig
-    gron
-    bat
-    peco
-    tree
-    shellcheck
-    ffmpeg
-    graphviz
-    hub
-)
-
-
-for APP in "${APPS[@]}"
-do
-    brew install "$APP" || true
-done
-
 MODULE_DIR=$HOME/dotfiles/modules
-FOLDERS=$(ls "$MODULE_DIR")
 
-for FOLDER in $FOLDERS
-do
-    SH="$MODULE_DIR/$FOLDER/install.sh"
+for FOLDER in $MODULE_DIR/*/; do
+    SH="$FOLDER/install.sh"
     if [[ -f $SH ]]; then
         echo "install $SH"
-        . $SH
+        source $SH
     fi
 done
 
-ln -sfnv "$HOME/dotfiles/bashrc" "$HOME/.bashrc"
+ln -sfnv "$HOME/dotfiles/zshrc" "$HOME/.zshrc"

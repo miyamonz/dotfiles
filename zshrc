@@ -20,6 +20,8 @@ IGNOREEOF=200
 alias IS_MAC='[[ "$(uname)" == "Darwin" ]]'
 alias IS_WSL='[[ -f /proc/version ]] && grep -q microsoft /proc/version'
 
+autoload -Uz compinit && compinit
+
 export PROMPT_COMMAND=""
 source $HOME/dotfiles/alias.sh
 source $HOME/dotfiles/rc.sh
