@@ -3,10 +3,11 @@ export LANG=ja_JP.UTF-8
 export TERM='xterm-256color'
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export BREW_PREFIX="$(brew --prefix)"
 
 
 # editor setting
-export EDITOR="$(brew --prefix)/bin/nvim"
+export EDITOR="$BREW_PREFIX/bin/nvim"
 export SEARCHER="rg"
 
 # read man file with vim

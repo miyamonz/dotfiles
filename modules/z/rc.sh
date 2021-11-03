@@ -1,1 +1,1 @@
-. "$(brew --prefix)/etc/profile.d/z.sh"
+. "$BREW_PREFIX/etc/profile.d/z.sh"
