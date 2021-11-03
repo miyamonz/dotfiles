@@ -1,4 +1,5 @@
-#!//bin/bash
+#!/bin/zsh
+
 export LANG=ja_JP.UTF-8
 export TERM='xterm-256color'
 

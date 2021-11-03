@@ -1,5 +1,4 @@
-#!/bin/bash
-# command aliases
+#!/bin/zsh
 alias l='ls -a -G -F'
 alias lsl='ls -a -G -F -l'
 
