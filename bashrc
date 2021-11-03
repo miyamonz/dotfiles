@@ -13,16 +13,8 @@ export SEARCHER="rg"
 # read man file with vim
 export MANPAGER="col -b -x|$EDITOR -R -c 'set ft=man nolist nomod noma' -"
 
-# prevent exit by sending C-d 
+# prevent exit by sending C-d
 IGNOREEOF=200
-
-source_if_exists() { 
-    if [[ -f "$1" ]]; then
-        source "$1"
-    else
-        echo "$1 does not exist."
-    fi
-}
 
 alias IS_MAC='[[ "$(uname)" == "Darwin" ]]'
 alias IS_WSL='[[ -f /proc/version ]] && grep -q microsoft /proc/version'

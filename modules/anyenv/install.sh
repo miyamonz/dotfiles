@@ -1,4 +1,3 @@
-brew install anyenv
 anyenv install --init -y
 
 # for pyenv

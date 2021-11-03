@@ -1,5 +1,3 @@
-CLOCKER="gocloc"
-alias cloc="gocloc"
 cloc-dir() {
-    ls -d * | xargs -I% bash -c "$CLOCKER % | grep TOTAL | ( printf '%\t'; awk '{print \$5}')" | sort -rnk 2 | column -t
+    ls -d * | xargs -I% bash -c "gocloc % | grep TOTAL | ( printf '%\t'; awk '{print \$5}')" | sort -rnk 2 | column -t
 }
