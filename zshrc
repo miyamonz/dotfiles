@@ -24,5 +24,6 @@ autoload -Uz compinit && compinit
 
 export PROMPT_COMMAND=""
 source $HOME/dotfiles/alias.sh
+source $HOME/dotfiles/znaprc.sh
 source $HOME/dotfiles/rc.sh
 source $HOME/dotfiles/addpath.sh

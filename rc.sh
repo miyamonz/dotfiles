@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/zsh
 
 MODULE_DIR=$HOME/dotfiles/modules
 
