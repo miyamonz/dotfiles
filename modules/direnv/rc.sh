@@ -1,1 +1,1 @@
-eval "$(direnv hook bash)"
+znap eval direnv "$(direnv hook zsh)"

@@ -1,1 +1,1 @@
-eval "$(gh completion -s $(basename $SHELL))"
+znap eval gh "$(gh completion -s zsh)"
