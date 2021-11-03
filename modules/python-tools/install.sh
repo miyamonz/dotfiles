@@ -1,1 +1,0 @@
-npm -g i pyright
