@@ -11,7 +11,7 @@ READLINE_POINT=${#l}
 function attach-tmux-session() {
     local REPO_PATH=$@
     local SNAME=$(basename $REPO_PATH)
-    if [ -n "$TMUX" ]; then
+    if [[ -n "$TMUX" ]]; then
         tmux new-session -d -s $SNAME -c $REPO_PATH
         tmux switch-client -t $SNAME
     else
@@ -36,25 +36,25 @@ EOS
 
     # local CURRENT_SESSION=$(tmux display-message -p '#S')
 
-    if [ $COMMAND == "attach" ]; then
+    if [[ $COMMAND == "attach" ]]; then
         local SESSION=$(echo "$SELECTED" | cut -d : -f 2)
         if [ -n "$TMUX" ]; then
             tmux switch-client -t $SESSION
         else
             tmux attach -t $SESSION
         fi
-    elif [ $COMMAND == "new-window" ]; then
+    elif [[ $COMMAND == "new-window" ]]; then
         tmux new-window
-    elif [ $COMMAND == "new-session" ]; then
+    elif [[ $COMMAND == "new-session" ]]; then
         local SNAME
         read -p "session name: " SNAME
         tmux new-session -d -s $SNAME
         tmux switch-client -t $SNAME
-    elif [ $COMMAND == "detach" ]; then
+    elif [[ $COMMAND == "detach" ]]; then
         tmux detach-client
-    elif [ $COMMAND == "session-from-repo" ]; then
-        attach-tmux-session "$HOME/$(ghq-list | peco)"
-    elif [ $COMMAND == "new-repo" ]; then
+    elif [[ $COMMAND == "session-from-repo" ]]; then
+        attach-tmux-session "$HOME/ghq/$(ghq list | peco)"
+    elif [[ $COMMAND == "new-repo" ]]; then
         local MIYAMONZ_PATH=$(ghq root)/github.com/miyamonz
         local NAME
         read -p "new git repo miyamonz/ " NAME
