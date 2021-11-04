@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 FILTER=${FILTER:-peco}
 MAX_LOG_COUNT=${MAX_LOG_COUNT:-30}

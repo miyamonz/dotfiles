@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 if [ $# -eq 0 ] && which peco >/dev/null 2>&1; then
     git log --branches --oneline \

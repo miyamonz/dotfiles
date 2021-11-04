@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 WORD=${1:-$(read)}
 
 path=$( git ls-files | xargs $SEARCHER $WORD | peco | awk -F: '{printf  $1 " +" $2}'| sed -e 's/\+$//')

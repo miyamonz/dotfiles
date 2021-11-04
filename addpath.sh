@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 MODULE_DIR=$HOME/dotfiles/modules
 FOLDERS=$(ls "$MODULE_DIR")

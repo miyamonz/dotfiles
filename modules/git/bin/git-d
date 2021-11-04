@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 args=$@; 
 [ -z "$args" ] && args=HEAD;
  

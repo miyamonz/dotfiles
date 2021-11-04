@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 alias g='git'
 alias gti='git'
