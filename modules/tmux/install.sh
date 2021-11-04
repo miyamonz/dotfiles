@@ -1,5 +1,4 @@
-brew install tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
 
-DIR="$(cd "$(dirname "${BASH_SOURCE:-$0}")" && pwd)"
-ln -snfv "$DIR/tmux.conf" "$HOME/.tmux.conf"
+DIR=${0:a:h}
+ln -snfv "$DIR/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
