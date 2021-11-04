@@ -38,7 +38,7 @@ EOS
 
     if [[ $COMMAND == "attach" ]]; then
         local SESSION=$(echo "$SELECTED" | cut -d : -f 2)
-        if [ -n "$TMUX" ]; then
+        if [[ -n "$TMUX" ]]; then
             tmux switch-client -t $SESSION
         else
             tmux attach -t $SESSION
