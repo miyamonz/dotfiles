@@ -4,6 +4,7 @@ export LANG=ja_JP.UTF-8
 export TERM='xterm-256color'
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 export BREW_PREFIX="$(brew --prefix)"
 
 
