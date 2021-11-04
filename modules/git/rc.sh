@@ -11,10 +11,6 @@ git-root() {
     cd "$(git rev-parse --show-toplevel)" || exit
 }
 
-# git prompot表示
-. "$BREW_PREFIX/etc/bash_completion.d/git-prompt.sh"
-. "$BREW_PREFIX/etc/bash_completion.d/git-completion.bash"
-
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=

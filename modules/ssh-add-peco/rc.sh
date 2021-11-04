@@ -5,4 +5,6 @@ _ssh_add_peco() {
         COMPREPLY=$(find ~/.ssh/modules | grep pub | sed s/\.pub$// | peco)
     fi
 }
-complete -F _ssh_add_peco ssh-add
+# complete -F _ssh_add_peco ssh-add
+
+# TODO: implement with anyframe or other zsh utilities

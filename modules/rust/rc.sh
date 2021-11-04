@@ -1,7 +1,8 @@
-if [[ -f $HOME/.cargo/env ]]; then
+if [[ -d $HOME/.cargo/bin ]]; then
   source $HOME/.cargo/env
 fi
 
 if type rustup > /dev/null; then
-  eval "$(rustup completions $(basename $SHELL))"
+  # TODO: this shows error
+  # eval "$(rustup completions zsh)"
 fi

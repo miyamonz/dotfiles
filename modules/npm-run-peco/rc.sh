@@ -7,4 +7,7 @@ _npm_run_peco() {
         COMPREPLY=$(cat package.json | gron | grep -oE "scripts\.[^ ]*" | awk -F'.' '{print $2}' | peco --initial-filter=Fuzzy --query=$cur)
     fi
 }
-complete -F _npm_run_peco npm yarn
+
+# TODO: install npm scripts completion for zsh
+
+source <(npm completion)

@@ -1,11 +1,12 @@
-#!bin/bash
+#!bin/zsh
 
 peco-select-history() {
 declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = ();  } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in;  }' | peco --query "$READLINE_LINE")
 READLINE_LINE="$l"
 READLINE_POINT=${#l}
-} 
-bind -x '"\C-r": peco-select-history'
+}
+# bind -x '"\C-r": peco-select-history'
+# TODO: replace with anyframe thing
 
 function attach-tmux-session() {
     local REPO_PATH=$@
@@ -18,6 +19,8 @@ function attach-tmux-session() {
         tmux attach -t $SESSION
     fi
 }
+
+# TODO: make this work with anyframe
 function t() {
     local lines=$(cat << EOS
 new-window:
