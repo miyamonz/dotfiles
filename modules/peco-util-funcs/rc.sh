@@ -37,7 +37,7 @@ EOS
     # local CURRENT_SESSION=$(tmux display-message -p '#S')
 
     if [[ $COMMAND == "attach" ]]; then
-        local SESSION=$(echo "$SELECTED" | cut -d : -f 2)
+        local SESSION=$(echo "$SELECTED" | sed 's/^attach: //g')
         if [[ -n "$TMUX" ]]; then
             tmux switch-client -t $SESSION
         else
