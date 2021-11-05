@@ -21,6 +21,9 @@ IGNOREEOF=200
 alias IS_MAC='[[ "$(uname)" == "Darwin" ]]'
 alias IS_WSL='[[ -f /proc/version ]] && grep -q microsoft /proc/version'
 
+# emacs keybind
+bindkey -e
+
 autoload -Uz compinit && compinit
 
 export PROMPT_COMMAND=""
