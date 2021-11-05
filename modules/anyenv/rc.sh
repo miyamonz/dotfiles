@@ -1,5 +1,9 @@
 # anyenv install --init
-# ~/.config/anyenv/anyenv-install が存在しないとき　あとgit clone の-yもほしい
+
+export ANYENV_ROOT=$XDG_CONFIG_HOME/anyenv
+export ANYENV_DEFINITION_ROOT="${ANYENV_ROOT}/anyenv-install"
+
 if type anyenv > /dev/null; then
-  znap eval anyenv "$(anyenv init - --no-rehash)"
+  export PATH="${ANYENV_ROOT}/bin:${PATH}"
+  eval "$(anyenv init - --no-rehash)"
 fi
