@@ -1,3 +1,4 @@
+#!/bin/zsh
 DIR=${0:a:h}
 
 ln -snfv "$DIR/gitconfig" "$HOME/.gitconfig"
