@@ -41,6 +41,7 @@
         };f"
     grep-all  = "!git branch -a | tr -d \\* | sed '/->/d' | xargs git grep"
     cop       = "!git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout"
+    delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|main|master'|xargs git branch -d; };f"
 
 [pager]
     log  = diff-highlight | less
