@@ -16,5 +16,7 @@ GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=
 GIT_PS1_SHOWSTASHSTATE=1
 
+export PATH=$PATH:"$HOME/dotfiles/modules/git/bin"
+
 #git きれいなdiffひょうじのやつ
 export PATH=$PATH:"$BREW_PREFIX/share/git-core/contrib/diff-highlight"
