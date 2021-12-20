@@ -11,6 +11,11 @@ else
   export PATH="/usr/local/bin:$PATH"
 fi
 
+if [[ "$(uname)" = "Linux" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+fi
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export BREW_PREFIX="$(brew --prefix)"
