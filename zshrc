@@ -3,15 +3,15 @@
 export LANG=ja_JP.UTF-8
 export TERM='xterm-256color'
 
-if [[ "$(uname -m)" = "arm64" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  export PATH="/opt/homebrew/bin:$PATH"
-else
-  eval "$(/usr/local/bin/brew shellenv)"
-  export PATH="/usr/local/bin:$PATH"
-fi
-
-if [[ "$(uname)" = "Linux" ]]; then
+if [[ "$(uname)" = "Darwin" ]]; then
+  if [[ "$(uname -m)" = "arm64" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    export PATH="/opt/homebrew/bin:$PATH"
+  else
+    eval "$(/usr/local/bin/brew shellenv)"
+    export PATH="/usr/local/bin:$PATH"
+  fi
+elif [[ "$(uname)" = "Linux" ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 fi
