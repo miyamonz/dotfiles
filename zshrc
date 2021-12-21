@@ -1,6 +1,12 @@
 #!/bin/zsh
 
 export LANG=ja_JP.UTF-8
+
+if [[ "$(uname)" = "Darwin" ]]; then
+elif [[ "$(uname)" = "Linux" ]]; then
+    export LANG=en_US.UTF-8
+fi
+
 export TERM='xterm-256color'
 
 if [[ "$(uname)" = "Darwin" ]]; then
@@ -26,7 +32,7 @@ export EDITOR="$BREW_PREFIX/bin/nvim"
 export SEARCHER="rg"
 
 # read man file with vim
-export MANPAGER="col -b -x|$EDITOR -R -c 'set ft=man nolist nomod noma' -"
+export MANPAGER="/bin/sh -c -c \"col -b -x | $EDITOR -R -c 'set ft=man nolist nomod noma' -\""
 
 # prevent exit by sending C-d
 IGNOREEOF=200
