@@ -46,8 +46,8 @@ EOS
     elif [[ $COMMAND == "new-window" ]]; then
         tmux new-window
     elif [[ $COMMAND == "new-session" ]]; then
-        local SNAME
-        read -p "session name: " SNAME
+        echo -n  "session name:"
+        read SNAME
         tmux new-session -d -s $SNAME
         tmux switch-client -t $SNAME
     elif [[ $COMMAND == "detach" ]]; then
@@ -56,8 +56,8 @@ EOS
         attach-tmux-session "$HOME/ghq/$(ghq list | peco)"
     elif [[ $COMMAND == "new-repo" ]]; then
         local MIYAMONZ_PATH=$(ghq root)/github.com/miyamonz
-        local NAME
-        read -p "new git repo miyamonz/ " NAME
+        echo -n  "new git repo miyamonz/ "
+        read NAME
         local REPO_PATH=$MIYAMONZ_PATH/$NAME
         echo $REPO_PATH
         mkdir $REPO_PATH || return
