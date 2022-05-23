@@ -9,7 +9,7 @@ znap source zsh-users/zsh-autosuggestions
 
 # https://qiita.com/mollifier/items/81b18c012d7841ab33c3
 znap source mollifier/anyframe
-alias aw=anyframe-widget-select-widget
+alias a=anyframe-widget-select-widget
 
 znap source t413/zsh-background-notify
 znap source popstas/zsh-command-time
