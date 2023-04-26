@@ -1,9 +1,10 @@
 [filter "lfs"]
-    clean = git lfs clean %f
-    smudge = git lfs smudge %f
-    required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
 [user]
-    name = miyamonz
+	name = miyamonz
     email = m5813k@gmail.com
 [color]
     ui = auto
@@ -72,3 +73,6 @@
 	pushInsteadOf = https://github.com/
 [fetch]
 	prune = true
+
+[ghq]
+root = ~/ghq
