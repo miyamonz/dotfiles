@@ -45,7 +45,7 @@ alias IS_WSL='[[ -f /proc/version ]] && grep -q microsoft /proc/version'
 # emacs keybind
 bindkey -e
 
-autoload -Uz compinit && compinit
+#autoload -Uz compinit && compinit
 
 export PROMPT_COMMAND=""
 source $HOME/dotfiles/alias.sh
