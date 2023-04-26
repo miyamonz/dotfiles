@@ -50,3 +50,10 @@ source $HOME/dotfiles/alias.sh
 source $HOME/dotfiles/znaprc.sh
 source $HOME/dotfiles/rc.sh
 source $HOME/dotfiles/addpath.sh
+
+# bun completions
+[ -s "/Users/miyamonz/.bun/_bun" ] && source "/Users/miyamonz/.bun/_bun"
+
+# bun
+export BUN_INSTALL="/Users/miyamonz/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
