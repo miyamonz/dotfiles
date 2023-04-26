@@ -53,7 +53,8 @@ EOS
     elif [[ $COMMAND == "detach" ]]; then
         tmux detach-client
     elif [[ $COMMAND == "session-from-repo" ]]; then
-        attach-tmux-session "$HOME/ghq/$(ghq-list | peco)"
+        TARPATH="$HOME/$(ghq-list | peco)"
+        attach-tmux-session $TARPATH
     elif [[ $COMMAND == "new-repo" ]]; then
         local MIYAMONZ_PATH=$(ghq root)/github.com/miyamonz
         echo -n  "new git repo miyamonz/ "
