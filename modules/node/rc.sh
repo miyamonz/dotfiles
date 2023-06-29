@@ -3,4 +3,4 @@
 
 export FNM_DIR="/Users/miyamonz/Library/Application Support/fnm"
 export PATH="$FNM_DIR:$PATH"
-eval $(fnm env)
+eval "$(fnm env --use-on-cd)"
