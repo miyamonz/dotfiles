@@ -1,0 +1,45 @@
+#!/usr/bin/env bun
+import fs from "node:fs/promises";
+import path from "node:path";
+
+// const exts = [".ts", ".tsx", ".js", ".jsx", ".json"];
+const ignores = [".git", "node_modules", "dist", "build", "public", "static"];
+
+// list all files in the current directory, without dir
+const dirents = await fs.readdir(".", { recursive: true, withFileTypes: true });
+const promises = dirents.map(async (dirent) => {
+  if (dirent.isDirectory()) {
+    return null;
+  }
+  // also ignores symlink directories
+  if (dirent.isSymbolicLink()) {
+    return null;
+  }
+
+  if (
+    ignores.some((ignoreName) => dirent.parentPath.includes(ignoreName + "/"))
+  ) {
+    return null;
+  }
+
+  // const ext = path.extname(dirent.name);
+  // if (!exts.includes(ext)) {
+  //   return null;
+  // }
+
+  const filePath = path.join(dirent.parentPath, dirent.name);
+
+  try {
+    const content = await fs.readFile(filePath, "utf-8");
+    return { fileName: filePath, content };
+  } catch (e) {
+    console.info(dirent.parentPath, dirent.name);
+    // console.error(e);
+    process.exit(1);
+  }
+});
+
+for await (const file of promises) {
+  if (file) console.log(JSON.stringify(file));
+}
+

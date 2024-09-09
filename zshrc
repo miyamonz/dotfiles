@@ -1,15 +1,14 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 #!/bin/zsh
 
 export LANG=ja_JP.UTF-8
 
 if [[ "$(uname)" = "Darwin" ]]; then
 elif [[ "$(uname)" = "Linux" ]]; then
-    export LANG=en_US.UTF-8
+  export LANG=en_US.UTF-8
 fi
 
 export TERM='xterm-256color'
+export PATH="$HOME/dotfiles/bin:$PATH"
 
 if [[ "$(uname)" = "Darwin" ]]; then
   if [[ "$(uname -m)" = "arm64" ]]; then
@@ -27,7 +26,6 @@ fi
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export BREW_PREFIX="$(brew --prefix)"
-
 
 # editor setting
 export EDITOR="$BREW_PREFIX/bin/nvim"
@@ -60,6 +58,19 @@ source $HOME/dotfiles/addpath.sh
 export BUN_INSTALL="/Users/miyamonz/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# Onyx config
+export ONYX_PATH="/Users/miyamonz/.onyx"
+export PATH="$ONYX_PATH/bin:$PATH"
 
+# pnpm
+export PNPM_HOME="/Users/miyamonz/.local/share/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# atuin
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
+source $HOME/.atuin/bin/env

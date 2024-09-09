@@ -1,0 +1,2 @@
+
+ln -s /usr/local/share/dotnet/x64/dotnet /usr/local/bin/

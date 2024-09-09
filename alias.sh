@@ -10,3 +10,6 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 
 alias monochrome='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
+
+alias copy-cursor-link='echo cursor://file$(pwd) | pbcopy'
+
