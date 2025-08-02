@@ -9,16 +9,20 @@ PATH-bin = 'export PATH="{{ dir }}/bin:$PATH"'
 
 [plugins]
 
+# https://github.com/rossmacarthur/sheldon/blob/344dfc75e8c043c0d853007d2bdc00c85a74dbcf/docs/src/Examples.md#deferred-loading-of-plugins-in-zsh
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ['source']
+
 # envs
 
 ## LANG
 [plugins.LANG]
 local = "plugins/lang"
 
-# https://github.com/rossmacarthur/sheldon/blob/344dfc75e8c043c0d853007d2bdc00c85a74dbcf/docs/src/Examples.md#deferred-loading-of-plugins-in-zsh
-[plugins.zsh-defer]
-github = "romkatv/zsh-defer"
-apply = ['source']
+[plugins.MANPAGER]
+local = "plugins/MANPAGER"
+apply = ["defer"]
 
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
@@ -115,6 +119,11 @@ inline = 'alias ssh="assh wrapper ssh --"'
 # fnm
 [plugins.fnm]
 local = "plugins/fnm"
+apply = ["defer"]
+
+# pnpm 
+[plugins.pnpm]
+local = "plugins/pnpm"
 apply = ["defer"]
 
 # deno
