@@ -10,18 +10,8 @@ fi
 export TERM='xterm-256color'
 export PATH="$HOME/dotfiles/bin:$PATH"
 
-if [[ "$(uname)" = "Darwin" ]]; then
-  if [[ "$(uname -m)" = "arm64" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    export PATH="/opt/homebrew/bin:$PATH"
-  else
-    eval "$(/usr/local/bin/brew shellenv)"
-    export PATH="/usr/local/bin:$PATH"
-  fi
-elif [[ "$(uname)" = "Linux" ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-fi
+# brew path
+source $HOME/dotfiles/init-brew.sh
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
