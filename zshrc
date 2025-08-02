@@ -35,6 +35,11 @@ bindkey -e
 
 #autoload -Uz compinit && compinit
 
+# sheldon
+# project://sheldon/plugins.toml
+[ -f $HOME/.config/sheldon/plugins.toml ] || ln -snf $HOME/dotfiles/sheldon/plugins.toml $HOME/.config/sheldon/plugins.toml
+eval "$(sheldon source)"
+
 export PROMPT_COMMAND=""
 source $HOME/dotfiles/alias.sh
 source $HOME/dotfiles/znaprc.sh
