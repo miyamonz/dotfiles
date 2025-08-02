@@ -94,8 +94,17 @@ inline = 'alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 local = "plugins/ghq"
 apply = ["defer"]
 
+# assh
+[plugins.assh]
+inline = 'alias ssh="assh wrapper ssh --"'
+apply = ["defer"]
 
 # langs
+
+# fnm
+[plugins.fnm]
+local = "plugins/fnm"
+apply = ["defer"]
 
 # deno
 [plugins.deno]
@@ -112,8 +121,11 @@ apply = ["defer"]
 inline = 'export GOPATH="$HOME/go" && export PATH="$PATH:$GOPATH/bin"'
 
 
+# rye
+[plugins.rye]
+inline = 'source "$HOME/.rye/env"'
 # uv, pipx, mise など各ツールの作者が作ったものらしい https://chatgpt.com/c/688dc603-ae60-8331-b37d-e178408d50a5
-[plugins.env]
+[plugins.local-share-env]
 inline = 'source "$HOME/.local/share/../bin/env"'
 
 # gh
