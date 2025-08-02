@@ -72,16 +72,16 @@ apply = ["defer"]
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
-[plugins.zsh-autocomplete]
-github = "marlonrichert/zsh-autocomplete"
+# [plugins.zsh-autocomplete]
+# github = "marlonrichert/zsh-autocomplete"
 
-# [plugins.zsh-autosuggestions]
-# github = "zsh-users/zsh-autosuggestions"
-# apply = ["defer"]
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
 
-# [plugins.zsh-completions]
-# github = "zsh-users/zsh-completions"
-# apply = ["defer", "fpath-src"]
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer", "fpath-src"]
 
 [plugins.fzf-tab]
 github = "Aloxaf/fzf-tab"
@@ -99,9 +99,9 @@ github = "popstas/zsh-command-time"
 apply = ["defer"]
 
 # 動いてるかわからん
-[plugins.zsh-background-notify]
-github = "t413/zsh-background-notify"
-use = ["bgnotify.plugin.zsh"]
+[plugins.zsh-auto-notify]
+github = "MichaelAquilina/zsh-auto-notify"
+apply = ["defer"]
 
 [plugins.zsh-autopair]
 github = "hlissner/zsh-autopair"
