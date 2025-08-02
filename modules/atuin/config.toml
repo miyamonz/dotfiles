@@ -1,0 +1,8 @@
+# 履歴検索は常に“今いるディレクトリ”をデフォルトに
+filter_mode = "directory"
+
+# Git 管理下では自動でリポジトリ単位に切替
+workspaces = true
+
+# ダウンロードフォルダと tmp は記録しない
+cwd_filter = ["^/home/miyamonz/Downloads", "^/tmp"]

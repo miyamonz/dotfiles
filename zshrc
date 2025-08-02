@@ -70,9 +70,5 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# atuin
-. "$HOME/.atuin/bin/env"
-eval "$(atuin init zsh)"
-source $HOME/.atuin/bin/env
 
 . "$HOME/.local/share/../bin/env"
