@@ -19,6 +19,6 @@ GIT_PS1_SHOWSTASHSTATE=1
 #きれいなdiffひょうじのやつ
 export PATH=$PATH:"$HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight"
 
-# DIR=${0:a:h}
+# DIR=${0:A:h}
 # ln -snfv "$DIR/gitconfig" "$HOME/.gitconfig"
 # ln -snfv "$DIR/gitignore_global" "$HOME/.gitignore_global"

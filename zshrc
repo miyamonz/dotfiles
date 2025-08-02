@@ -1,8 +1,9 @@
 #!/bin/zsh
 
 export TERM='xterm-256color'
-export DOTFILES_DIR="$HOME/dotfiles"
-export PATH="$DOTFILES_DIR/bin:$PATH"
+DIR=${0:A:h}
+
+export DOTFILES_DIR="$DIR"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -26,9 +27,6 @@ export SHELDON_CONFIG_DIR="$DOTFILES_DIR/sheldon"
 eval "$(sheldon source)"
 
 export PROMPT_COMMAND=""
-
-# ./modules
-source $DOTFILES_DIR/rc.sh
 
 # pnpm
 export PNPM_HOME="/Users/miyamonz/.local/share/pnpm"

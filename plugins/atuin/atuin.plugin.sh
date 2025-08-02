@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-DIR=${0:a:h}
+DIR=${0:A:h}
 # config
 if [ ! -f $HOME/.config/atuin/config.toml ]; then
     ln -snf $DIR/config.toml $HOME/.config/atuin/config.toml

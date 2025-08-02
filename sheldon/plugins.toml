@@ -23,8 +23,13 @@ apply = ['source']
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
 
+
+[plugins.my-bin]
+inline = 'export PATH="$DOTFILES_DIR/bin:$PATH"'
+
 [plugins.brew]
 local = "plugins/brew"
+apply = ["defer"]
 
 [plugins.git]
 local = "plugins/git"
@@ -73,13 +78,20 @@ apply = ["defer"]
 github = "t413/zsh-background-notify"
 use = ["bgnotify.plugin.zsh"]
 
-# personal
+# inputrc
+[plugins.inputrc]
+local = "plugins/inputrc"
+apply = ["defer"]
 
-# is-mac, is-wsl
-[plugins.is-mac]
-inline = 'alias IS_MAC="[[ $(uname) == "Darwin" ]]" '
-[plugins.is-wsl]
-inline = 'alias IS_WSL="[[ -f /proc/version ]] && grep -q microsoft /proc/version"'
+# nvim
+[plugins.nvim]
+local = "plugins/nvim"
+apply = ["defer"]
+
+# tmux
+[plugins.tmux]
+local = "plugins/tmux"
+apply = ["defer"]
 
 # direnv
 [plugins.direnv]
@@ -97,7 +109,6 @@ apply = ["defer"]
 # assh
 [plugins.assh]
 inline = 'alias ssh="assh wrapper ssh --"'
-apply = ["defer"]
 
 # langs
 
@@ -116,19 +127,77 @@ apply = ["defer"]
 local = "plugins/bun"
 apply = ["defer"]
 
+# rust
+[plugins.rust]
+local = "plugins/rust"
+apply = ["defer"]
+
 # go
 [plugins.go]
 inline = 'export GOPATH="$HOME/go" && export PATH="$PATH:$GOPATH/bin"'
 
+# ghcup, Haskell
+[plugins.ghcup]
+inline = '[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"'
 
 # rye
 [plugins.rye]
 inline = 'source "$HOME/.rye/env"'
+# uv
+[plugins.uv]
+local = "plugins/uv"
+apply = ["defer"]
 # uv, pipx, mise など各ツールの作者が作ったものらしい https://chatgpt.com/c/688dc603-ae60-8331-b37d-e178408d50a5
 [plugins.local-share-env]
 inline = 'source "$HOME/.local/share/../bin/env"'
 
+# anyenv
+[plugins.anyenv]
+local = "plugins/anyenv"
+apply = ["defer"]
+
 # gh
 [plugins.gh]
 local = "plugins/gh"
+apply = ["defer"]
+
+# tig
+[plugins.tig]
+local = "plugins/tig"
+apply = ["defer"]
+
+[plugins.npm-run-peco]
+local = "plugins/npm-run-peco"
+apply = ["defer"]
+
+[plugins.git-switch-peco]
+local = "plugins/git-switch-peco"
+apply = ["defer"]
+
+
+# personal
+
+# is-mac, is-wsl
+[plugins.is-mac]
+inline = 'alias IS_MAC="[[ $(uname) == "Darwin" ]]" '
+[plugins.is-wsl]
+inline = 'alias IS_WSL="[[ -f /proc/version ]] && grep -q microsoft /proc/version"'
+
+# cloc-dir
+[plugins.cloc-dir]
+local = "plugins/cloc-dir"
+apply = ["defer"]
+
+# peco-util-funcs
+[plugins.peco-util-funcs]
+local = "plugins/peco-util-funcs"
+apply = ["defer"]
+
+# Onyx config
+[plugins.onyx]
+inline = 'export ONYX_PATH="$HOME/.onyx" && export PATH="$ONYX_PATH/bin:$PATH"'
+
+# WSL
+[plugins.WSL]
+local = "plugins/WSL"
 apply = ["defer"]

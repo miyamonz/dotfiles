@@ -1,4 +1,4 @@
-DIR=${0:a:h}
+DIR=${0:A:h}
 
 if [ ! -f "$XDG_CONFIG_HOME/tig/config" ]; then
     mkdir -p "$XDG_CONFIG_HOME/tig"
