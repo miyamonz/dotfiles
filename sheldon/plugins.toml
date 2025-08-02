@@ -18,10 +18,10 @@ apply = ['source']
 
 ## LANG
 [plugins.LANG]
-local = "plugins/lang"
+local = "~/dotfiles/plugins/lang"
 
 [plugins.MANPAGER]
-local = "plugins/MANPAGER"
+local = "~/dotfiles/plugins/MANPAGER"
 apply = ["defer"]
 
 [plugins.compinit]
@@ -29,32 +29,32 @@ inline = 'autoload -Uz compinit && zsh-defer compinit'
 
 
 [plugins.my-bin]
-inline = 'export PATH="$DOTFILES_DIR/bin:$PATH"'
+inline = 'export PATH="~/dotfiles/bin:$PATH"'
 
 [plugins.brew]
-local = "plugins/brew"
+local = "~/dotfiles/plugins/brew"
 apply = ["defer"]
 
 [plugins.git]
-local = "plugins/git"
+local = "~/dotfiles/plugins/git"
 apply = ["defer", "PATH-bin"]
 
 [plugins.source-zshrc]
 inline = 'alias reload="source ~/.zshrc"'
 
 [plugins.my-alias]
-local = "plugins/my-alias"
+local = "~/dotfiles/plugins/my-alias"
 
 [plugins.starship]
-local = "plugins/starship"
+local = "~/dotfiles/plugins/starship"
 
 # history manager
 [plugins.atuin]
-local = "plugins/atuin"
+local = "~/dotfiles/plugins/atuin"
 apply = ["defer"]
 
 [plugins.ocr]
-local = "plugins/ocr"
+local = "~/dotfiles/plugins/ocr"
 apply = ["PATH-bin"]
 
 # zsh plugins
@@ -84,17 +84,17 @@ use = ["bgnotify.plugin.zsh"]
 
 # inputrc
 [plugins.inputrc]
-local = "plugins/inputrc"
+local = "~/dotfiles/plugins/inputrc"
 apply = ["defer"]
 
 # nvim
 [plugins.nvim]
-local = "plugins/nvim"
+local = "~/dotfiles/plugins/nvim"
 apply = ["defer"]
 
 # tmux
 [plugins.tmux]
-local = "plugins/tmux"
+local = "~/dotfiles/plugins/tmux"
 apply = ["defer"]
 
 # direnv
@@ -107,7 +107,7 @@ inline = 'alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # ghq
 [plugins.ghq]
-local = "plugins/ghq"
+local = "~/dotfiles/plugins/ghq"
 apply = ["defer"]
 
 # assh
@@ -118,27 +118,27 @@ inline = 'alias ssh="assh wrapper ssh --"'
 
 # fnm
 [plugins.fnm]
-local = "plugins/fnm"
+local = "~/dotfiles/plugins/fnm"
 apply = ["defer"]
 
-# pnpm 
+# pnpm
 [plugins.pnpm]
-local = "plugins/pnpm"
+local = "~/dotfiles/plugins/pnpm"
 apply = ["defer"]
 
 # deno
 [plugins.deno]
-local = "plugins/deno"
+local = "~/dotfiles/plugins/deno"
 apply = ["defer"]
 
 # bun
 [plugins.bun]
-local = "plugins/bun"
+local = "~/dotfiles/plugins/bun"
 apply = ["defer"]
 
 # rust
 [plugins.rust]
-local = "plugins/rust"
+local = "~/dotfiles/plugins/rust"
 apply = ["defer"]
 
 # go
@@ -154,7 +154,7 @@ inline = '[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"'
 inline = 'source "$HOME/.rye/env"'
 # uv
 [plugins.uv]
-local = "plugins/uv"
+local = "~/dotfiles/plugins/uv"
 apply = ["defer"]
 # uv, pipx, mise など各ツールの作者が作ったものらしい https://chatgpt.com/c/688dc603-ae60-8331-b37d-e178408d50a5
 [plugins.local-share-env]
@@ -162,25 +162,25 @@ inline = 'source "$HOME/.local/share/../bin/env"'
 
 # anyenv
 [plugins.anyenv]
-local = "plugins/anyenv"
+local = "~/dotfiles/plugins/anyenv"
 apply = ["defer"]
 
 # gh
 [plugins.gh]
-local = "plugins/gh"
+local = "~/dotfiles/plugins/gh"
 apply = ["defer"]
 
 # tig
 [plugins.tig]
-local = "plugins/tig"
+local = "~/dotfiles/plugins/tig"
 apply = ["defer"]
 
 [plugins.npm-run-peco]
-local = "plugins/npm-run-peco"
+local = "~/dotfiles/plugins/npm-run-peco"
 apply = ["defer"]
 
 [plugins.git-switch-peco]
-local = "plugins/git-switch-peco"
+local = "~/dotfiles/plugins/git-switch-peco"
 apply = ["defer"]
 
 
@@ -194,12 +194,12 @@ inline = 'alias IS_WSL="[[ -f /proc/version ]] && grep -q microsoft /proc/versio
 
 # cloc-dir
 [plugins.cloc-dir]
-local = "plugins/cloc-dir"
+local = "~/dotfiles/plugins/cloc-dir"
 apply = ["defer"]
 
 # peco-util-funcs
 [plugins.peco-util-funcs]
-local = "plugins/peco-util-funcs"
+local = "~/dotfiles/plugins/peco-util-funcs"
 apply = ["defer"]
 
 # Onyx config
@@ -208,5 +208,5 @@ inline = 'export ONYX_PATH="$HOME/.onyx" && export PATH="$ONYX_PATH/bin:$PATH"'
 
 # WSL
 [plugins.WSL]
-local = "plugins/WSL"
+local = "~/dotfiles/plugins/WSL"
 apply = ["defer"]
