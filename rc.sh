@@ -7,6 +7,5 @@ for FOLDER in $MODULE_DIR/*/; do
     if [[ -f $RC ]]; then
         source $RC
     fi
-
 done
 

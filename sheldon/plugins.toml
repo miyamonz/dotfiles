@@ -1,20 +1,64 @@
-# `sheldon` configuration file
-# ----------------------------
-#
-# You can modify this file directly or you can use one of the following
-# `sheldon` commands which are provided to assist in editing the config file:
-#
-# - `sheldon add` to add a new plugin to the config file
-# - `sheldon edit` to open up the config file in the default editor
-# - `sheldon remove` to remove a plugin from the config file
-#
-# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+# https://github.com/rossmacarthur/sheldon#readme
 
 shell = "zsh"
 
+[templates]
+# zsh-deferを提供するカスタムテンプレート
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+PATH-bin = 'export PATH="{{ dir }}/bin:$PATH"'
+
 [plugins]
 
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
+# https://github.com/rossmacarthur/sheldon/blob/344dfc75e8c043c0d853007d2bdc00c85a74dbcf/docs/src/Examples.md#deferred-loading-of-plugins-in-zsh
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ['source']
+
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'
+
+# project://plugins/brew/brew.plugin.sh
+[plugins.brew]
+local = "/Users/miyamonz/dotfiles/plugins/brew"
+
+# project://plugins/git/git.plugin.sh
+[plugins.git]
+local = "/Users/miyamonz/dotfiles/plugins/git"
+apply = ["PATH-bin"]
+
+# project://plugins/my-alias/my-alias.plugin.sh
+[plugins.my-alias]
+local = "/Users/miyamonz/dotfiles/plugins/my-alias"
+
+# project://plugins/starship/starship.plugin.sh
+[plugins.starship]
+local = "/Users/miyamonz/dotfiles/plugins/starship"
+
+[plugins.ocr]
+local = "/Users/miyamonz/dotfiles/plugins/ocr"
+apply = ["PATH-bin"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+[plugins.anyframe]
+github = "mollifier/anyframe"
+apply = ["defer"]
+
+[plugins.anyframe-alias]
+inline = 'alias a=anyframe-widget-select-widget'
+
+[plugins.zsh-command-time]
+github = "popstas/zsh-command-time"
+apply = ["defer"]
+
+# 動いてるかわからん
+[plugins.zsh-background-notify]
+github = "t413/zsh-background-notify"
+use = ["bgnotify.plugin.zsh"]
+apply = ["defer"]

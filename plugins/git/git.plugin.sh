@@ -16,7 +16,13 @@ GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=
 GIT_PS1_SHOWSTASHSTATE=1
 
-export PATH=$PATH:"$HOME/dotfiles/modules/git/bin"
+export PATH=$PATH:"$HOME/dotfiles/plugins/git/bin"
 
 #git きれいなdiffひょうじのやつ
-export PATH=$PATH:"$BREW_PREFIX/share/git-core/contrib/diff-highlight"
+export PATH=$PATH:"$HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight"
+
+DIR=${0:a:h}
+
+
+ln -snfv "$DIR/gitconfig" "$HOME/.gitconfig"
+ln -snfv "$DIR/gitignore_global" "$HOME/.gitignore_global"

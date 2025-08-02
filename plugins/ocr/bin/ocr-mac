@@ -1,0 +1,176 @@
+
+import Foundation
+import AppKit
+import Vision
+import VisionKit
+
+// テキスト認識結果を保持する構造体（JSON出力用）
+struct TextResult: Codable {
+    let text: String
+    let confidence: Float
+    let bounds: [Float] // [x, y, width, height]
+}
+
+// コマンドライン引数をパースする関数
+func parseArguments() -> (imagePath: String, language: String, json: Bool) {
+    let args = CommandLine.arguments
+    
+    // デフォルト値
+    var imagePath = ""
+    var language = "auto"
+    var json = false
+    
+    var i = 1
+    while i < args.count {
+        switch args[i] {
+        case "--lang":
+            if i + 1 < args.count {
+                language = args[i + 1]
+                i += 2
+            } else {
+                print("Error: --lang requires an argument")
+                exit(1)
+            }
+        case "--json":
+            json = true
+            i += 1
+        case "--help", "-h":
+            printUsage()
+            exit(0)
+        default:
+            if !args[i].hasPrefix("--") {
+                imagePath = args[i]
+                i += 1
+            } else {
+                print("Error: Unknown option \(args[i])")
+                printUsage()
+                exit(1)
+            }
+        }
+    }
+    
+    if imagePath.isEmpty {
+        print("Error: No image path provided")
+        printUsage()
+        exit(1)
+    }
+    
+    return (imagePath, language, json)
+}
+
+// 使用法を表示する関数
+func printUsage() {
+    let cmd = "ocr-mac"
+    print("Usage: \(cmd) <image_path> [options]")
+    print("Options:")
+    print("  --lang <language>    Language to use (en, ja, auto) (default: auto)")
+    print("  --json               Output in JSON format (default: text)")
+    print("  --help, -h           Show this help message")
+    print("Examples:")
+    print("  \(cmd) image.png")
+    print("  \(cmd) image.png --lang ja")
+    print("  \(cmd) image.png --json")
+    print("  \(cmd) image.png --lang en --json")
+}
+
+// 画像からテキストを抽出する関数
+func extractText(from imagePath: String, language: String = "auto", json: Bool = false) -> String {
+    guard let image = NSImage(contentsOfFile: imagePath) else {
+        print("Error: Could not load image from \(imagePath)")
+        return ""
+    }
+    
+    guard let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
+        print("Error: Could not convert to CGImage")
+        return ""
+    }
+    
+    // イメージのサイズを取得（座標変換用）
+    // let imageWidth = CGFloat(cgImage.width)
+    // let imageHeight = CGFloat(cgImage.height)
+    
+    // Vision APIを使ってテキスト認識
+    let request = VNRecognizeTextRequest()
+    request.recognitionLevel = .accurate
+    
+    // 言語設定
+    switch language.lowercased() {
+    case "ja", "jp", "japanese":
+        request.recognitionLanguages = ["ja-JP", "en-US"]
+    case "en", "english":
+        request.recognitionLanguages = ["en-US"]
+    default: // auto - 両方の言語をサポート
+        request.recognitionLanguages = ["ja-JP", "en-US"]
+    }
+    
+    // リクエストハンドラを作成
+    let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+    
+    // 同期的に処理
+    do {
+        try requestHandler.perform([request])
+        
+        guard let observations = request.results else {
+            return "No text found"
+        }
+        
+        if json {
+            // JSON形式で出力
+            var results: [TextResult] = []
+            
+            for observation in observations {
+                // 信頼度を取得
+                let confidence = observation.confidence
+                
+                // バウンディングボックスを取得
+                let boundingBox = observation.boundingBox
+                
+                // バウンディングボックスはVisionの座標系（左下原点、0-1の正規化座標）なので
+                // 一般的な座標系（左上原点、ピクセル座標）に変換
+                let x = boundingBox.origin.x
+                let y = 1 - boundingBox.origin.y - boundingBox.height // 上下反転
+                let width = boundingBox.width
+                let height = boundingBox.height
+                
+                // テキストを取得
+                if let recognizedText = observation.topCandidates(1).first?.string {
+                    results.append(TextResult(
+                        text: recognizedText,
+                        confidence: confidence,
+                        bounds: [Float(x), Float(y), Float(width), Float(height)]
+                    ))
+                }
+            }
+            
+            // JSONエンコーダを作成
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            
+            // 結果をJSONにエンコード
+            if let jsonData = try? encoder.encode(results),
+               let jsonString = String(data: jsonData, encoding: .utf8) {
+                return jsonString
+            } else {
+                return "Error encoding JSON"
+            }
+        } else {
+            // テキスト形式で出力（従来通り）
+            let recognizedStrings = observations.compactMap { observation in
+                return observation.topCandidates(1).first?.string
+            }
+            
+            return recognizedStrings.joined(separator: "\n")
+        }
+    } catch {
+        print("Error: \(error)")
+        return ""
+    }
+}
+
+func main() {
+    let (imagePath, language, json) = parseArguments()
+    let result = extractText(from: imagePath, language: language, json: json)
+    print(result)
+}
+
+main()
