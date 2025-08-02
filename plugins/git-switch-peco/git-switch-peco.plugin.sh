@@ -8,4 +8,4 @@ _git_switch_peco() {
     fi
 }
 
-#complete -F _git_switch_peco git
+complete -F _git_switch_peco git
