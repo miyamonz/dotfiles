@@ -1,3 +1,3 @@
-
+DIR=${0:a:h}
 mkdir -p "$XDG_CONFIG_HOME/tig"
-ln -snfv "$HOME/dotfiles/modules/tig/config" "$XDG_CONFIG_HOME/tig/config"
+ln -snfv "$DIR/config" "$XDG_CONFIG_HOME/tig/config"

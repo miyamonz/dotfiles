@@ -5,4 +5,4 @@ path=$( git ls-files | xargs $SEARCHER $WORD | peco | awk -F: '{printf  $1 " +" 
 if [ -n "$path" ]; then
     echo "$EDITOR $path"
     $EDITOR $path
-fi  
+fi

@@ -9,6 +9,12 @@ PATH-bin = 'export PATH="{{ dir }}/bin:$PATH"'
 
 [plugins]
 
+# envs
+
+## LANG
+[plugins.LANG]
+local = "plugins/lang"
+
 # https://github.com/rossmacarthur/sheldon/blob/344dfc75e8c043c0d853007d2bdc00c85a74dbcf/docs/src/Examples.md#deferred-loading-of-plugins-in-zsh
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
@@ -17,27 +23,32 @@ apply = ['source']
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
 
-# project://plugins/brew/brew.plugin.sh
 [plugins.brew]
-local = "/Users/miyamonz/dotfiles/plugins/brew"
+local = "plugins/brew"
 
-# project://plugins/git/git.plugin.sh
 [plugins.git]
-local = "/Users/miyamonz/dotfiles/plugins/git"
-apply = ["PATH-bin"]
+local = "plugins/git"
+apply = ["defer", "PATH-bin"]
 
-# project://plugins/my-alias/my-alias.plugin.sh
+[plugins.source-zshrc]
+inline = 'alias reload="source ~/.zshrc"'
+
 [plugins.my-alias]
-local = "/Users/miyamonz/dotfiles/plugins/my-alias"
+local = "plugins/my-alias"
 
-# project://plugins/starship/starship.plugin.sh
 [plugins.starship]
-local = "/Users/miyamonz/dotfiles/plugins/starship"
+local = "plugins/starship"
+
+# history manager
+[plugins.atuin]
+local = "plugins/atuin"
+apply = ["defer"]
 
 [plugins.ocr]
-local = "/Users/miyamonz/dotfiles/plugins/ocr"
+local = "plugins/ocr"
 apply = ["PATH-bin"]
 
+# zsh plugins
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
@@ -61,4 +72,51 @@ apply = ["defer"]
 [plugins.zsh-background-notify]
 github = "t413/zsh-background-notify"
 use = ["bgnotify.plugin.zsh"]
+
+# personal
+
+# is-mac, is-wsl
+[plugins.is-mac]
+inline = 'alias IS_MAC="[[ $(uname) == "Darwin" ]]" '
+[plugins.is-wsl]
+inline = 'alias IS_WSL="[[ -f /proc/version ]] && grep -q microsoft /proc/version"'
+
+# direnv
+[plugins.direnv]
+inline = 'eval "$(direnv hook zsh)"'
+
+# tailscale
+[plugins.tailscale]
+inline = 'alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"'
+
+# ghq
+[plugins.ghq]
+local = "plugins/ghq"
+apply = ["defer"]
+
+
+# langs
+
+# deno
+[plugins.deno]
+local = "plugins/deno"
+apply = ["defer"]
+
+# bun
+[plugins.bun]
+local = "plugins/bun"
+apply = ["defer"]
+
+# go
+[plugins.go]
+inline = 'export GOPATH="$HOME/go" && export PATH="$PATH:$GOPATH/bin"'
+
+
+# uv, pipx, mise など各ツールの作者が作ったものらしい https://chatgpt.com/c/688dc603-ae60-8331-b37d-e178408d50a5
+[plugins.env]
+inline = 'source "$HOME/.local/share/../bin/env"'
+
+# gh
+[plugins.gh]
+local = "plugins/gh"
 apply = ["defer"]

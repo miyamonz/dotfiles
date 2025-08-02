@@ -1,1 +1,0 @@
-# TODO: install docker and docker-compose completions for zsh

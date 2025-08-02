@@ -6,7 +6,7 @@ fi
 brew update
 brew upgrade
 
-MODULE_DIR=$HOME/dotfiles/modules
+MODULE_DIR=$DOTFILES_DIR/modules
 
 for FOLDER in $MODULE_DIR/*/; do
     SH="$FOLDER/install.sh"
@@ -16,4 +16,4 @@ for FOLDER in $MODULE_DIR/*/; do
     fi
 done
 
-ln -sfnv "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
+ln -sfnv "$DOTFILES_DIR/zshrc" "$HOME/.zshrc"

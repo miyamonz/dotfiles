@@ -12,5 +12,5 @@ if (( $+commands[bun] )); then
 fi
 
 # bun
-export BUN_INSTALL="/Users/miyamonz/.bun"
+export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
