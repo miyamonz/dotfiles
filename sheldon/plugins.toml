@@ -6,6 +6,7 @@ shell = "zsh"
 # zsh-deferを提供するカスタムテンプレート
 defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
 PATH-bin = 'export PATH="{{ dir }}/bin:$PATH"'
+fpath-src = 'fpath=("{{ dir }}/src" $fpath)'
 
 [plugins]
 
@@ -58,12 +59,32 @@ local = "~/dotfiles/plugins/ocr"
 apply = ["PATH-bin"]
 
 # zsh plugins
+
+[plugins.zsh-cdr]
+github = "willghatch/zsh-cdr"
+apply = ["defer"]
+
+[plugins.zaw]
+github = "zsh-users/zaw"
+apply = ["defer"]
+
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
-[plugins.zsh-autosuggestions]
-github = "zsh-users/zsh-autosuggestions"
+[plugins.zsh-autocomplete]
+github = "marlonrichert/zsh-autocomplete"
+
+# [plugins.zsh-autosuggestions]
+# github = "zsh-users/zsh-autosuggestions"
+# apply = ["defer"]
+
+# [plugins.zsh-completions]
+# github = "zsh-users/zsh-completions"
+# apply = ["defer", "fpath-src"]
+
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
 apply = ["defer"]
 
 [plugins.anyframe]
@@ -81,6 +102,14 @@ apply = ["defer"]
 [plugins.zsh-background-notify]
 github = "t413/zsh-background-notify"
 use = ["bgnotify.plugin.zsh"]
+
+[plugins.zsh-autopair]
+github = "hlissner/zsh-autopair"
+apply = ["defer"]
+
+[plugins.zsh-abbr]
+github = "olets/zsh-abbr"
+apply = ["defer"]
 
 # inputrc
 [plugins.inputrc]
@@ -173,14 +202,6 @@ apply = ["defer"]
 # tig
 [plugins.tig]
 local = "~/dotfiles/plugins/tig"
-apply = ["defer"]
-
-[plugins.npm-run-peco]
-local = "~/dotfiles/plugins/npm-run-peco"
-apply = ["defer"]
-
-[plugins.git-switch-peco]
-local = "~/dotfiles/plugins/git-switch-peco"
 apply = ["defer"]
 
 

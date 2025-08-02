@@ -1,11 +1,12 @@
 #!/bin/zsh
 
-alias g='git'
-alias gti='git'
-alias gs='git status'
-alias ga='git add'
-alias gd='git diff'
-alias gr='g gr'
+# https://github.com/olets/zsh-abbr
+abbr g='git'
+abbr gti='git'
+abbr gs='git status'
+abbr ga='git add'
+abbr gd='git diff'
+abbr gr='g gr'
 
 git-root() {
     cd "$(git rev-parse --show-toplevel)" || exit
