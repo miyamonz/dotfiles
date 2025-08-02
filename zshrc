@@ -41,17 +41,6 @@ source $HOME/dotfiles/znaprc.sh
 source $HOME/dotfiles/rc.sh
 source $HOME/dotfiles/addpath.sh
 
-# bun completions
-[ -s "/Users/miyamonz/.bun/_bun" ] && source "/Users/miyamonz/.bun/_bun"
-
-# bun
-export BUN_INSTALL="/Users/miyamonz/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Onyx config
-export ONYX_PATH="/Users/miyamonz/.onyx"
-export PATH="$ONYX_PATH/bin:$PATH"
-
 # pnpm
 export PNPM_HOME="/Users/miyamonz/.local/share/pnpm"
 case ":$PATH:" in
