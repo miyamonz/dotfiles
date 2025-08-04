@@ -8,3 +8,5 @@ fi
 
 source "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
+
+eval "$(atuin gen-completions --shell zsh)"
