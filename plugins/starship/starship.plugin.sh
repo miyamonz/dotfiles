@@ -2,4 +2,4 @@
 
 DIR=${0:A:h}
 export STARSHIP_CONFIG="$DIR/config.toml"
-eval "$(starship init zsh)"
+eval "$(/opt/homebrew/bin/starship init zsh)"

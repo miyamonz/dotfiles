@@ -128,7 +128,7 @@ apply = ["defer"]
 
 # direnv
 [plugins.direnv]
-inline = 'eval "$(direnv hook zsh)"'
+inline = 'eval "$(/opt/homebrew/bin/direnv hook zsh)"'
 
 # tailscale
 [plugins.tailscale]
