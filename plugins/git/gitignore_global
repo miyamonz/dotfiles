@@ -7,6 +7,9 @@ Session.vim
 *.env
 .envrc
 tmp
+tmp2
 __pycache__
 .ipynb_checkpoints
 .mypy_cache
+
+.claude/settings.local.json
