@@ -1,5 +1,5 @@
 # 履歴検索は常に“今いるディレクトリ”をデフォルトに
-filter_mode = "directory"
+filter_mode = "workspace"
 
 # Git 管理下では自動でリポジトリ単位に切替
 workspaces = true
