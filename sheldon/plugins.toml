@@ -199,6 +199,11 @@ apply = ["defer"]
 local = "~/dotfiles/plugins/gh"
 apply = ["defer"]
 
+# fly
+[plugins.fly]
+local = "~/dotfiles/plugins/fly"
+apply = ["defer"]
+
 # tig
 [plugins.tig]
 local = "~/dotfiles/plugins/tig"
