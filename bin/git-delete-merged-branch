@@ -1,0 +1,140 @@
+#!/bin/bash
+
+# エラーハンドリングを無効化（個別に処理）
+set +e
+
+# ドライランモードのデフォルト値
+dry_run=false
+
+# コマンドラインオプションの処理
+while getopts "d" opt; do
+  case $opt in
+  d) dry_run=true ;;
+  *)
+    echo "使用法: $0 [-d]" >&2
+    echo "  -d  ドライラン（実際には削除しない）" >&2
+    exit 1
+    ;;
+  esac
+done
+
+# ドライランモードのメッセージ
+if $dry_run; then
+  echo "ドライランモード: ブランチは実際には削除されません"
+fi
+
+# 現在のブランチを保存
+current_branch=$(git branch --show-current)
+echo "現在のブランチ: $current_branch"
+
+# リモートの最新情報を取得
+echo "リモートの最新情報を取得中..."
+git fetch origin --prune
+
+# デフォルトブランチの特定を試みる
+default_branch=""
+# git remote showで試す
+default_branch_check=$(git remote show origin | grep "HEAD branch" | sed 's/.*: //')
+if [ -n "$default_branch_check" ]; then
+  default_branch=$default_branch_check
+else
+  # 一般的な名前を試す
+  for branch_name in main master develop; do
+    if git show-ref --verify --quiet refs/heads/$branch_name; then
+      default_branch=$branch_name
+      break
+    fi
+  done
+
+  # それでも見つからない場合
+  if [ -z "$default_branch" ]; then
+    echo "エラー: デフォルトブランチを特定できませんでした。"
+    echo "mainかmasterを明示的に指定してください。"
+    exit 1
+  fi
+fi
+
+echo "デフォルトブランチ: $default_branch"
+
+# GitHub PRの情報を取得
+echo "GitHub PRの情報を取得中..."
+pr_json=$(gh pr list --json number,headRefName,state,mergedAt --state all --limit 200)
+
+# マージ済みブランチをチェック
+echo "マージ済みブランチをチェックしています..."
+
+# 削除済みのブランチをカウント
+deleted_count=0
+
+# 一時的に$default_branchに切り替え
+if [ "$current_branch" != "$default_branch" ]; then
+  echo "一時的に $default_branch ブランチに切り替えます..."
+  git checkout -q $default_branch
+fi
+
+# すべてのローカルブランチを取得（デフォルトブランチとカレントブランチを除く）
+for branch in $(git for-each-ref refs/heads/ "--format=%(refname:short)" | grep -v "^$default_branch$" | grep -v "^$current_branch$"); do
+  # ステップ1: GitHub PRの情報からマージ済みかチェック
+  is_merged=$(echo $pr_json | jq -r --arg branch "$branch" '.[] | select(.headRefName==$branch and .state=="MERGED") | .mergedAt')
+
+  if [ -n "$is_merged" ]; then
+    if $dry_run; then
+      echo "ドライラン: '$branch' に対応するPRはマージ済みです。削除対象です。"
+    else
+      echo "'$branch' に対応するPRはマージ済みです。削除します..."
+      git branch -D "$branch"
+    fi
+    ((deleted_count++))
+    continue
+  fi
+
+  # ステップ2: 通常のマージかチェック
+  if git branch --merged $default_branch | grep -q "^ *$branch$"; then
+    if $dry_run; then
+      echo "ドライラン: '$branch' は通常マージされています。削除対象です。"
+    else
+      echo "'$branch' は通常マージされています。削除します..."
+      git branch -D "$branch"
+    fi
+    ((deleted_count++))
+    continue
+  fi
+
+  # ステップ3: Squash mergeかチェック（git commit-treeとgit cherryを使用）
+  merge_base=$(git merge-base $default_branch $branch)
+  if [ -n "$merge_base" ]; then
+    # ブランチのツリーオブジェクトを取得
+    branch_tree=$(git rev-parse $branch^{tree})
+    # そのツリーを使って一時コミットを作成
+    temp_commit=$(git commit-tree $branch_tree -p $merge_base -m "_temp_commit_for_squash_check_")
+    # そのコミットがデフォルトブランチにあるか確認
+    cherry_result=$(git cherry $default_branch $temp_commit)
+
+    if [[ $cherry_result == "-"* ]]; then
+      # "-"で始まる場合はSquash mergeされている
+      if $dry_run; then
+        echo "ドライラン: '$branch' はSquashマージされています。削除対象です。"
+      else
+        echo "'$branch' はSquashマージされています。削除します..."
+        git branch -D "$branch"
+      fi
+      ((deleted_count++))
+      continue
+    fi
+  fi
+
+  # ここに来たブランチはマージされていないと判断
+  # echo "'$branch' はマージされていないか、対応するPRが見つかりません。"
+done
+
+# 元のブランチに戻る
+if [ "$current_branch" != "$default_branch" ]; then
+  echo "$current_branch ブランチに戻ります..."
+  git checkout -q $current_branch
+fi
+
+if $dry_run; then
+  echo "ドライラン完了！$deleted_count 個のブランチが削除対象です。"
+else
+  echo "完了！$deleted_count 個のブランチを削除しました。"
+fi
