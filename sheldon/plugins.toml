@@ -4,7 +4,16 @@ shell = "zsh"
 
 [templates]
 # zsh-deferを提供するカスタムテンプレート
-defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+defer = """
+{{ hooks?.pre | nl }}{% for file in files %}
+ensure_zcompiled "{{ file }}"
+zsh-defer source "{{ file }}"
+{% endfor %}{{ hooks?.post | nl }}"""
+compile_source = """
+{{ hooks?.pre | nl }}{% for file in files %}
+ensure_zcompiled "{{ file }}"
+source "{{ file }}"
+{% endfor %}{{ hooks?.post | nl }}"""
 PATH-bin = 'export PATH="{{ dir }}/bin:$PATH"'
 fpath-src = 'fpath=("{{ dir }}/src" $fpath)'
 
@@ -13,15 +22,16 @@ fpath-src = 'fpath=("{{ dir }}/src" $fpath)'
 # https://github.com/rossmacarthur/sheldon/blob/344dfc75e8c043c0d853007d2bdc00c85a74dbcf/docs/src/Examples.md#deferred-loading-of-plugins-in-zsh
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
-apply = ['source']
+apply = ['compile_source']
 
 [plugins.zsh-smartcache]
 github = "QuarticCat/zsh-smartcache"
+apply = ["compile_source"]
 
 # should be before compinit
-# [plugins.zsh-completions]
-# github = "zsh-users/zsh-completions"
-# apply = ["defer", "fpath-src"]
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer", "fpath-src"]
 
 
 [plugins.compinit]
@@ -31,6 +41,7 @@ inline = 'autoload -Uz compinit && compinit'
 [plugins.fzf-tab]
 github = "Aloxaf/fzf-tab"
 # not to defer
+apply = ['compile_source']
 
 # fzf-tabと競合するのでどちらか。またcompinitは呼ばない
 # [plugins.zsh-autocomplete]
@@ -61,22 +72,18 @@ inline = 'alias a=anyframe-widget-select-widget'
 # fzf-tabより後ろ
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
-# apply = ["defer"]
-
+apply = ['compile_source']
 
 # envs
 
 # LANG
 [plugins.LANG]
 local = "~/dotfiles/plugins/lang"
+apply = ['compile_source']
 
 [plugins.MANPAGER]
 local = "~/dotfiles/plugins/MANPAGER"
 apply = ["defer"]
-
-
-[plugins.my-bin]
-inline = 'export PATH="~/dotfiles/bin:$PATH"'
 
 [plugins.brew]
 local = "~/dotfiles/plugins/brew"
@@ -91,10 +98,11 @@ inline = 'alias reload="source ~/.zshrc"'
 
 [plugins.my-alias]
 local = "~/dotfiles/plugins/my-alias"
+apply = ['compile_source']
 
 [plugins.starship]
 local = "~/dotfiles/plugins/starship"
-
+apply = ['compile_source']
 
 ## ここより後ろに重いのがありそう
 
@@ -103,13 +111,8 @@ local = "~/dotfiles/plugins/starship"
 local = "~/dotfiles/plugins/atuin"
 apply = ["defer"]
 
-
 [plugins.zsh-command-time]
 github = "popstas/zsh-command-time"
-apply = ["defer"]
-
-[plugins.zsh-abbr]
-github = "olets/zsh-abbr"
 apply = ["defer"]
 
 [plugins.inputrc]
@@ -125,8 +128,8 @@ local = "~/dotfiles/plugins/tmux"
 apply = ["defer"]
 
 [plugins.direnv]
-# inline = 'eval "$(/opt/homebrew/bin/direnv hook zsh)"'
-inline = 'smartcache eval /opt/homebrew/bin/direnv hook zsh'
+local = "~/dotfiles/plugins/direnv"
+apply = ['compile_source']
 
 [plugins.tailscale]
 inline = 'alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"'
@@ -165,10 +168,8 @@ inline = 'export GOPATH="$HOME/go" && export PATH="$PATH:$GOPATH/bin"'
 
 # Haskell
 [plugins.ghcup]
-inline = '[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"'
-
-[plugins.rye]
-inline = 'source "$HOME/.rye/env"'
+local = "~/dotfiles/plugins/ghcup"
+apply = ["defer"]
 
 [plugins.uv]
 local = "~/dotfiles/plugins/uv"
