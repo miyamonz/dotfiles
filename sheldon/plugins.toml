@@ -95,19 +95,18 @@ local = "~/dotfiles/plugins/my-alias"
 [plugins.starship]
 local = "~/dotfiles/plugins/starship"
 
+
+## ここより後ろに重いのがありそう
+
 # history manager
 [plugins.atuin]
 local = "~/dotfiles/plugins/atuin"
 apply = ["defer"]
 
-[plugins.ocr]
-local = "~/dotfiles/plugins/ocr"
-apply = ["PATH-bin"]
 
 [plugins.zsh-command-time]
 github = "popstas/zsh-command-time"
 apply = ["defer"]
-
 
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
@@ -126,7 +125,8 @@ local = "~/dotfiles/plugins/tmux"
 apply = ["defer"]
 
 [plugins.direnv]
-inline = 'eval "$(/opt/homebrew/bin/direnv hook zsh)"'
+# inline = 'eval "$(/opt/homebrew/bin/direnv hook zsh)"'
+inline = 'smartcache eval /opt/homebrew/bin/direnv hook zsh'
 
 [plugins.tailscale]
 inline = 'alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"'
@@ -193,8 +193,10 @@ apply = ["defer"]
 local = "~/dotfiles/plugins/tig"
 apply = ["defer"]
 
-
 # personal
+[plugins.ocr]
+local = "~/dotfiles/plugins/ocr"
+apply = ["PATH-bin"]
 
 [plugins.is-mac]
 inline = 'alias IS_MAC="[[ $(uname) == "Darwin" ]]" '
