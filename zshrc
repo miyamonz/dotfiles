@@ -18,11 +18,15 @@ export SEARCHER="rg"
 # emacs keybind
 bindkey -e
 
-function ensure_zcompiled {
-  local compiled="$1.zwc"
-  if [[ ! -r "$compiled" || "$1" -nt "$compiled" ]]; then
+export PATH="~/dotfiles/bin:$PATH"
+
+function ensure_zcompiled() {
+  local src="$1"
+  local zwc="${src}.zwc"
+  # zwc が無い or 元ファイルのほうが新しい場合だけ zcompile する
+  if [[ ! -r "$zwc" || "$src" -nt "$zwc" ]]; then
     echo "\033[1;36mCompiling\033[m $1"
-    zcompile $1
+    zcompile "$src"
   fi
 }
 ensure_zcompiled ~/.zshrc
