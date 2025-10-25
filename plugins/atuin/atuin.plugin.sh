@@ -7,6 +7,8 @@ if [ ! -f $HOME/.config/atuin/config.toml ]; then
 fi
 
 source "$HOME/.atuin/bin/env"
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
+smartcache eval atuin init zsh
 
-eval "$(atuin gen-completions --shell zsh)"
+# eval "$(atuin gen-completions --shell zsh)"
+smartcache eval atuin ge-completions --shell zsh

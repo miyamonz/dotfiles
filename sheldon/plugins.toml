@@ -15,6 +15,9 @@ fpath-src = 'fpath=("{{ dir }}/src" $fpath)'
 github = "romkatv/zsh-defer"
 apply = ['source']
 
+[plugins.zsh-smartcache]
+github = "QuarticCat/zsh-smartcache"
+
 # should be before compinit
 # [plugins.zsh-completions]
 # github = "zsh-users/zsh-completions"

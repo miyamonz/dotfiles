@@ -2,10 +2,12 @@
 
 if [[ "$(uname)" = "Darwin" ]]; then
   if [[ "$(uname -m)" = "arm64" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    # eval "$(/opt/homebrew/bin/brew shellenv)"
+    smartcache eval /opt/homebrew/bin/brew shellenv
     export PATH="/opt/homebrew/bin:$PATH"
   else
-    eval "$(/usr/local/bin/brew shellenv)"
+    # eval "$(/usr/local/bin/brew shellenv)"
+    smartcache eval /usr/local/bin/brew shellenv
     export PATH="/usr/local/bin:$PATH"
   fi
 elif [[ "$(uname)" = "Linux" ]]; then
