@@ -15,18 +15,61 @@ fpath-src = 'fpath=("{{ dir }}/src" $fpath)'
 github = "romkatv/zsh-defer"
 apply = ['source']
 
+# should be before compinit
+# [plugins.zsh-completions]
+# github = "zsh-users/zsh-completions"
+# apply = ["defer", "fpath-src"]
+
+
+[plugins.compinit]
+inline = 'autoload -Uz compinit && compinit'
+
+# fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+# not to defer
+
+# fzf-tabと競合するのでどちらか。またcompinitは呼ばない
+# [plugins.zsh-autocomplete]
+# github = "marlonrichert/zsh-autocomplete"
+# # apply = ["defer"]
+
+
+# ZLE widgets
+[plugins.zsh-cdr]
+github = "willghatch/zsh-cdr"
+apply = ["defer"]
+
+[plugins.zaw]
+github = "zsh-users/zaw"
+apply = ["defer"]
+
+[plugins.zsh-autopair]
+github = "hlissner/zsh-autopair"
+apply = ["defer"]
+
+[plugins.anyframe]
+github = "mollifier/anyframe"
+apply = ["defer"]
+[plugins.anyframe-alias]
+inline = 'alias a=anyframe-widget-select-widget'
+
+# ターミナルのカーソルの右にサジェストを表示するプラグイン
+# fzf-tabより後ろ
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+# apply = ["defer"]
+
+
 # envs
 
-## LANG
+# LANG
 [plugins.LANG]
 local = "~/dotfiles/plugins/lang"
 
 [plugins.MANPAGER]
 local = "~/dotfiles/plugins/MANPAGER"
 apply = ["defer"]
-
-[plugins.compinit]
-inline = 'autoload -Uz compinit && zsh-defer compinit'
 
 
 [plugins.my-bin]
@@ -58,131 +101,72 @@ apply = ["defer"]
 local = "~/dotfiles/plugins/ocr"
 apply = ["PATH-bin"]
 
-# zsh plugins
-
-[plugins.zsh-cdr]
-github = "willghatch/zsh-cdr"
-apply = ["defer"]
-
-[plugins.zaw]
-github = "zsh-users/zaw"
-apply = ["defer"]
-
-[plugins.zsh-syntax-highlighting]
-github = "zsh-users/zsh-syntax-highlighting"
-apply = ["defer"]
-
-[plugins.zsh-autocomplete]
-github = "marlonrichert/zsh-autocomplete"
-apply = ["defer"]
-
-[plugins.zsh-autosuggestions]
-github = "zsh-users/zsh-autosuggestions"
-apply = ["defer"]
-
-[plugins.zsh-completions]
-github = "zsh-users/zsh-completions"
-apply = ["defer", "fpath-src"]
-
-[plugins.fzf-tab]
-github = "Aloxaf/fzf-tab"
-apply = ["defer"]
-
-[plugins.anyframe]
-github = "mollifier/anyframe"
-apply = ["defer"]
-
-[plugins.anyframe-alias]
-inline = 'alias a=anyframe-widget-select-widget'
-
 [plugins.zsh-command-time]
 github = "popstas/zsh-command-time"
 apply = ["defer"]
 
-# 動いてるかわからん
-[plugins.zsh-auto-notify]
-github = "MichaelAquilina/zsh-auto-notify"
-apply = ["defer"]
-
-[plugins.zsh-autopair]
-github = "hlissner/zsh-autopair"
-apply = ["defer"]
 
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
 apply = ["defer"]
 
-# inputrc
 [plugins.inputrc]
 local = "~/dotfiles/plugins/inputrc"
 apply = ["defer"]
 
-# nvim
 [plugins.nvim]
 local = "~/dotfiles/plugins/nvim"
 apply = ["defer"]
 
-# tmux
 [plugins.tmux]
 local = "~/dotfiles/plugins/tmux"
 apply = ["defer"]
 
-# direnv
 [plugins.direnv]
 inline = 'eval "$(/opt/homebrew/bin/direnv hook zsh)"'
 
-# tailscale
 [plugins.tailscale]
 inline = 'alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"'
 
-# ghq
 [plugins.ghq]
 local = "~/dotfiles/plugins/ghq"
 apply = ["defer"]
 
-# assh
 [plugins.assh]
 inline = 'alias ssh="assh wrapper ssh --"'
 
 # langs
 
-# fnm
 [plugins.fnm]
 local = "~/dotfiles/plugins/fnm"
 apply = ["defer"]
 
-# pnpm
 [plugins.pnpm]
 local = "~/dotfiles/plugins/pnpm"
 apply = ["defer"]
 
-# deno
 [plugins.deno]
 local = "~/dotfiles/plugins/deno"
 apply = ["defer"]
 
-# bun
 [plugins.bun]
 local = "~/dotfiles/plugins/bun"
 apply = ["defer"]
 
-# rust
 [plugins.rust]
 local = "~/dotfiles/plugins/rust"
 apply = ["defer"]
 
-# go
 [plugins.go]
 inline = 'export GOPATH="$HOME/go" && export PATH="$PATH:$GOPATH/bin"'
 
-# ghcup, Haskell
+# Haskell
 [plugins.ghcup]
 inline = '[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"'
 
-# rye
 [plugins.rye]
 inline = 'source "$HOME/.rye/env"'
-# uv
+
 [plugins.uv]
 local = "~/dotfiles/plugins/uv"
 apply = ["defer"]
@@ -190,22 +174,18 @@ apply = ["defer"]
 [plugins.local-share-env]
 inline = 'source "$HOME/.local/share/../bin/env"'
 
-# anyenv
 [plugins.anyenv]
 local = "~/dotfiles/plugins/anyenv"
 apply = ["defer"]
 
-# gh
 [plugins.gh]
 local = "~/dotfiles/plugins/gh"
 apply = ["defer"]
 
-# fly
 [plugins.fly]
 local = "~/dotfiles/plugins/fly"
 apply = ["defer"]
 
-# tig
 [plugins.tig]
 local = "~/dotfiles/plugins/tig"
 apply = ["defer"]
@@ -213,27 +193,34 @@ apply = ["defer"]
 
 # personal
 
-# is-mac, is-wsl
 [plugins.is-mac]
 inline = 'alias IS_MAC="[[ $(uname) == "Darwin" ]]" '
 [plugins.is-wsl]
 inline = 'alias IS_WSL="[[ -f /proc/version ]] && grep -q microsoft /proc/version"'
 
-# cloc-dir
 [plugins.cloc-dir]
 local = "~/dotfiles/plugins/cloc-dir"
 apply = ["defer"]
 
-# peco-util-funcs
 [plugins.peco-util-funcs]
 local = "~/dotfiles/plugins/peco-util-funcs"
 apply = ["defer"]
 
-# Onyx config
 [plugins.onyx]
 inline = 'export ONYX_PATH="$HOME/.onyx" && export PATH="$ONYX_PATH/bin:$PATH"'
 
 # WSL
 [plugins.WSL]
 local = "~/dotfiles/plugins/WSL"
+apply = ["defer"]
+
+
+# should be loaded last
+
+# [plugins.zsh-syntax-highlighting]
+# github = "zsh-users/zsh-syntax-highlighting"
+# apply = ["defer"]
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
