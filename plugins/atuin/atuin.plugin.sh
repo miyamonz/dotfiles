@@ -11,4 +11,4 @@ source "$HOME/.atuin/bin/env"
 smartcache eval atuin init zsh
 
 # eval "$(atuin gen-completions --shell zsh)"
-smartcache eval atuin ge-completions --shell zsh
+smartcache eval atuin gen-completions --shell zsh

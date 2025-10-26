@@ -28,26 +28,23 @@ apply = ['compile_source']
 github = "QuarticCat/zsh-smartcache"
 apply = ["compile_source"]
 
+
 # should be before compinit
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 apply = ["defer", "fpath-src"]
 
+# これを使うときはcompinitは呼ばない
+[plugins.zsh-autocomplete]
+github = "marlonrichert/zsh-autocomplete"
+apply = ["compile_source"]
 
-[plugins.compinit]
-inline = 'autoload -Uz compinit && compinit'
-
-# fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions
-[plugins.fzf-tab]
-github = "Aloxaf/fzf-tab"
-# not to defer
-apply = ['compile_source']
-
-# fzf-tabと競合するのでどちらか。またcompinitは呼ばない
-# [plugins.zsh-autocomplete]
-# github = "marlonrichert/zsh-autocomplete"
-# # apply = ["defer"]
-
+[plugins.zsh-autocomplete.hooks]
+post = """
+# Tab/Shift-Tab で「候補リストに入る」= 最初の候補を即挿入しない
+bindkey '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
+"""
 
 # ZLE widgets
 [plugins.zsh-cdr]
@@ -62,17 +59,16 @@ apply = ["defer"]
 github = "hlissner/zsh-autopair"
 apply = ["defer"]
 
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ['compile_source']
+
 [plugins.anyframe]
 github = "mollifier/anyframe"
 apply = ["defer"]
 [plugins.anyframe-alias]
 inline = 'alias a=anyframe-widget-select-widget'
-
-# ターミナルのカーソルの右にサジェストを表示するプラグイン
-# fzf-tabより後ろ
-[plugins.zsh-autosuggestions]
-github = "zsh-users/zsh-autosuggestions"
-apply = ['compile_source']
 
 # envs
 
@@ -100,11 +96,6 @@ inline = 'alias reload="source ~/.zshrc"'
 local = "~/dotfiles/plugins/my-alias"
 apply = ['compile_source']
 
-[plugins.starship]
-local = "~/dotfiles/plugins/starship"
-apply = ['compile_source']
-
-## ここより後ろに重いのがありそう
 
 # history manager
 [plugins.atuin]
@@ -223,9 +214,10 @@ apply = ["defer"]
 
 # should be loaded last
 
-# [plugins.zsh-syntax-highlighting]
-# github = "zsh-users/zsh-syntax-highlighting"
-# apply = ["defer"]
+# ターミナルのカーソルの右にサジェストを表示するプラグイン
+[plugins.starship] # fzf-tabより後ろ
+local = "~/dotfiles/plugins/starship"
+apply = ['compile_source']
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
