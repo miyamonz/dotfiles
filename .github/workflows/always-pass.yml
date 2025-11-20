@@ -1,3 +1,7 @@
+# ⚠️ 一時的なテスト用ワークフロー - ブランチ保護ルールの動作確認
+# このファイルはブランチ保護ルールのテスト目的で故意にワークフローを失敗させています
+# 動作確認後は必ず元に戻すかこのPRをクローズしてください
+#
 # 動作確認用ワークフロー - 常に成功することを保証
 # このワークフローはCI/CDパイプラインの動作確認やテスト用途で使用します
 name: Always Pass CI
@@ -39,16 +43,19 @@ jobs:
           echo "=== Current Date/Time ==="
           date
       
-      # 明示的に成功を保証するステップ
-      - name: Force success
+      # 明示的に失敗を強制するステップ（ブランチ保護ルールのテスト用）
+      - name: Force failure for protection test
         run: |
-          echo "このステップは常に成功します"
-          # 明示的に成功コード0で終了
-          exit 0
+          echo "Intentionally failing for branch protection test"
+          echo "ブランチ保護ルールが正しく機能しているか確認するため、故意に失敗させています"
+          # 明示的に失敗コード1で終了
+          exit 1
       
-      # ワークフロー成功のサマリーを出力
+      # ワークフロー失敗のサマリーを出力（常に実行）
       - name: Generate success summary
+        if: always()
         run: |
-          echo "✅ Workflow succeeded" >> $GITHUB_STEP_SUMMARY
+          echo "❌ Workflow failed (intentional for branch protection test)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "すべてのステップが正常に完了しました。" >> $GITHUB_STEP_SUMMARY
+          echo "このワークフローは、ブランチ保護ルールのテスト目的で故意に失敗させています。" >> $GITHUB_STEP_SUMMARY
+          echo "動作確認が完了したら、このPRは元に戻すかクローズしてください。" >> $GITHUB_STEP_SUMMARY
