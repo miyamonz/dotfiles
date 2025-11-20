@@ -15,11 +15,6 @@ on:
   # 手動実行を許可
   workflow_dispatch:
 
-# 並行実行制御: 同じブランチの実行は並行して実行（キャンセルしない）
-concurrency:
-  group: always-pass-${{ github.ref }}
-  cancel-in-progress: false
-
 jobs:
   ok:
     # 最新のUbuntu環境で実行
