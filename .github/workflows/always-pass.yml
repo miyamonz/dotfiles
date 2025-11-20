@@ -1,0 +1,59 @@
+# 動作確認用ワークフロー - 常に成功することを保証
+# このワークフローはCI/CDパイプラインの動作確認やテスト用途で使用します
+name: Always Pass CI
+
+# 権限設定: 最小権限の原則に従い、リポジトリの読み取りのみを許可
+permissions:
+  contents: read
+
+# トリガー設定
+on:
+  # すべてのブランチへのプッシュで実行
+  push:
+  # プルリクエストで実行
+  pull_request:
+  # 手動実行を許可
+  workflow_dispatch:
+
+# 並行実行制御: 同じブランチの実行は並行して実行（キャンセルしない）
+concurrency:
+  group: always-pass-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  ok:
+    # 最新のUbuntu環境で実行
+    runs-on: ubuntu-latest
+    
+    steps:
+      # リポジトリをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      # 環境情報を表示
+      - name: Print environment info
+        run: |
+          echo "=== Environment Information ==="
+          echo "Runner OS: $RUNNER_OS"
+          echo "GitHub Event: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
+          echo ""
+          echo "=== System Information ==="
+          uname -a
+          echo ""
+          echo "=== Current Date/Time ==="
+          date
+      
+      # 明示的に成功を保証するステップ
+      - name: Force success
+        run: |
+          echo "このステップは常に成功します"
+          # 明示的に成功コード0で終了
+          exit 0
+      
+      # ワークフロー成功のサマリーを出力
+      - name: Generate success summary
+        run: |
+          echo "✅ Workflow succeeded" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "すべてのステップが正常に完了しました。" >> $GITHUB_STEP_SUMMARY
