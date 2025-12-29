@@ -44,31 +44,33 @@
     cop       = "!git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout"
     delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|main|master'|xargs git branch -d; };f"
 
-[pager]
-    log  = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
-[interactive]
-    diffFilter = diff-highlight
+
 [rebase]
     autosquash = true
 
+[core]
+    pager = delta
 
-[branch]
-    sort = -authordate
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    line-numbers = true
+
+[merge]
+    conflictStyle = zdiff3
+
+# jupyter
 [diff "jupyternotebook"]
 	command = git-nbdiffdriver diff
 [merge "jupyternotebook"]
 	driver = git-nbmergedriver merge %O %A %B %L %P
 	name = jupyter notebook merge driver
-[difftool "nbdime"]
-	cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
-[difftool]
-	prompt = false
-[mergetool "nbdime"]
-	cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-[mergetool]
-	prompt = false
+
+
+[branch]
+    sort = -authordate
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 [fetch]
