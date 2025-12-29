@@ -181,6 +181,10 @@ apply = ["defer"]
 local = "~/dotfiles/plugins/fly"
 apply = ["defer"]
 
+[plugins.turso]
+local = "~/dotfiles/plugins/turso"
+apply = ["defer"]
+
 [plugins.tig]
 local = "~/dotfiles/plugins/tig"
 apply = ["defer"]
