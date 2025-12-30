@@ -8,7 +8,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # editor setting
-export EDITOR="$HOMEBREW_PREFIX/bin/nvim"
+export EDITOR="nvim"
 export SEARCHER="rg"
 
 # prevent exit by sending C-d
