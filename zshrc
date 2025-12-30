@@ -49,5 +49,6 @@ export SHELDON_CONFIG_DIR="$DOTFILES_DIR/sheldon"
 }
 
 
+# Added by Antigravity
+export PATH="/Users/miyamonz/.antigravity/antigravity/bin:$PATH"
 
-alias claude="/Users/miyamonz/.claude/local/claude"
