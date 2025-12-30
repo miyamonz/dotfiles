@@ -1,9 +1,7 @@
 tap "gcenx/wine"
 brew "caddy", restart_service: :changed, link: false
 brew "chrome-cli"
-cask "affinity-designer"
-cask "affinity-photo"
-cask "affinity-publisher"
+cask "affinity"
 cask "calibre"
 cask "comfyui"
 cask "discord"
