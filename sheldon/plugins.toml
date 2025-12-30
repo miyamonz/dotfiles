@@ -169,10 +169,6 @@ apply = ["defer"]
 [plugins.local-share-env]
 inline = 'source "$HOME/.local/share/../bin/env"'
 
-[plugins.anyenv]
-local = "~/dotfiles/plugins/anyenv"
-apply = ["defer"]
-
 [plugins.gh]
 local = "~/dotfiles/plugins/gh"
 apply = ["defer"]
