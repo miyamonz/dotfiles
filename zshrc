@@ -42,7 +42,7 @@ export SHELDON_CONFIG_DIR="$DOTFILES_DIR/sheldon"
     if [[ ! -r "$sheldon_cache" || "$sheldon_toml" -nt "$sheldon_cache" ]]; then
       echo "\033[1;36mCompiling\033[m $sheldon_cache"
       mkdir -p $cache_dir
-      /opt/homebrew/bin/sheldon source > $sheldon_cache
+      sheldon source > $sheldon_cache
     fi
     source "$sheldon_cache"
     unset cache_dir sheldon_cache sheldon_toml
