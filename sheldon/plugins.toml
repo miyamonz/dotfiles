@@ -181,10 +181,6 @@ apply = ["defer"]
 local = "~/dotfiles/plugins/turso"
 apply = ["defer"]
 
-[plugins.tig]
-local = "~/dotfiles/plugins/tig"
-apply = ["defer"]
-
 # personal
 [plugins.ocr]
 local = "~/dotfiles/plugins/ocr"
