@@ -89,6 +89,10 @@ apply = ["defer"]
 local = "~/dotfiles/plugins/git"
 apply = ["defer", "PATH-bin"]
 
+[plugins.jj]
+local = "~/dotfiles/plugins/jj"
+apply = ["defer", "PATH-bin"]
+
 [plugins.source-zshrc]
 inline = 'alias reload="source ~/.zshrc"'
 
