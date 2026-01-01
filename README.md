@@ -2,6 +2,8 @@
 
 uses sheldon to manage plugins.
 
+TODO:
+- nix profile
 
 # Brewfile
 
