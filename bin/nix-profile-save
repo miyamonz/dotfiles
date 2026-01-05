@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+# Save current nix profile packages to Nixfile
+
+set -euo pipefail
+
+DOTFILES_DIR="${0:A:h:h}"
+NIXFILE="${DOTFILES_DIR}/Nixfile"
+
+echo "Saving nix profile packages to ${NIXFILE}..."
+
+nix profile list --json | jq -r '
+  .elements
+  | to_entries[]
+  | if .value.originalUrl == "flake:nixpkgs" then
+      "nixpkgs#\(.key)"
+    else
+      "\(.value.originalUrl)#\(.value.attrPath)"
+    end
+' > "${NIXFILE}"
+
+echo "Saved $(wc -l < "${NIXFILE}" | tr -d " ") packages to ${NIXFILE}"

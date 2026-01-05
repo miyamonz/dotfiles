@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+# Restore nix profile packages from Nixfile
+
+set -euo pipefail
+
+DOTFILES_DIR="${0:A:h:h}"
+NIXFILE="${DOTFILES_DIR}/Nixfile"
+
+if [[ ! -f "${NIXFILE}" ]]; then
+  echo "Error: ${NIXFILE} not found" >&2
+  exit 1
+fi
+
+echo "Restoring nix profile packages from ${NIXFILE}..."
+
+xargs -r nix profile add < "${NIXFILE}"
+
+echo "Restore complete!"
