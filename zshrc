@@ -18,6 +18,7 @@ export SEARCHER="rg"
 bindkey -e
 
 export PATH="~/dotfiles/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
 
 function ensure_zcompiled() {
   local src="$1"
