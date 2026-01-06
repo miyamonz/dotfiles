@@ -17,7 +17,7 @@ export SEARCHER="rg"
 # emacs keybind
 bindkey -e
 
-export PATH="~/dotfiles/bin:$PATH"
+export PATH="$DOTFILES_DIR/bin:$PATH"
 export PATH="~/.local/bin:$PATH"
 
 function ensure_zcompiled() {
