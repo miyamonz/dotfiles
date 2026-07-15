@@ -18,7 +18,14 @@ export SEARCHER="rg"
 bindkey -e
 
 export PATH="$DOTFILES_DIR/bin:$PATH"
-export PATH="~/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Nix
+# 通常は /etc/zshrc が nix-daemon.sh を読むが、macOSアップデートで
+# /etc/zshrc が純正に戻されて消えることがあるため、ここでも読む（多重読込はガードされる）
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
 
 function ensure_zcompiled() {
   local src="$1"
@@ -53,3 +60,12 @@ export SHELDON_CONFIG_DIR="$DOTFILES_DIR/sheldon"
 # Added by Antigravity
 export PATH="/Users/miyamonz/.antigravity/antigravity/bin:$PATH"
 
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
+
+# moonbit
+export PATH="$HOME/.moon/bin:$PATH"
+
+# tunr (dev checkout)
+export PATH="/Users/miyamonz/ghq/github.com/moeki0/tunr:$PATH"
