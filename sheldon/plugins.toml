@@ -120,6 +120,7 @@ apply = ["defer"]
 
 [plugins.tmux]
 local = "~/dotfiles/plugins/tmux"
+use = ["tmux.plugin.sh"] # install.sh を起動時に読まないように
 apply = ["defer"]
 
 [plugins.direnv]
