@@ -27,6 +27,19 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
+# nix の PATH を常に /usr/bin より前に置く
+#
+# 背景: tmux や Claude Code の中などでシェルがもう一段起動すると、
+# 親の PATH を継承した状態で /etc/zprofile の path_helper が走り、
+# /usr/bin などのシステムパスが先頭に並べ直される。
+# 一方 nix-daemon.sh は「PATH に nix が既にある」と判断して何もしないので、
+# nix が /usr/bin より後ろに沈んだままになる（例: git が Apple Git に化ける）。
+# 対策: 毎回ここで nix を先頭に置き直し、typeset -U で重複を消す（先頭優先）。
+if [ -e "$HOME/.nix-profile/bin" ]; then
+  path=("$HOME/.nix-profile/bin" /nix/var/nix/profiles/default/bin $path)
+fi
+typeset -U path
+
 function ensure_zcompiled() {
   local src="$1"
   local zwc="${src}.zwc"
