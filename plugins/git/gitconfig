@@ -12,6 +12,7 @@
 	defaultBranch = main
 [core]
     editor = nvim
+    hooksPath = ~/dotfiles/plugins/git/hooks
     excludesfile = ~/.gitignore_global
     quotepath = false
     autocrlf = input

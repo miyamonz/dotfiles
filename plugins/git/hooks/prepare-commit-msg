@@ -1,0 +1,26 @@
+#!/bin/sh
+# AIエージェント経由のcommitにセッションのidをgit tralierとして入れる
+
+# core.hooksPath (global) はリポジトリの .git/hooks を無効化するので、
+# リポジトリ側に同名hookがあれば先に実行して委譲する
+repo_hook="$(git rev-parse --git-dir)/hooks/prepare-commit-msg"
+if [ -x "$repo_hook" ]; then
+    "$repo_hook" "$@" || exit $?
+fi
+
+# merge/squash 由来のメッセージには付けない
+case "$2" in
+merge | squash) exit 0 ;;
+esac
+
+if [ -n "$CLAUDE_CODE_SESSION_ID" ]; then
+    agent_session="claude-code:$CLAUDE_CODE_SESSION_ID"
+elif [ -n "$CODEX_THREAD_ID" ]; then
+    agent_session="codex:$CODEX_THREAD_ID"
+else
+    exit 0
+fi
+
+git interpret-trailers --in-place \
+    --if-exists doNothing \
+    --trailer "Agent-Session: $agent_session" "$1"
