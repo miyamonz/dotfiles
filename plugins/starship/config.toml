@@ -1,5 +1,9 @@
 add_newline = true
 
+format = """
+${env_var.ZMX_SESSION}\
+$all"""
+
 [character]
 success_symbol = "[%](bold green)"
 error_symbol = "[%](bold red)"
@@ -7,3 +11,9 @@ error_symbol = "[%](bold red)"
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
+
+[env_var.ZMX_SESSION]
+symbol = " "
+format = "[$symbol$env_value]($style) "
+description = "zmx session name"
+style = "bold magenta"
