@@ -1,2 +1,2 @@
 
-source <(jj util completion zsh)
+smartcache eval jj util completion zsh
