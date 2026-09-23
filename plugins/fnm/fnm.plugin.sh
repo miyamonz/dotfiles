@@ -1,3 +1,4 @@
 #!/bin/zsh
 
-smartcache eval fnm env --use-on-cd
+# 出力にシェルごとの multishell パスが入るのでキャッシュしてはいけない
+eval "$(fnm env --use-on-cd --shell zsh)"
