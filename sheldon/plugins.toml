@@ -144,6 +144,10 @@ inline = 'alias ssh="assh wrapper ssh --"'
 local = "~/dotfiles/plugins/fnm"
 apply = ["compile_source"]
 
+[plugins.node-global-bin]
+local = "~/dotfiles/plugins/node-global-bin"
+apply = ["compile_source"]
+
 [plugins.pnpm]
 local = "~/dotfiles/plugins/pnpm"
 apply = ["compile_source"]
@@ -207,6 +211,10 @@ apply = ["compile_source"]
 
 [plugins.onyx]
 inline = 'export ONYX_PATH="$HOME/.onyx" && export PATH="$ONYX_PATH/bin:$PATH"'
+
+[plugins.unity]
+local = "~/dotfiles/plugins/unity"
+apply = ["compile_source"]
 
 # WSL
 [plugins.WSL]
