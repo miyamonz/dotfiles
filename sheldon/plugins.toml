@@ -24,8 +24,9 @@ fpath-src = 'fpath=("{{ dir }}/src" $fpath)'
 github = "romkatv/zsh-defer"
 apply = ['compile_source']
 
-[plugins.zsh-smartcache]
-github = "QuarticCat/zsh-smartcache"
+# eval "$(tool init)" の出力をキャッシュする関数 cache-eval
+[plugins.cache-eval]
+local = "~/dotfiles/plugins/cache-eval"
 apply = ["compile_source"]
 
 

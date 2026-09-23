@@ -1,2 +1,2 @@
 
-smartcache eval jj util completion zsh
+cache-eval jj util completion zsh && source $REPLY
