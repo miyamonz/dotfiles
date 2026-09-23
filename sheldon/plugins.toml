@@ -220,6 +220,21 @@ apply = ["compile_source"]
 local = "~/dotfiles/plugins/starship"
 apply = ['compile_source']
 
+# zsh-autocomplete が最初の precmd で実行する compinit を常に -C にする。
+# -C は compaudit（セキュリティ検査）とファイル数による compdump の検査を省略する（約30ms）。
+# 補完ファイルの増減は fpath のディレクトリの更新時刻で検出し、compdump を捨てて作り直させる。
+# fpath が確定した後に判定するため、同期読み込みのプラグインの最後に置く。
+[plugins.compinit-check]
+inline = '''
+() {
+  local dump=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/compdump d
+  for d in $fpath; do
+    [[ $d -nt $dump ]] && { rm -f $dump; break }
+  done
+  zstyle ':autocomplete::compinit' arguments -C
+}
+'''
+
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
