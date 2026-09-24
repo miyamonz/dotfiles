@@ -234,15 +234,24 @@ apply = ['compile_source']
 # 補完ファイルの増減は fpath のディレクトリの更新時刻で検出し、compdump を捨てて作り直させる。
 # nix の store の中は更新時刻が 1970 年で変わらないので、代わりに profile の
 # リンクが並ぶディレクトリ（nix profile install などで新しい世代のリンクが増える）を見る。
+# 更新時刻が古いディレクトリを fpath に足したときは更新時刻では気づけないので、
+# 前回の fpath の並びを compdump.fpath に保存しておき、並びが変わったときも作り直させる。
 # fpath が確定した後に判定するため、同期読み込みのプラグインの最後に置く。
 [plugins.compinit-check]
 inline = '''
 () {
   local dump=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/compdump d
+  local stamp=$dump.fpath prev=
   local -a nix_profile_dirs=(${XDG_STATE_HOME:-$HOME/.local/state}/nix/profiles /nix/var/nix/profiles)
-  for d in $fpath $nix_profile_dirs; do
-    [[ $d -nt $dump ]] && { rm -f $dump; break }
-  done
+  [[ -r $stamp ]] && prev=$(<$stamp)
+  if [[ $prev != ${(j.:.)fpath} ]]; then
+    rm -f $dump
+    mkdir -p ${dump:h} && print -r -- ${(j.:.)fpath} >| $stamp
+  else
+    for d in $fpath $nix_profile_dirs; do
+      [[ $d -nt $dump ]] && { rm -f $dump; break }
+    done
+  fi
   zstyle ':autocomplete::compinit' arguments -C
 }
 '''
