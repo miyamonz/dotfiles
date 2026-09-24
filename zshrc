@@ -40,6 +40,14 @@ if [ -e "$HOME/.nix-profile/bin" ]; then
 fi
 typeset -U path
 
+# nix で入れたコマンドの補完 (share/zsh/site-functions) を fpath に足す。
+# nix-daemon.sh は fpath を触らない（NixOS や nix-darwin では zsh のモジュールが足している）。
+# NIX_PROFILES は default、ユーザーの順なので、後に足すユーザー側が前に来る。
+for p in ${(z)NIX_PROFILES}; do
+  [[ -d $p/share/zsh/site-functions ]] && fpath=($p/share/zsh/site-functions $fpath)
+done
+unset p
+
 function ensure_zcompiled() {
   local src="$1"
   local zwc="${src}.zwc"
