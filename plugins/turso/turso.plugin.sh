@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-source "$HOME/.turso/env"
+[[ -r "$HOME/.turso/env" ]] && source "$HOME/.turso/env"

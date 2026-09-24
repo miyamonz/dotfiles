@@ -75,7 +75,7 @@ export PATH="/Users/miyamonz/.antigravity/antigravity/bin:$PATH"
 
 
 # Vite+ bin (https://viteplus.dev)
-. "$HOME/.vite-plus/env"
+[[ -r "$HOME/.vite-plus/env" ]] && . "$HOME/.vite-plus/env"
 
 # moonbit
 export PATH="$HOME/.moon/bin:$PATH"
