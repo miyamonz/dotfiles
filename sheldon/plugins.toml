@@ -135,8 +135,8 @@ inline = 'alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 local = "~/dotfiles/plugins/ghq"
 apply = ["compile_source"]
 
-[plugins.assh]
-inline = 'alias ssh="assh wrapper ssh --"'
+#[plugins.assh]
+#inline = 'alias ssh="assh wrapper ssh --"'
 
 # langs
 
