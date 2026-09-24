@@ -197,7 +197,7 @@ local = "~/dotfiles/plugins/ocr"
 apply = ["PATH-bin"]
 
 [plugins.is-mac]
-inline = 'alias IS_MAC="[[ $(uname) == "Darwin" ]]" '
+inline = "alias IS_MAC='[[ $OSTYPE == darwin* ]]'"
 [plugins.is-wsl]
 inline = 'alias IS_WSL="[[ -f /proc/version ]] && grep -q microsoft /proc/version"'
 
