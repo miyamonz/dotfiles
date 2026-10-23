@@ -27,6 +27,20 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
+# eMudhra中間証明書の秘密鍵が復元可能だった問題（2026/10）のつなぎ
+# Nix の nss-cacert には問題のルート証明書が残っているので、Homebrew の更新済みバンドルを読ませる。
+# nix-daemon.sh が NIX_SSL_CERT_FILE を設定するので、その後に書く
+# SSL_CERT_FILE は設定しない。Codex CLI などの Rust 製ツールは、これがあると macOS の検証器を使わなくなり、
+# Apple のブロックが効かずに問題の証明書を受け入れてしまう
+# nixpkgs の各パッケージの修正版が出揃ったら消す
+# https://scrapbox.io/Nota/eMudhra中間証明書の秘密鍵が復元可能だった問題（2026%2F10）_開発ツール使う人が対応すべきこと
+if [ -e /opt/homebrew/etc/ca-certificates/cert.pem ]; then
+  export NIX_SSL_CERT_FILE=/opt/homebrew/etc/ca-certificates/cert.pem
+  # awscli2 と google-cloud-sdk は NIX_SSL_CERT_FILE を読まず、同梱のバンドルを使うので個別に指定する
+  export AWS_CA_BUNDLE=$NIX_SSL_CERT_FILE
+  export CLOUDSDK_CORE_CUSTOM_CA_CERTS_FILE=$NIX_SSL_CERT_FILE
+fi
+
 # nix の PATH を常に /usr/bin より前に置く
 #
 # 背景: tmux や Claude Code の中などでシェルがもう一段起動すると、

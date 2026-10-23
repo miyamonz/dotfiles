@@ -1,6 +1,7 @@
 tap "gcenx/wine"
 brew "caddy", restart_service: :changed, link: false
 brew "chrome-cli"
+brew "uv"
 cask "affinity"
 cask "calibre"
 cask "comfyui"

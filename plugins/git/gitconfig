@@ -76,6 +76,9 @@
 	pushInsteadOf = https://github.com/
 [fetch]
 	prune = true
+# eMudhra中間証明書の問題（2026/10）のつなぎ。Apple の git と Nix の git の両方に効く。zshrc の NIX_SSL_CERT_FILE と同時に外す
+[http]
+	sslCAInfo = /opt/homebrew/etc/ca-certificates/cert.pem
 
 [ghq]
 root = ~/ghq

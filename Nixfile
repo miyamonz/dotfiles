@@ -61,7 +61,6 @@ nixpkgs#tmux
 nixpkgs#tre-command
 nixpkgs#tree
 nixpkgs#turso-cli
-nixpkgs#uv
 nixpkgs#wget
 github:pranshuparmar/witr#packages.aarch64-darwin.default
 nixpkgs#yt-dlp
