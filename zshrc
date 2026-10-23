@@ -30,8 +30,8 @@ fi
 # eMudhra中間証明書の秘密鍵が復元可能だった問題（2026/10）のつなぎ
 # Nix の nss-cacert には問題のルート証明書が残っているので、Homebrew の更新済みバンドルを読ませる。
 # nix-daemon.sh が NIX_SSL_CERT_FILE を設定するので、その後に書く
-# SSL_CERT_FILE は設定しない。Codex CLI などの Rust 製ツールは、これがあると macOS の検証器を使わなくなり、
-# Apple のブロックが効かずに問題の証明書を受け入れてしまう
+# SSL_CERT_FILE は設定しない。Rust 製ツールには、これがあると rustls-platform-verifier による macOS の検証をやめ、
+# rustls-webpki で自前に検証するものがある。rustls-webpki 0.103.16 未満は、Apple のブロックが効かず問題の証明書を受け入れる
 # nixpkgs の各パッケージの修正版が出揃ったら消す
 # https://scrapbox.io/Nota/eMudhra中間証明書の秘密鍵が復元可能だった問題（2026%2F10）_開発ツール使う人が対応すべきこと
 if [ -e /opt/homebrew/etc/ca-certificates/cert.pem ]; then
